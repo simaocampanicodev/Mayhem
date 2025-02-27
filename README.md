@@ -15,4 +15,5 @@ A simple 2D platformer base game created with [Okapi Kit](https://github.com/Vid
 
 
 
-## Sound Effect - Mixkit License
+## Licenses
+### Sound Effect - Mixkit License
