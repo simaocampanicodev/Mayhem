@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator Regen()
+    //Método para regenerar Sleep, a cada 1 segundo adiciona 1 ao Sleep
     {
         float time = 0.1f;
         while (true)
