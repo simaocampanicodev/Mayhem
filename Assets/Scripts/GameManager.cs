@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
 
     private float _maxSleep = 100;
+    //O máximo de sleep é 100
     private float _sleep = 0;
+    //O sleep inicial é 0
 
 
     void Start()
@@ -46,11 +48,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void RemoveSleep(float value)
+    //Quando remove o Sleep (está no PlayerManager), transforma em um valor
+    //negativo para poder tirar da barra
     {
         ChangeSleep(-value);
     }
 
     private void Overslepted()
+    //Se acontecer Overslepted, vai mudar para a screne Level 2
     {
         SceneManager.LoadScene("Level 2");
     }
