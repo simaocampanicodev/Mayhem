@@ -5,11 +5,14 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private GameManager _gameManager;
     //Quando entro na colisão, vai acontecer...
+
+    public AudioSource AudioPlayer;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Collectable"))
         //Verificar se tem a tag Collectable
         {
+            AudioPlayer.Play();
             if (other.gameObject.name.StartsWith("Coffee"))
             //Verifica se o item chama-se Coffee
             {
