@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void ChangeSleep(float value)
+    //Método para adicionar ou remover Sleep, se Sleep = maxSleep então o processo Overslepted começa
     {
         _sleep += value;
         if (_sleep > _maxSleep) _sleep = _maxSleep;
