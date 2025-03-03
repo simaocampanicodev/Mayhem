@@ -580,6 +580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743703788}
+  - component: {fileID: 743703803}
   - component: {fileID: 743703787}
   - component: {fileID: 743703802}
   - component: {fileID: 743703786}
@@ -712,7 +713,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4334783836991956000, guid: 1e757df3f06fd944e949e7ec47fa29f1, type: 3}
+  m_Sprite: {fileID: 7978367015410646217, guid: 38922a5b7c946a64bbdad71ac1cb102e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -750,7 +751,7 @@ Animator:
   m_GameObject: {fileID: 743703784}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6577285de641ad4c966ec9169599e3c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8ac1a19d89754774893caa6864eba818, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -819,20 +820,6 @@ MonoBehaviour:
 
     Some values will be set on animator Player:
 
-    Horizontal velocity
-    will be set to parameter VelocityX.
-
-    Absolute horizontal velocity will be
-    set to parameter AbsVelocityX.
-
-    Vertical velocity will be set to parameter
-    VelocityY.
-
-    Absolute vertical velocity will be set to parameter AbsVelocityY.
-
-    Grounded
-    state will be set to parameter IsGrounded.
-
 '
   description: Platformer controller
   hasConditions: 0
@@ -873,11 +860,11 @@ MonoBehaviour:
   flipBehaviour: 4
   useAnimator: 1
   animator: {fileID: 743703789}
-  horizontalVelocityParameter: VelocityX
-  absoluteHorizontalVelocityParameter: AbsVelocityX
-  verticalVelocityParameter: VelocityY
-  absoluteVerticalVelocityParameter: AbsVelocityY
-  isGroundedParameter: IsGrounded
+  horizontalVelocityParameter: 
+  absoluteHorizontalVelocityParameter: 
+  verticalVelocityParameter: 
+  absoluteVerticalVelocityParameter: 
+  isGroundedParameter: 
   isGlidingParameter: 
 --- !u!61 &743703791
 BoxCollider2D:
@@ -917,7 +904,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 64, y: 60}
+    oldSize: {x: 47, y: 63}
     newSize: {x: 16, y: 15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -982,7 +969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743703784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3203f38d4afc6a4283618fa1df06ecc, type: 3}
   m_Name: 
@@ -1374,6 +1361,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2130509606}
   AudioPlayer: {fileID: 830825010}
+--- !u!114 &743703803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743703784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea5b007878cee8449b9e1da65f389c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &784092445
 GameObject:
   m_ObjectHideFlags: 0

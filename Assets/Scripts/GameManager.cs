@@ -59,6 +59,6 @@ public class GameManager : MonoBehaviour
     private void Overslepted()
     //Se acontecer Overslepted, vai mudar para a screne Level 2
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("Fight Club");
     }
 }
