@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Collectable
+  - NPC
+  - CoffeeMachine
+  - Toaster
+  - Chair
   layers:
   - Default
   - TransparentFX
@@ -41,6 +45,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3241942055
+    locked: 0
+  - name: Balcony
+    uniqueID: 2045852611
+    locked: 0
+  - name: Chair
+    uniqueID: 775123781
+    locked: 0
+  - name: NPC
+    uniqueID: 1981963553
     locked: 0
   m_RenderingLayers:
   - Default

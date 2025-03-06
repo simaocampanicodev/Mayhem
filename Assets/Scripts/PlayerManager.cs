@@ -4,20 +4,33 @@ public class PlayerManager : MonoBehaviour
 {
 
     [SerializeField] private GameManager _gameManager;
-    //Quando entro na colisão, vai acontecer...
-    public class NewMonoBehaviourScript : MonoBehaviour
-    {
-        private Animator animator;
+    private CoffeeMachine coffeeMachine;
+    private Toaster toaster;
+    private bool hasCoffee = false;
+    private bool hasToast = false;
+    private int money = 0;
 
-        void Start()
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        coffeeMachine = FindObjectOfType<CoffeeMachine>();
+        toaster = FindObjectOfType<Toaster>();
+    }
+    void Update()
+    {
+        float value = Input.GetAxis("Horizontal");
+        if (value < 0) value *= -1;
+        animator.SetFloat("speed", value);
+        if (Input.GetKeyDown(KeyCode.Return) && IsNearNPC())
+
         {
-            animator = GetComponent<Animator>();
-        }
-        void Update()
-        {
-            float value = Input.GetAxis("Horizontal");
-            if (value < 0) value *= -1;
-            animator.SetFloat("speed", value);
+            NPCOrder npcOrder = FindObjectOfType<NPCOrder>();
+            if (npcOrder != null)
+            {
+                CheckOrder(npcOrder);
+            }
         }
     }
 
@@ -25,28 +38,60 @@ public class PlayerManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Collectable"))
-        //Verificar se tem a tag Collectable
         {
             AudioPlayer.Play();
             if (other.gameObject.name.StartsWith("Coffee"))
-            //Verifica se o item chama-se Coffee
             {
                 if (_gameManager == null) _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-                //Se o GameManager existir no objeto, vai remover 20 na barra de sleep e destruí-lo
                 _gameManager.RemoveSleep(20);
                 Destroy(other.gameObject);
                 return;
             }
             if (other.gameObject.name.StartsWith("EnergyDrink"))
-            //Verifica se o item chama-se EnergyDrink
             {
                 if (_gameManager == null) _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-                //Se o GameManager existir no objeto, vai remover 30 na barra de sleep e destruí-lo
                 _gameManager.RemoveSleep(30);
                 Destroy(other.gameObject);
                 return;
             }
         }
     }
+    public bool IsNearNPC()
+    {
+        return Vector2.Distance(transform.position, FindObjectOfType<NPCManager>().transform.position) < 2f;
+    }
 
+    public void CheckOrder(NPCOrder npcOrder)
+    {
+        bool correctOrder = false;
+
+        if (npcOrder.currentOrder == NPCOrder.OrderType.Coffee && hasCoffee)
+        {
+            correctOrder = true;
+        }
+        else if (npcOrder.currentOrder == NPCOrder.OrderType.Toast && hasToast)
+        {
+            correctOrder = true;
+        }
+        else if (npcOrder.currentOrder == NPCOrder.OrderType.Both && hasCoffee && hasToast)
+        {
+            correctOrder = true;
+        }
+
+        if (correctOrder)
+        {
+            AudioManager.instance.PlayDeliverSound();
+            money += 10;
+            Debug.Log("Pedido correto! Dinheiro: " + money);
+        }
+        else
+        {
+            money -= 5;
+            Debug.Log("Pedido errado! Multa no salário. Dinheiro: " + money);
+        }
+
+        hasCoffee = false;
+        hasToast = false;
+        FindObjectOfType<NPCManager>().RemoveCustomer();
+    }
 }

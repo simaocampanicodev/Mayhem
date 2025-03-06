@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
+    "com.dbrizov.naughtyattributes": "file:C:/Users/saadt/Downloads/NaughtyAttributes-2.1.4",
     "com.unity.collab-proxy": "2.6.0",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.31",

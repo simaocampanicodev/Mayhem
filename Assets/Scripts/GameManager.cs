@@ -6,19 +6,14 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Canvas canvas;
-
     private float _maxSleep = 100;
-    //O máximo de sleep é 100
     private float _sleep = 0;
-    //O sleep inicial é 0
-
 
     void Start()
     {
         UpdateSleepBar();
 
         StartCoroutine(Regen());
-        //InvokeRepeating(nameof(UpdateSleepBar));
     }
 
     private void UpdateSleepBar()
@@ -29,7 +24,6 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator Regen()
-    //Método para regenerar Sleep, a cada 1 segundo adiciona 1 ao Sleep
     {
         float time = 0.1f;
         while (true)
@@ -40,7 +34,6 @@ public class GameManager : MonoBehaviour
     }
 
     private void ChangeSleep(float value)
-    //Método para adicionar ou remover Sleep, se Sleep = maxSleep então o processo Overslepted começa
     {
         _sleep += value;
         if (_sleep > _maxSleep) _sleep = _maxSleep;
@@ -50,14 +43,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void RemoveSleep(float value)
-    //Quando remove o Sleep (está no PlayerManager), transforma em um valor
-    //negativo para poder tirar da barra
     {
         ChangeSleep(-value);
     }
 
     private void Overslepted()
-    //Se acontecer Overslepted, vai mudar para a screne Level 2
     {
         SceneManager.LoadScene("Fight Club");
     }
