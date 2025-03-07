@@ -3,17 +3,31 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
+    [SerializeField] private NPCOrderUI npcOrderUI;
+    [SerializeField] private MoneyUI moneyUI;
     private bool hasCoffee = false;
     private bool hasToast = false;
     private int money = 0;
+    private bool insideNPC = false;
+
+    private bool insideToaster = false;
+
+    private bool insideCoffeeMachine = false;
 
     private bool correctOrder = false;
     private Animator animator;
     public AudioSource AudioPlayer;
+    private NPCOrder npcOrder;
+    private NPCManager npcManager;
+
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (moneyUI != null)
+        {
+            moneyUI.UpdateMoney(money);
+        }
     }
 
     void Update()
@@ -22,23 +36,81 @@ public class PlayerManager : MonoBehaviour
         if (value < 0) value *= -1;
         animator.SetFloat("speed", value);
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (insideNPC == true && npcOrder != null)
         {
-            // Verifica se está colidindo com um NPC para entregar pedido
-            Collider2D npcCollider = Physics2D.OverlapCircle(transform.position, 0.5f, LayerMask.GetMask("NPC"));
-            if (npcCollider != null)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                NPCOrder npcOrder = npcCollider.GetComponent<NPCOrder>();
+                Debug.Log("Pedido do NPC: " + npcOrder.currentOrder);
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
                 if (npcOrder != null)
                 {
                     CheckOrder(npcOrder);
                 }
             }
         }
+        if (insideToaster == true && Input.GetKeyDown(KeyCode.Return))
+        {
+            if (!hasToast)
+            {
+                hasToast = true;
+                AudioManager.instance.PlayToastSound();
+                Debug.Log("You got a toast!");
+            }
+        }
+        if (insideCoffeeMachine == true && Input.GetKeyDown(KeyCode.Return))
+        {
+            if (!hasCoffee)
+            {
+                hasCoffee = true;
+                AudioManager.instance.PlayToastSound();
+                Debug.Log("You got a coffee!");
+            }
+        }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Toaster"))
+        {
+            insideToaster = false;
+        }
+        if (other.CompareTag("Coffee Machine"))
+        {
+            insideCoffeeMachine = false;
+        }
+        if (other.CompareTag("NPC"))
+        {
+            insideNPC = false;
+            npcOrder = null;
 
+            if (npcOrderUI != null)
+            {
+                npcOrderUI.HideOrder();
+            }
+        }
+
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Toaster"))
+        {
+            insideToaster = true;
+        }
+        if (other.CompareTag("CoffeeMachine"))
+        {
+            insideCoffeeMachine = true;
+        }
+        if (other.CompareTag("NPC"))
+        {
+            insideNPC = true;
+            npcOrder = other.GetComponent<NPCOrder>();
+
+            if (npcOrder != null && npcOrderUI != null)
+            {
+                npcOrderUI.UpdateOrder(npcOrder.currentOrder);
+            }
+        }
         if (other.CompareTag("Collectable"))
         {
             AudioPlayer.Play();
@@ -58,36 +130,12 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (other.CompareTag("Toaster"))
-            {
-                hasToast = true;
-                Debug.Log("Got a toast!");
-            }
-            else if (other.CompareTag("CoffeeMachine"))
-            {
-                hasCoffee = true;
-                Debug.Log("Got a coffee!");
-            }
-            else if (other.CompareTag("NPC"))
-            {
-                NPCOrder npcOrder = other.GetComponent<NPCOrder>();
-                if (npcOrder != null)
-                {
-                    CheckOrder(npcOrder);
-                }
-            }
-        }
-    }
-
     public void CheckOrder(NPCOrder npcOrder)
     {
 
         Debug.Log("Pedido do NPC: " + npcOrder.currentOrder);
+
+        correctOrder = false;
 
         if (npcOrder.currentOrder == NPCOrder.OrderType.Coffee && hasCoffee)
         {
@@ -105,17 +153,23 @@ public class PlayerManager : MonoBehaviour
         if (correctOrder)
         {
             AudioManager.instance.PlayDeliverSound();
-            money += 10;
+            money += 15;
             Debug.Log("Pedido correto! Dinheiro: " + money);
+            _gameManager.RemoveSleep(15);
         }
         else
         {
+            AudioManager.instance.PlayWrongDeliverSound();
             money -= 5;
             Debug.Log("Pedido errado! Multa no salário. Dinheiro: " + money);
+            _gameManager.RemoveSleep(-10);
         }
-
         hasCoffee = false;
         hasToast = false;
-        FindObjectOfType<NPCManager>().RemoveCustomer();
+        npcManager.RemoveCustomer();
+        if (moneyUI != null)
+        {
+            moneyUI.UpdateMoney(money);
+        }
     }
 }

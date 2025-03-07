@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Canvas canvas;
-    private float _maxSleep = 100;
+    private float _maxSleep = 150;
     private float _sleep = 0;
 
     void Start()
