@@ -66,12 +66,12 @@ public class PlayerManager : MonoBehaviour
             if (other.CompareTag("Toaster"))
             {
                 hasToast = true;
-                Debug.Log("Pegou uma tosta!");
+                Debug.Log("Got a toast!");
             }
             else if (other.CompareTag("CoffeeMachine"))
             {
                 hasCoffee = true;
-                Debug.Log("Pegou um café!");
+                Debug.Log("Got a coffee!");
             }
             else if (other.CompareTag("NPC"))
             {
