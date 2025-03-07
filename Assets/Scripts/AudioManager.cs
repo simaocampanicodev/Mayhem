@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayCollectSound()
+    public void PlayToastSound()
     {
         collectSound.Play();
     }

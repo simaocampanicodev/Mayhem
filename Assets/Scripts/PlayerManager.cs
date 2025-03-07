@@ -2,39 +2,41 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-
     [SerializeField] private GameManager _gameManager;
-    private CoffeeMachine coffeeMachine;
-    private Toaster toaster;
     private bool hasCoffee = false;
     private bool hasToast = false;
     private int money = 0;
 
+    private bool correctOrder = false;
     private Animator animator;
+    public AudioSource AudioPlayer;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        coffeeMachine = FindObjectOfType<CoffeeMachine>();
-        toaster = FindObjectOfType<Toaster>();
     }
+
     void Update()
     {
         float value = Input.GetAxis("Horizontal");
         if (value < 0) value *= -1;
         animator.SetFloat("speed", value);
-        if (Input.GetKeyDown(KeyCode.Return) && IsNearNPC())
 
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            NPCOrder npcOrder = FindObjectOfType<NPCOrder>();
-            if (npcOrder != null)
+            // Verifica se está colidindo com um NPC para entregar pedido
+            Collider2D npcCollider = Physics2D.OverlapCircle(transform.position, 0.5f, LayerMask.GetMask("NPC"));
+            if (npcCollider != null)
             {
-                CheckOrder(npcOrder);
+                NPCOrder npcOrder = npcCollider.GetComponent<NPCOrder>();
+                if (npcOrder != null)
+                {
+                    CheckOrder(npcOrder);
+                }
             }
         }
     }
 
-    public AudioSource AudioPlayer;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Collectable"))
@@ -56,14 +58,36 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-    public bool IsNearNPC()
+
+    private void OnTriggerStay2D(Collider2D other)
     {
-        return Vector2.Distance(transform.position, FindObjectOfType<NPCManager>().transform.position) < 2f;
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (other.CompareTag("Toaster"))
+            {
+                hasToast = true;
+                Debug.Log("Pegou uma tosta!");
+            }
+            else if (other.CompareTag("CoffeeMachine"))
+            {
+                hasCoffee = true;
+                Debug.Log("Pegou um café!");
+            }
+            else if (other.CompareTag("NPC"))
+            {
+                NPCOrder npcOrder = other.GetComponent<NPCOrder>();
+                if (npcOrder != null)
+                {
+                    CheckOrder(npcOrder);
+                }
+            }
+        }
     }
 
     public void CheckOrder(NPCOrder npcOrder)
     {
-        bool correctOrder = false;
+
+        Debug.Log("Pedido do NPC: " + npcOrder.currentOrder);
 
         if (npcOrder.currentOrder == NPCOrder.OrderType.Coffee && hasCoffee)
         {
