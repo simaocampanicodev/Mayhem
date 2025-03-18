@@ -36,8 +36,8 @@ public class NPCOrder : MonoBehaviour
     public void OrderFailed()
     {
         Debug.Log("Pedido falhou! Perdeu dinheiro.");
-        FindObjectOfType<GameManager>().RemoveSleep(-10);
-        FindObjectOfType<NPCManager>().RemoveCustomer();
+        FindFirstObjectByType<GameManager>().RemoveSleep(-10);
+        FindFirstObjectByType<NPCManager>().RemoveCustomer();
     }
 
     public float GetRemainingTime()
