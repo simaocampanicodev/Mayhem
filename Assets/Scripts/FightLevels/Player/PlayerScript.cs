@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private Animator anim;
     private bool CanMove;
     private bool Punching;
+    private bool Defending;
     void Awake()
     {
         //lê os inputs
@@ -23,7 +24,10 @@ public class PlayerScript : MonoBehaviour
         inputActions.Player.Enable();
         inputActions.Player.Move.Enable();
         inputActions.Player.Attack.Enable();
+        inputActions.Player.Defend.Enable();
         inputActions.Player.Attack.performed += Onattack;
+        inputActions.Player.Defend.started += Ondefend;
+        inputActions.Player.Defend.canceled += Ondefend;
     }
     private void OnDisable()
     {
@@ -31,7 +35,10 @@ public class PlayerScript : MonoBehaviour
         inputActions.Player.Disable();
         inputActions.Player.Move.Disable();
         inputActions.Player.Attack.Disable();
+        inputActions.Player.Defend.Disable();
         inputActions.Player.Attack.performed -= Onattack;
+        inputActions.Player.Defend.started -= Ondefend;
+        inputActions.Player.Defend.canceled -= Ondefend;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,9 +67,26 @@ public class PlayerScript : MonoBehaviour
     }
     private void Onattack(InputAction.CallbackContext context)
     {
-        if (!Punching)
+        if (!Punching && !Defending)
         {
             StartCoroutine(PunchTimer());
+        }
+    }
+
+    private void Ondefend(InputAction.CallbackContext context)
+    {
+        if (!Punching)
+        {
+            if (context.started)
+        {
+            Defending = true;
+            CanMove = false;
+        }
+        if (context.canceled)
+        {
+            Defending = false;
+            CanMove = true;
+        }
         }
     }
 
