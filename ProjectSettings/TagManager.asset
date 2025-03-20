@@ -9,6 +9,7 @@ TagManager:
   - CoffeeMachine
   - Toaster
   - Chair
+  - Ground
   layers:
   - Default
   - TransparentFX
