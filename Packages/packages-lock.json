@@ -305,7 +305,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "a5ccad084fbdaaf93ec911140de8cab4dfc3b633"
+      "hash": "bfdf9f9475725827c71df955607ce38059e5a7c4"
     },
     "com.videojogoslusofona.okapikit.samples": {
       "version": "https://github.com/VideojogosLusofona/OkapiKit.git#samples",
