@@ -1,7 +1,11 @@
+using Unity.Multiplayer.Center.Common.Analytics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    private InputSystem_Actions inputActions;
+    private Vector2 move_input;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private NPCOrderUI npcOrderUI;
     [SerializeField] private MoneyUI moneyUI;
@@ -20,7 +24,29 @@ public class PlayerManager : MonoBehaviour
     private NPCOrder npcOrder;
     private NPCManager npcManager;
 
+    void Awake()
+    {
+        //lê os inputs
+        inputActions = new InputSystem_Actions();
+    }
 
+    private void OnEnable()
+    {
+        //verifica se o jogador clicou nas setas/joystick ou espaço/cruz
+        inputActions.Player.Enable();
+        inputActions.Player.Move.Enable();
+        inputActions.Player.Interact.Enable();
+        inputActions.Player.Enter.Enable();
+    }
+
+    private void OnDisable()
+    {
+        //idem 
+        inputActions.Player.Disable();
+        inputActions.Player.Move.Disable();
+        inputActions.Player.Interact.Disable();
+        inputActions.Player.Enter.Disable();
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -32,17 +58,18 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        float value = Input.GetAxis("Horizontal");
+        move_input = inputActions.Player.Move.ReadValue<Vector2>();
+        float value = move_input.x;
         if (value < 0) value *= -1;
         animator.SetFloat("speed", value);
 
         if (insideNPC == true && npcOrder != null)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (inputActions.Player.Interact.WasPressedThisFrame())
             {
                 Debug.Log("Pedido do NPC: " + npcOrder.currentOrder);
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (inputActions.Player.Enter.WasPressedThisFrame())
             {
                 if (npcOrder != null)
                 {
@@ -50,7 +77,7 @@ public class PlayerManager : MonoBehaviour
                 }
             }
         }
-        if (insideToaster == true && Input.GetKeyDown(KeyCode.Return))
+        if (insideToaster == true && inputActions.Player.Enter.WasPressedThisFrame())
         {
             if (!hasToast)
             {
@@ -59,7 +86,7 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("You got a toast!");
             }
         }
-        if (insideCoffeeMachine == true && Input.GetKeyDown(KeyCode.Return))
+        if (insideCoffeeMachine == true && inputActions.Player.Enter.WasPressedThisFrame())
         {
             if (!hasCoffee)
             {
@@ -75,7 +102,7 @@ public class PlayerManager : MonoBehaviour
         {
             insideToaster = false;
         }
-        if (other.CompareTag("Coffee Machine"))
+        if (other.CompareTag("CoffeeMachine"))
         {
             insideCoffeeMachine = false;
         }
