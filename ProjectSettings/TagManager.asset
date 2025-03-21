@@ -10,6 +10,8 @@ TagManager:
   - Toaster
   - Chair
   - Ground
+  - Punch
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Exit
   - ExitCheck
   - Enemy
-  - 
+  - Player
   - 
   - 
   - 

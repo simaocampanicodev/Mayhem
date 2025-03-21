@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private bool CanMove;
     private bool Punching;
     private bool Defending;
+    public GameObject punch;
     void Awake()
     {
         //lê os inputs
@@ -91,6 +92,7 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator PunchTimer()
     {
+        punch.SetActive(true);
         Punching = true;
         anim.SetBool("Punching", true);
         CanMove = false;
@@ -98,5 +100,6 @@ public class PlayerScript : MonoBehaviour
         CanMove = true;
         anim.SetBool("Punching", false);
         Punching = false;
+        punch.SetActive(false);
     }
 }
