@@ -4,21 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/CoffeeShop.unity
-    guid: 0f23f11b6835c456aa9f59691e5c77aa
-  - enabled: 1
-    path: Assets/Scenes/Fight Club.unity
-    guid: 95f9483398d0148489c93e11e2dea2c7
-<<<<<<< HEAD
+  m_Scenes: []
   m_configObjects: {}
-=======
-  - enabled: 0
-    path: Assets/Scenes/Level 1.unity
-    guid: 617b7971c4998fc48a1eed65fb60085d
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 8700e4edbde595645a1dbbba928b7963, type: 2}
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 59693295dca03e34593ca8e3c5c6ee85, type: 3}
->>>>>>> 9d577b2571470769305660e86f12b0c928351c0f
   m_UseUCBPForAssetBundles: 0
