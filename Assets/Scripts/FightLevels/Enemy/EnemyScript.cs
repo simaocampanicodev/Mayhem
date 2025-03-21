@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using JetBrains.Annotations;
+using TMPro;
+using System;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -9,6 +12,7 @@ public class EnemyScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isDead = false;
+    public GameObject popUpPrefab;
 
     void Start()
     {
@@ -47,11 +51,6 @@ public class EnemyScript : MonoBehaviour
         // Tente mostrar o texto de dano, mas com proteção contra erro
         try
         {
-            // Mostra o texto de dano somente se a classe DamageDisplay existir
-            if (System.Type.GetType("DamageDisplay") != null)
-            {
-                DamageDisplay.Create(transform.position + Vector3.up, damage);
-            }
         }
         catch (System.Exception e)
         {
@@ -97,6 +96,8 @@ public class EnemyScript : MonoBehaviour
                 PlayerScript playerScript = player.GetComponent<PlayerScript>();
                 if (playerScript != null)
                 {
+                    GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
+                    popUp.GetComponentInChildren<TMP_Text>().text = playerScript.punchDamage.ToString();
                     TakeDamage(playerScript.punchDamage);
                 }
                 else
@@ -111,5 +112,15 @@ public class EnemyScript : MonoBehaviour
                 TakeDamage(20);
             }
         }
+    }
+
+    private Vector3 Vector3(int v1, int v2, int v3)
+    {
+        throw new NotImplementedException();
+    }
+
+    private Vector3 Vector2(int v1, int v2, int v3)
+    {
+        throw new NotImplementedException();
     }
 }

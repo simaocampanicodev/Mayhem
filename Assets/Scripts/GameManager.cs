@@ -49,6 +49,6 @@ public class GameManager : MonoBehaviour
 
     private void Overslepted()
     {
-        SceneManager.LoadScene("Fight Club");
+        SceneManager.LoadScene("FightClub");
     }
 }
