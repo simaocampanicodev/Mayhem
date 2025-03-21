@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 
 public class PlayerScript : MonoBehaviour
 {
