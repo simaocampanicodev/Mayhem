@@ -5,122 +5,58 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour
 {
     private InputSystem_Actions inputActions;
-
-    [Header("Movimento")]
     public float speed = 15f;
-
-    [Header("Combate")]
-    public int punchDamage = 20;
-
     private Rigidbody2D rb;
     private SpriteRenderer spr;
     private Animator anim;
-    private bool CanMove = true;
+    private bool CanMove;
     private bool Punching;
-
+    private bool Defending;
     public GameObject punch;
-
+    public int punchDamage = 20;
     void Awake()
     {
         //lê os inputs
         inputActions = new InputSystem_Actions();
     }
-
     private void OnEnable()
     {
         //verifica se o jogador clicou nas setas/joystick ou espaço/cruz
         inputActions.Player.Enable();
         inputActions.Player.Move.Enable();
         inputActions.Player.Attack.Enable();
+        inputActions.Player.Defend.Enable();
         inputActions.Player.Attack.performed += Onattack;
+        inputActions.Player.Defend.started += Ondefend;
+        inputActions.Player.Defend.canceled += Ondefend;
     }
-
     private void OnDisable()
     {
         //idem 
         inputActions.Player.Disable();
         inputActions.Player.Move.Disable();
         inputActions.Player.Attack.Disable();
+        inputActions.Player.Defend.Disable();
         inputActions.Player.Attack.performed -= Onattack;
+        inputActions.Player.Defend.started -= Ondefend;
+        inputActions.Player.Defend.canceled -= Ondefend;
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Verificar e obter componentes necessários
         rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            rb = gameObject.AddComponent<Rigidbody2D>();
-            Debug.Log("Rigidbody2D adicionado ao player");
-        }
-
-        // Configurações do Rigidbody - com gravidade normal para cair
-        rb.freezeRotation = true;
-
-        // Verificar se tem collider
-        Collider2D collider = GetComponent<Collider2D>();
-        if (collider == null)
-        {
-            gameObject.AddComponent<BoxCollider2D>();
-            Debug.Log("BoxCollider2D adicionado ao player");
-        }
-
         anim = GetComponent<Animator>();
-        if (anim == null)
-        {
-            Debug.LogWarning("Animator não encontrado no player");
-        }
-
         spr = GetComponent<SpriteRenderer>();
-        if (spr == null)
-        {
-            Debug.LogWarning("SpriteRenderer não encontrado no player");
-        }
-
-        // Configura a tag para permitir que o inimigo encontre o player
-        gameObject.tag = "Player";
-
-        // Verificar punch
-        if (punch == null)
-        {
-            Debug.LogWarning("Objeto de punch não está configurado no inspector!");
-        }
-        else
-        {
-            // Garantir que o punch começa desativado
-            punch.SetActive(false);
-
-            // Configurar o trigger do punch
-            Collider2D punchCollider = punch.GetComponent<Collider2D>();
-            if (punchCollider == null)
-            {
-                BoxCollider2D boxCollider = punch.AddComponent<BoxCollider2D>();
-                boxCollider.size = new Vector2(1.5f, 1.5f); // Aumentar um pouco para melhorar a detecção
-                boxCollider.isTrigger = true;
-                Debug.Log("Collider adicionado ao punch com tamanho: " + boxCollider.size);
-            }
-            else
-            {
-                punchCollider.isTrigger = true;
-                Debug.Log("Configurado punch collider como trigger");
-            }
-
-            // Tag para detecção de golpe
-            punch.tag = "Punch";
-            Debug.Log("Punch configurado com tag: " + punch.tag);
-        }
     }
 
-    // Update é chamado uma vez por frame
+    // Update is called once per frame
     void Update()
     {
-        if (CanMove)
+        // lê o x axis e inverte o sprite
+        Vector2 move_input = inputActions.Player.Move.ReadValue<Vector2>();
+        if (CanMove == true)
         {
-            Vector2 move_input = inputActions.Player.Move.ReadValue<Vector2>();
             rb.linearVelocity = new Vector2(move_input.x * speed, rb.linearVelocity.y);
-
-            // Virar sprite baseado na direção
             if (move_input.x > 0)
             {
                 spr.flipX = false;
@@ -131,49 +67,44 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
-
     private void Onattack(InputAction.CallbackContext context)
     {
+        // verifica se pode esmurrar
+        if (!Punching && !Defending)
+        {
+            // inicia corotina
+            StartCoroutine(PunchTimer());
+        }
+    }
+
+    private void Ondefend(InputAction.CallbackContext context)
+    {
+        // verifica se pode defender e se o botão está largado
         if (!Punching)
         {
-            StartCoroutine(PunchTimer());
+            if (context.started)
+        {
+            Defending = true;
+            CanMove = false;
+        }
+        if (context.canceled)
+        {
+            Defending = false;
+            CanMove = true;
+        }
         }
     }
 
     IEnumerator PunchTimer()
     {
-        if (punch != null)
-        {
-            Debug.Log("Ativando punch");
-            punch.SetActive(true);
-            Punching = true;
-            CanMove = false;
-
-            if (anim != null)
-            {
-                anim.SetBool("Punching", true);
-                yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-            }
-            else
-            {
-                // Se não tiver animator, espera um tempo fixo
-                yield return new WaitForSeconds(0.5f);
-            }
-
-            CanMove = true;
-
-            if (anim != null)
-            {
-                anim.SetBool("Punching", false);
-            }
-
-            Punching = false;
-            punch.SetActive(false);
-            Debug.Log("Desativando punch");
-        }
-        else
-        {
-            yield return null;
-        }
+        punch.SetActive(true);
+        Punching = true;
+        anim.SetBool("Punching", true);
+        CanMove = false;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        CanMove = true;
+        anim.SetBool("Punching", false);
+        Punching = false;
+        punch.SetActive(false);
     }
 }
