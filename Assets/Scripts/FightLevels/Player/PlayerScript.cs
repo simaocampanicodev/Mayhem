@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     private bool Defending;
     public GameObject punch;
     public int punchDamage = 20;
+    public GameObject colpunch;
     void Awake()
     {
         //lê os inputs
@@ -59,10 +60,12 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = new Vector2(move_input.x * speed, rb.linearVelocity.y);
             if (move_input.x > 0)
             {
+                colpunch.transform.localScale = new Vector3(1, 1, 1);
                 spr.flipX = false;
             }
             else if (move_input.x < 0)
             {
+                colpunch.transform.localScale = new Vector3(-1, 1, 1);
                 spr.flipX = true;
             }
         }
