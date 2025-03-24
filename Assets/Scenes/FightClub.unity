@@ -380,11 +380,7 @@ MonoBehaviour:
   speed: 15
   punch: {fileID: 2034855960}
   punchDamage: 20
-<<<<<<< HEAD
-  colpunch: {fileID: 0}
-=======
   colpunch: {fileID: 2034855960}
->>>>>>> 28194c38507fbb706c450a88d2b0f22edb8c99f1
 --- !u!95 &769463924
 Animator:
   serializedVersion: 7
@@ -880,11 +876,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-<<<<<<< HEAD
-  m_Offset: {x: 1.16, y: 0}
-=======
-  m_Offset: {x: 0.7253628, y: 0}
->>>>>>> 28194c38507fbb706c450a88d2b0f22edb8c99f1
+  m_Offset: {x: 1.07, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -894,11 +886,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-<<<<<<< HEAD
-  m_Size: {x: 1.98, y: 3.3}
-=======
-  m_Size: {x: 3.1492739, y: 3.3}
->>>>>>> 28194c38507fbb706c450a88d2b0f22edb8c99f1
+  m_Size: {x: 2.34, y: 3.3}
   m_EdgeRadius: 0
 --- !u!50 &2034855964
 Rigidbody2D:
