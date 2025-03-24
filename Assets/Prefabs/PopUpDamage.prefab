@@ -150,8 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialVelocity: {x: 2, y: 10}
-  rb: {fileID: 2813666572596241984}
-  lifetime: 1.5
 --- !u!50 &2813666572596241984
 Rigidbody2D:
   serializedVersion: 5
@@ -299,8 +297,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4282927334
+  m_fontColor: {r: 0.90188676, g: 0.28417936, b: 0.28417936, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
