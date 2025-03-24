@@ -9,12 +9,6 @@ public class PopUpDamage : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().linearVelocity = InitialVelocity;
         Destroy(gameObject, lifetime);
-<<<<<<< HEAD
 
     }
 }
-=======
-        
-    }
-}
->>>>>>> aa6da6453032d24797c3654afb4f008cd66ccda5
