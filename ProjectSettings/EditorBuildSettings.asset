@@ -11,5 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FightClub.unity
     guid: 7f13fa9f5c9e0bc4fad4ec1508e3cb9d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 59693295dca03e34593ca8e3c5c6ee85, type: 3}
   m_UseUCBPForAssetBundles: 0

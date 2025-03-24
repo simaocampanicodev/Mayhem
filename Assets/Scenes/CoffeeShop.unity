@@ -709,8 +709,6 @@ GameObject:
   - component: {fileID: 743703791}
   - component: {fileID: 743703789}
   - component: {fileID: 743703795}
-  - component: {fileID: 743703790}
-  - component: {fileID: 743703794}
   - component: {fileID: 743703793}
   - component: {fileID: 743703792}
   - component: {fileID: 743703797}
@@ -719,6 +717,7 @@ GameObject:
   - component: {fileID: 743703799}
   - component: {fileID: 743703801}
   - component: {fileID: 743703800}
+  - component: {fileID: 743703804}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -884,109 +883,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &743703790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743703784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3088c41d9f9a9f4ab3a63bd3c155b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showInfo: 1
-  _explanation: 'Platformer controller
-
-    ----------------
-
-    Platformer movement;
-    horizontal speed is 250 units per second.
-
-    Horizontal movement will be controlled
-    by the [Horizontal] axis.
-
-    Ground check is going to use collider GroundCheck,
-    the ground layer mask defines what is considered solid ground.
-
-    When there''s
-    no solid ground below character, the character will start falling after 0,15s,
-    with a gravity scale of 2.
-
-    The character''s trajectory can be modified mid-air.
-
-    When
-    in the air, the character''s collider will be Player(Player (UnityEngine.BoxCollider2D)),
-    and on the ground will be Player(Player (UnityEngine.BoxCollider2D)).
-
-    The
-    character will jump by holding the [Jump] button.
-
-    The vertical velocity
-    will be 500 units/second while jump is pressed, during a maximum of 0,2 seconds.
-
-    Jump
-    height will be between 88 to 188 units (from 0,35 to 0,55 seconds to top of trajectory).
-
-    If
-    the character presses the jump button up to 0,1s before hitting the ground, it
-    will jump automatically again.
-
-    This controller also controls some visuals:
-
-    When
-    the player intent is to go left, the horizontal scale of this object will be
-    inverted.
-
-    Some values will be set on animator Player:
-
-'
-  description: Platformer controller
-  hasConditions: 0
-  conditions: []
-  speed: {x: 250, y: 500}
-  horizontalInputType: 0
-  horizontalAxis: Horizontal
-  horizontalButtonPositive: Right
-  horizontalButtonNegative: Left
-  horizontalKeyPositive: 275
-  horizontalKeyNegative: 276
-  gravityScale: 2
-  useTerminalVelocity: 0
-  terminalVelocity: 5
-  coyoteTime: 0.15
-  jumpBehaviour: 2
-  maxJumpCount: 1
-  jumpBufferingTime: 0.1
-  jumpHoldMaxTime: 0.2
-  jumpInputType: 1
-  jumpAxis: Vertical
-  jumpButton: Jump
-  jumpKey: 32
-  enableAirControl: 1
-  airCollider: {fileID: 743703791}
-  groundCollider: {fileID: 743703791}
-  glideBehaviour: 0
-  glideMaxTime: 3.4028235e+38
-  maxGlideSpeed: 50
-  glideInputType: 2
-  glideAxis: Vertical
-  glideButton: Jump
-  glideKey: 32
-  groundCheckCollider: {fileID: 2071939494}
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  flipBehaviour: 4
-  useAnimator: 1
-  animator: {fileID: 743703789}
-  horizontalVelocityParameter: 
-  absoluteHorizontalVelocityParameter: 
-  verticalVelocityParameter: 
-  absoluteVerticalVelocityParameter: 
-  isGroundedParameter: 
-  isGlidingParameter: 
 --- !u!61 &743703791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1083,74 +979,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   boolState: 0
---- !u!114 &743703794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743703784}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3203f38d4afc6a4283618fa1df06ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showInfo: 1
-  _explanation: "When (IsGrounded(Player) and (IsGrounded(Player):\n          sets
-    Player's sprite color to RGBA(1.000, 1.000, 1.000, 1.000)\nelse\n          sets
-    Player's sprite color to RGBA(0.718, 0.294, 0.335, 1.000)\n\nThis trigger will
-    execute only when the conditions change and they are all true."
-  description: 
-  enableTrigger: 1
-  allowRetrigger: 1
-  hasPreconditions: 0
-  preConditions: []
-  actions:
-  - delay: 0
-    action: {fileID: 743703793}
-  continuous: 0
-  conditions:
-  - negate: 0
-    valueHandler: {fileID: 0}
-    variable: {fileID: 0}
-    valueType: 12
-    tag: {fileID: 0}
-    tagCountRangeEnabled: 0
-    tagCountRange: 0
-    sourceTransform: {fileID: 0}
-    rigidBody: {fileID: 0}
-    axis: 0
-    probe: {fileID: 0}
-    movementPlatformer: {fileID: 743703790}
-    comparison: 0
-    value: 0
-    comparisonValueHandler: {fileID: 0}
-    comparisonVariable: {fileID: 0}
-    percentageCompare: 0
-    tile: {fileID: 0}
-    tileSet: {fileID: 0}
-  - negate: 0
-    valueHandler: {fileID: 0}
-    variable: {fileID: 0}
-    valueType: 12
-    tag: {fileID: 0}
-    tagCountRangeEnabled: 0
-    tagCountRange: 0
-    sourceTransform: {fileID: 0}
-    rigidBody: {fileID: 0}
-    axis: 0
-    probe: {fileID: 0}
-    movementPlatformer: {fileID: 743703790}
-    comparison: 0
-    value: 0
-    comparisonValueHandler: {fileID: 0}
-    comparisonVariable: {fileID: 0}
-    percentageCompare: 0
-    tile: {fileID: 0}
-    tileSet: {fileID: 0}
-  elseActions:
-  - delay: 0
-    action: {fileID: 743703792}
 --- !u!114 &743703795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,8 +1009,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Select a random velocity between (400.00, 500.00) and (400.00, 500.00)
-    and set it to Player's movement, and clamps the speed to be between [400,650].
+  _explanation: 'Select a random velocity between (400.00, 500.00) and (400.00, 500.00)
+    and set it to Player''s movement, and clamps the speed to be between [400,650].
+
+    Note
+    that this changes the velocity parameters of the movement, not the current velocity.
+
+    For
+    that, use the ''Change Rigid Body'' action.'
   description: 
   enableAction: 1
   hasTags: 0
@@ -1208,7 +1042,7 @@ MonoBehaviour:
     percentageCompare: 0
     tile: {fileID: 0}
     tileSet: {fileID: 0}
-  movementComponent: {fileID: 743703790}
+  movementComponent: {fileID: 0}
   rigidBodyComponent: {fileID: 0}
   changeType: 0
   operation: 0
@@ -1242,9 +1076,13 @@ MonoBehaviour:
   _showInfo: 1
   _explanation: "Run Button Down\n----------------\nWhen button Run is pressed:\n         
     select a random velocity between (400.00, 500.00) and (400.00, 500.00) and set
-    it to Player's movement, and clamps the speed to be between [400,650].\nelse\n         
+    it to Player's movement, and clamps the speed to be between [400,650].\n         
+    Note that this changes the velocity parameters of the movement, not the current
+    velocity.\n          For that, use the 'Change Rigid Body' action.\nelse\n         
     select a random velocity between (250.00, 500.00) and (250.00, 500.00) and set
-    it to Player's movement.\n"
+    it to Player's movement.\n          Note that this changes the velocity parameters
+    of the movement, not the current velocity.\n          For that, use the 'Change
+    Rigid Body' action.\n"
   description: Run Button Down
   enableTrigger: 1
   allowRetrigger: 1
@@ -1278,15 +1116,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Select a random velocity between (250.00, 500.00) and (250.00, 500.00)
-    and set it to Player's movement.
+  _explanation: 'Select a random velocity between (250.00, 500.00) and (250.00, 500.00)
+    and set it to Player''s movement.
+
+    Note that this changes the velocity parameters
+    of the movement, not the current velocity.
+
+    For that, use the ''Change Rigid
+    Body'' action.'
   description: 
   enableAction: 1
   hasTags: 0
   actionTags: []
   hasConditions: 0
   actionConditions: []
-  movementComponent: {fileID: 743703790}
+  movementComponent: {fileID: 0}
   rigidBodyComponent: {fileID: 0}
   changeType: 0
   operation: 0
@@ -1496,6 +1340,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea5b007878cee8449b9e1da65f389c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &743703804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743703784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea683d36c47ccf34683c3029d2ae80df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showInfo: 1
+  _explanation: 'Horizontal movement, at 500 units per second.
+
+    Horizontal movement
+    will be controlled by the [Horizontal] axis.
+
+    When the character is moving
+    to the left, the sprite renderer will be flipped.
+
+'
+  description: 
+  hasConditions: 0
+  conditions: []
+  speed: {x: 500, y: 0}
+  limitSpeed: 0
+  speedLimit: 100
+  useRotation: 0
+  turnToDirection: 0
+  axisToAlign: 0
+  maxTurnSpeed: 360
+  inputEnabled: 1
+  inputType: 0
+  horizontalAxis: Horizontal
+  verticalAxis: 
+  horizontalButtonPositive: Right
+  horizontalButtonNegative: Left
+  verticalButtonPositive: Up
+  verticalButtonNegative: Down
+  horizontalKeyPositive: 275
+  horizontalKeyNegative: 276
+  verticalKeyPositive: 273
+  verticalKeyNegative: 274
+  inertiaEnable: 0
+  inertiaStopTime: 0
+  flipBehaviour: 1
+  useAnimator: 0
+  animator: {fileID: 0}
+  horizontalVelocityParameter: 
+  absoluteHorizontalVelocityParameter: 
+  verticalVelocityParameter: 
+  absoluteVerticalVelocityParameter: 
 --- !u!1 &757455335
 GameObject:
   m_ObjectHideFlags: 0
