@@ -304,7 +304,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1713011956480161706, guid: 530115cb12685874889a499c19afd0f6, type: 3}
-  m_Color: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
+  m_Color: {r: 0.2528302, g: 0.11447228, b: 0.079665355, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -345,10 +345,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   popUpPrefab: {fileID: 6941848737422444607, guid: a7f457cf8cd385e40bad4695384d8f13, type: 3}
-<<<<<<< HEAD
-  ChaseMode: 1
-  speed: 10
-=======
   ChaseMode: 0
   speed: 10
 --- !u!1 &470708948
@@ -444,7 +440,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 12.452609, y: 4.663603}
   m_EdgeRadius: 0
->>>>>>> bfa103563e3cd3cbfc0cd435d4dad39481ad0176
 --- !u!1 &769463922
 GameObject:
   m_ObjectHideFlags: 0
