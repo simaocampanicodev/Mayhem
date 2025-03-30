@@ -4,26 +4,44 @@ using System.Collections;
 public class NPCManager : MonoBehaviour
 {
     public GameObject npcPrefab;
-    public Transform spawnPoint;
+    public Transform leftSpawnPoint;
+    public Transform rightSpawnPoint;
     public float difficultyMultiplier = 1f;
 
-    private GameObject currentNPC;
+    private GameObject leftNPC;
+    private GameObject rightNPC;
     private bool isSpawning = false;
 
     void Start()
     {
-        //  StartCoroutine(SpawnCustomer());
-        // StartCoroutine(IncreaseDifficultyOverTime());
+        // Inicializar os NPCs com pedidos específicos
+        SpawnNPCs();
     }
-    public void SpawnCostumer()
+
+    private void SpawnNPCs()
     {
-        if (currentNPC == null && !isSpawning)
+        if (isSpawning) return;
+        isSpawning = true;
+
+        // Spawn NPC da esquerda
+        if (leftNPC == null && leftSpawnPoint != null)
         {
-            isSpawning = true;
-            currentNPC = Instantiate(npcPrefab, spawnPoint.position, Quaternion.identity);
-            NPCOrder npcOrder = currentNPC.GetComponent<NPCOrder>();
-            npcOrder.GenerateRandomOrder(difficultyMultiplier);
+            leftNPC = Instantiate(npcPrefab, leftSpawnPoint.position, Quaternion.identity);
+            NPCOrder leftOrder = leftNPC.GetComponent<NPCOrder>();
+            leftOrder.currentOrder = NPCOrder.OrderType.Toast;
+            Debug.Log("NPC da esquerda criado com pedido de Torrada");
         }
+
+        // Spawn NPC da direita
+        if (rightNPC == null && rightSpawnPoint != null)
+        {
+            rightNPC = Instantiate(npcPrefab, rightSpawnPoint.position, Quaternion.identity);
+            NPCOrder rightOrder = rightNPC.GetComponent<NPCOrder>();
+            rightOrder.currentOrder = NPCOrder.OrderType.Coffee;
+            Debug.Log("NPC da direita criado com pedido de Café");
+        }
+
+        isSpawning = false;
     }
 
     // private IEnumerator SpawnCustomer()
@@ -53,11 +71,18 @@ public class NPCManager : MonoBehaviour
 
     public void RemoveCustomer()
     {
-        if (currentNPC != null)
+        // Identificar qual NPC está sendo removido
+        if (leftNPC != null && leftNPC.GetComponent<NPCOrder>() == null)
         {
-            Destroy(currentNPC);
-            currentNPC = null;
-            isSpawning = false;
+            Destroy(leftNPC);
+            leftNPC = null;
+            Debug.Log("NPC da esquerda removido");
+        }
+        else if (rightNPC != null && rightNPC.GetComponent<NPCOrder>() == null)
+        {
+            Destroy(rightNPC);
+            rightNPC = null;
+            Debug.Log("NPC da direita removido");
         }
     }
 }

@@ -54,6 +54,12 @@ public class PlayerManager : MonoBehaviour
         {
             moneyUI.UpdateMoney(money);
         }
+        // Inicializar o NPCManager
+        npcManager = FindFirstObjectByType<NPCManager>();
+        if (npcManager == null)
+        {
+            Debug.LogError("NPCManager não encontrado na cena!");
+        }
     }
 
     void Update()
@@ -61,7 +67,12 @@ public class PlayerManager : MonoBehaviour
         move_input = inputActions.Player.Move.ReadValue<Vector2>();
         float value = move_input.x;
         if (value < 0) value *= -1;
-        animator.SetFloat("speed", value);
+
+        // Verificar se o objeto tem um Animator antes de tentar usá-lo
+        if (animator != null)
+        {
+            animator.SetFloat("speed", value);
+        }
 
         if (insideNPC == true && npcOrder != null)
         {
@@ -110,13 +121,7 @@ public class PlayerManager : MonoBehaviour
         {
             insideNPC = false;
             npcOrder = null;
-
-            if (npcOrderUI != null)
-            {
-                npcOrderUI.HideOrder();
-            }
         }
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -132,11 +137,6 @@ public class PlayerManager : MonoBehaviour
         {
             insideNPC = true;
             npcOrder = other.GetComponent<NPCOrder>();
-
-            if (npcOrder != null && npcOrderUI != null)
-            {
-                npcOrderUI.UpdateOrder(npcOrder.currentOrder);
-            }
         }
         if (other.CompareTag("Collectable"))
         {

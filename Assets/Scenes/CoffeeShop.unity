@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcPrefab: {fileID: 115876548}
-  spawnPoint: {fileID: 115876553}
+  leftSpawnPoint: {fileID: 0}
+  rightSpawnPoint: {fileID: 0}
   difficultyMultiplier: 1
 --- !u!212 &115876552
 SpriteRenderer:
@@ -684,7 +685,7 @@ RectTransform:
   m_Children:
   - {fileID: 2026396567}
   - {fileID: 216640287}
-  - {fileID: 757455336}
+  - {fileID: 1496300019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1325,7 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 757455337}
+  npcOrderUI: {fileID: 0}
   moneyUI: {fileID: 0}
   AudioPlayer: {fileID: 830825010}
 --- !u!114 &743703803
@@ -1404,7 +1405,6 @@ GameObject:
   - component: {fileID: 757455336}
   - component: {fileID: 757455339}
   - component: {fileID: 757455338}
-  - component: {fileID: 757455337}
   m_Layer: 5
   m_Name: OrderPanel
   m_TagString: Untagged
@@ -1419,32 +1419,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757455335}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5.8426623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1007058492}
-  m_Father: {fileID: 699513092}
+  m_Father: {fileID: 1496300019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -401, y: -206}
-  m_SizeDelta: {x: 756.4772, y: 375.5184}
+  m_AnchoredPosition: {x: 1630, y: 869}
+  m_SizeDelta: {x: 756.4772, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &757455337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757455335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d667ce99a12c0814b919d2c72fb2dba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orderText: {fileID: 1007058493}
 --- !u!114 &757455338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5422,7 +5409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: -36}
+  m_AnchoredPosition: {x: 38, y: 31}
   m_SizeDelta: {x: 577.0234, y: 347.1602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007058493
@@ -5472,8 +5459,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5510,7 +5497,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -242.14478, w: -113.17578}
+  m_margin: {x: -67.03711, y: 0, z: -1.418335, w: -113.17578}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5534,9 +5521,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1019937969}
   - component: {fileID: 1019937968}
-  - component: {fileID: 1019937967}
-  - component: {fileID: 1019937966}
-  - component: {fileID: 1019937965}
   m_Layer: 0
   m_Name: ChairLeft
   m_TagString: Chair
@@ -5544,50 +5528,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1019937965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019937964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc1ed2cc211eb64aa95824b78bb6334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentOrder: 0
---- !u!114 &1019937966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019937964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameManager: {fileID: 0}
-  npcOrderUI: {fileID: 0}
-  moneyUI: {fileID: 0}
-  AudioPlayer: {fileID: 0}
---- !u!114 &1019937967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019937964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b272a087cedc15746a2bc061f60843e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  difficultyMultiplier: 1
 --- !u!212 &1019937968
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5872,7 +5812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcPrefab: {fileID: 1195626390}
-  spawnPoint: {fileID: 1195626395}
+  leftSpawnPoint: {fileID: 0}
+  rightSpawnPoint: {fileID: 0}
   difficultyMultiplier: 1
 --- !u!212 &1195626394
 SpriteRenderer:
@@ -6300,6 +6241,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440534894}
   m_CullTransparentMesh: 1
+--- !u!1 &1496300016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496300019}
+  - component: {fileID: 1496300018}
+  - component: {fileID: 1496300017}
+  m_Layer: 0
+  m_Name: OrderPanelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1496300017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496300016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d667ce99a12c0814b919d2c72fb2dba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderText: {fileID: 1007058493}
+--- !u!114 &1496300018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496300016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83d9b18a6ef55747ac80fddbe8aceb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderText: {fileID: 1007058493}
+--- !u!4 &1496300019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496300016}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1044.0896, y: -555.76306, z: 5.8426623}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 757455336}
+  m_Father: {fileID: 699513092}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1530734201
 GameObject:
   m_ObjectHideFlags: 0
@@ -9968,9 +9969,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2117493212}
   - component: {fileID: 2117493211}
-  - component: {fileID: 2117493210}
-  - component: {fileID: 2117493209}
-  - component: {fileID: 2117493208}
   m_Layer: 0
   m_Name: ChairRight
   m_TagString: Chair
@@ -9978,50 +9976,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2117493208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117493207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc1ed2cc211eb64aa95824b78bb6334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentOrder: 0
---- !u!114 &2117493209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117493207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameManager: {fileID: 0}
-  npcOrderUI: {fileID: 0}
-  moneyUI: {fileID: 0}
-  AudioPlayer: {fileID: 0}
---- !u!114 &2117493210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117493207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b272a087cedc15746a2bc061f60843e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  difficultyMultiplier: 1
 --- !u!212 &2117493211
 SpriteRenderer:
   m_ObjectHideFlags: 0

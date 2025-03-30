@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Data.SqlTypes;
 
 public class NPCOrder : MonoBehaviour
 {
@@ -11,10 +10,9 @@ public class NPCOrder : MonoBehaviour
     private float maxOrderTime = 15f;
     private bool orderActive = false;
 
-    public void GenerateRandomOrder(float difficultyMultiplier)
+    private void Start()
     {
-        currentOrder = (OrderType)Random.Range(0, 3);
-        orderTime = maxOrderTime / difficultyMultiplier;
+        orderTime = maxOrderTime;
         orderActive = true;
         StartCoroutine(OrderCountdown());
     }
@@ -35,9 +33,9 @@ public class NPCOrder : MonoBehaviour
 
     public void OrderFailed()
     {
-        Debug.Log("Pedido falhou! Perdeu dinheiro.");
-        FindFirstObjectByType<GameManager>().RemoveSleep(-10);
+        Debug.Log($"Pedido falhou para NPC {gameObject.name}! Perdeu dinheiro.");
         FindFirstObjectByType<NPCManager>().RemoveCustomer();
+        FindFirstObjectByType<GameManager>().RemoveSleep(200);
     }
 
     public float GetRemainingTime()

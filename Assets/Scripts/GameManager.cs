@@ -6,14 +6,14 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Canvas canvas;
-    private float _maxSleep = 150;
+    private float _maxSleep = 80;
     private float _sleep = 0;
 
     void Start()
     {
         UpdateSleepBar();
 
-        StartCoroutine(Regen());
+        //StartCoroutine(Regen());
     }
 
     private void UpdateSleepBar()
@@ -23,15 +23,15 @@ public class GameManager : MonoBehaviour
         rect.sizeDelta = new Vector2(size, rect.sizeDelta.y);
     }
 
-    private IEnumerator Regen()
-    {
-        float time = 0.1f;
-        while (true)
-        {
-            ChangeSleep(1);
-            yield return new WaitForSeconds(time);
-        }
-    }
+    //private IEnumerator Regen()
+    //{
+    //    float time = 0.1f;
+    //    while (true)
+    //    {
+    //        ChangeSleep(1);
+    //        yield return new WaitForSeconds(time);
+    //    }
+    //}
 
     private void ChangeSleep(float value)
     {
