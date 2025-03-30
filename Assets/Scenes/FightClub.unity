@@ -304,7 +304,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1713011956480161706, guid: 530115cb12685874889a499c19afd0f6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -344,6 +344,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   popUpPrefab: {fileID: 6941848737422444607, guid: a7f457cf8cd385e40bad4695384d8f13, type: 3}
+  ChaseMode: 1
+  speed: 10
 --- !u!1 &769463922
 GameObject:
   m_ObjectHideFlags: 0
