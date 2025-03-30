@@ -13,31 +13,38 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDead = false;
     public GameObject popUpPrefab;
+    public bool ChaseMode = false;
+    private Transform target;
+    public float speed = 10;
 
     void Start()
     {
+        target = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            rb = gameObject.AddComponent<Rigidbody2D>();
-            Debug.Log("Rigidbody2D adicionado ao inimigo");
-        }
-
-        // Configurar propriedades do Rigidbody2D - manter gravidade normal
+        currentHealth = maxHealth;
         rb.freezeRotation = true;
-
-        // Garantir que tenha um collider
-        if (GetComponent<Collider2D>() == null)
-        {
-            gameObject.AddComponent<BoxCollider2D>();
-            Debug.Log("Collider adicionado ao inimigo");
-        }
 
         currentHealth = maxHealth;
 
         // Tag para identificação
         gameObject.tag = "Enemy";
         Debug.Log("Inimigo inicializado com tag: " + gameObject.tag);
+    }
+
+    void Update()
+    {
+        if (ChaseMode)
+        {
+            if (transform.position.x < target.position.x)
+            {
+                rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
+            }
+
+            if (transform.position.x > target.position.x)
+            {
+                rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
+            }
+        }
     }
 
     public void TakeDamage(int damage)
@@ -80,10 +87,6 @@ public class EnemyScript : MonoBehaviour
     {
         // Verificar se o objeto está ativo e não está destruído
         if (!this.isActiveAndEnabled || isDead)
-            return;
-
-        // Verificar se o outro objeto é válido
-        if (other == null || !other.gameObject.activeSelf)
             return;
 
         if (other.gameObject.CompareTag("Punch"))
