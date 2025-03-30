@@ -15,11 +15,13 @@ public class ChaseScript : MonoBehaviour
             if (distance > minDistance)
             {
                 enemy.ChaseMode = true;
+                enemy.Attacking = false;
             }
 
             else
             {
                 enemy.ChaseMode = false;
+                enemy.Attacking = true;
             }
         }
     }
@@ -30,6 +32,7 @@ public class ChaseScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             enemy.ChaseMode = false;
+            enemy.Attacking = false;
         }
     }
 }

@@ -5,16 +5,16 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour
 {
     private InputSystem_Actions inputActions;
-    public float speed = 15f;
+    [SerializeField] public float speed = 15f;
     private Rigidbody2D rb;
     private SpriteRenderer spr;
     private Animator anim;
     private bool CanMove;
     private bool Punching;
     private bool Defending;
-    public GameObject punch;
+    [SerializeField] private GameObject punch;
     public int punchDamage = 20;
-    public GameObject colpunch;
+    [SerializeField] private GameObject colpunch;
     void Awake()
     {
         //lê os inputs
@@ -60,13 +60,11 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = new Vector2(move_input.x * speed, rb.linearVelocity.y);
             if (move_input.x > 0)
             {
-                colpunch.transform.localScale = new Vector3(1, 1, 1);
-                spr.flipX = false;
+                transform.rotation = Quaternion.identity;
             }
             else if (move_input.x < 0)
             {
-                colpunch.transform.localScale = new Vector3(-1, 1, 1);
-                spr.flipX = true;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
     }
@@ -86,15 +84,15 @@ public class PlayerScript : MonoBehaviour
         if (!Punching)
         {
             if (context.started)
-        {
-            Defending = true;
-            CanMove = false;
-        }
-        if (context.canceled)
-        {
-            Defending = false;
-            CanMove = true;
-        }
+            {
+                Defending = true;
+                CanMove = false;
+            }
+            if (context.canceled)
+            {
+                Defending = false;
+                CanMove = true;
+            }
         }
     }
 

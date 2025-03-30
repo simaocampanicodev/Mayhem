@@ -9,18 +9,21 @@ public class EnemyScript : MonoBehaviour
     [Header("Atributos")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
+    private Animator anim;
 
     private Rigidbody2D rb;
     private bool isDead = false;
     public GameObject popUpPrefab;
     public bool ChaseMode = false;
+    public bool Attacking = false;
     private Transform target;
-    public float speed = 10;
+    [SerializeField] private float speed = 10;
 
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         rb.freezeRotation = true;
 
@@ -33,17 +36,25 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
-        if (ChaseMode)
+        if (ChaseMode && !Attacking)
         {
+            anim.SetBool("Attack", false);
             if (transform.position.x < target.position.x)
             {
                 rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
 
             if (transform.position.x > target.position.x)
             {
                 rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
+                transform.rotation = Quaternion.identity;
             }
+        }
+
+        else if (!ChaseMode && Attacking)
+        {
+            anim.SetBool("Attack", true);
         }
     }
 
