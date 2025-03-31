@@ -35,7 +35,7 @@ public class NPCOrder : MonoBehaviour
     public void OrderFailed()
     {
         Debug.Log($"Pedido falhou para NPC {gameObject.name}! Perdeu dinheiro.");
-        FindFirstObjectByType<GameManager>().RemoveSleep(200);
+        FindFirstObjectByType<GameManager>().RemoveSleep(-10);
 
         GenerateNewOrder();
     }
