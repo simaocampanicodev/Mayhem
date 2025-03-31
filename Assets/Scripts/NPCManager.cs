@@ -19,30 +19,44 @@ public class NPCManager : MonoBehaviour
     }
 
     private void SpawnNPCs()
+{
+    if (isSpawning) return;
+    isSpawning = true;
+
+    // Gera pedidos aleatórios para os NPCs
+    NPCOrder.OrderType leftOrderType = (NPCOrder.OrderType)Random.Range(0, 3);
+    NPCOrder.OrderType rightOrderType = (NPCOrder.OrderType)Random.Range(0, 3);
+
+    // Garantir que os pedidos sejam diferentes
+    while (leftOrderType == rightOrderType)
     {
-        if (isSpawning) return;
-        isSpawning = true;
-
-        // Spawn NPC da esquerda
-        if (leftNPC == null && leftSpawnPoint != null)
-        {
-            leftNPC = Instantiate(npcPrefab, leftSpawnPoint.position, Quaternion.identity);
-            NPCOrder leftOrder = leftNPC.GetComponent<NPCOrder>();
-            leftOrder.currentOrder = NPCOrder.OrderType.Toast;
-            Debug.Log("NPC da esquerda criado com pedido de Torrada");
-        }
-
-        // Spawn NPC da direita
-        if (rightNPC == null && rightSpawnPoint != null)
-        {
-            rightNPC = Instantiate(npcPrefab, rightSpawnPoint.position, Quaternion.identity);
-            NPCOrder rightOrder = rightNPC.GetComponent<NPCOrder>();
-            rightOrder.currentOrder = NPCOrder.OrderType.Coffee;
-            Debug.Log("NPC da direita criado com pedido de Café");
-        }
-
-        isSpawning = false;
+        rightOrderType = (NPCOrder.OrderType)Random.Range(0, 3);
     }
+
+    // Spawn NPC da esquerda
+    if (leftNPC == null && leftSpawnPoint != null)
+    {
+        leftNPC = Instantiate(npcPrefab, leftSpawnPoint.position, Quaternion.identity);
+        NPCOrder leftOrder = leftNPC.GetComponent<NPCOrder>();
+        leftOrder.currentOrder = leftOrderType;
+        Debug.Log("NPC da esquerda criado com pedido: " + leftOrderType);
+    }
+
+    // Spawn NPC da direita
+    if (rightNPC == null && rightSpawnPoint != null)
+    {
+        rightNPC = Instantiate(npcPrefab, rightSpawnPoint.position, Quaternion.identity);
+        NPCOrder rightOrder = rightNPC.GetComponent<NPCOrder>();
+        rightOrder.currentOrder = rightOrderType;
+        Debug.Log("NPC da direita criado com pedido: " + rightOrderType);
+    }
+
+    isSpawning = false;
+
+    // Atualize a UI de pedidos
+    OrderPanelManager.Instance.UpdateOrders();
+}
+
 
     // private IEnumerator SpawnCustomer()
     //  {
@@ -70,21 +84,25 @@ public class NPCManager : MonoBehaviour
     //  }
 
     public void RemoveCustomer()
-{
-    if (leftNPC)
     {
-        Destroy(leftNPC);
-        Debug.Log("NPC da esquerda removido");
+        if (leftNPC)
+        {
+            Destroy(leftNPC);
+            Debug.Log("NPC da esquerda removido");
+        }
+
+        if (rightNPC)
+        {
+            Destroy(rightNPC);
+            Debug.Log("NPC da direita removido");
+        }
+
+        // Criar novos NPCs após uma pequena espera
+        Invoke(nameof(SpawnNPCs), 2f);
+
+        // Atualize os pedidos na UI
+        OrderPanelManager.Instance.UpdateOrders();
     }
 
-    if (rightNPC)
-    {
-        Destroy(rightNPC);
-        Debug.Log("NPC da direita removido");
-    }
-
-    // Criar novos NPCs após uma pequena espera
-    Invoke(nameof(SpawnNPCs), 2f);
-}
 
 }

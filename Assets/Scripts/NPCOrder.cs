@@ -41,19 +41,27 @@ public class NPCOrder : MonoBehaviour
     }
 
     private void GenerateNewOrder()
+{
+    StopAllCoroutines();
+
+    OrderType newOrder;
+    do
     {
-        StopAllCoroutines();
-        currentOrder = (OrderType)Random.Range(0, 3); // pedido aleatorio
-        orderTime = maxOrderTime;
-        orderActive = true;
+        newOrder = (OrderType)Random.Range(0, 3);
+    } while (newOrder == currentOrder);
 
-        Debug.Log($"Novo pedido para {gameObject.name}: {currentOrder}");
+    currentOrder = newOrder;
+    orderTime = maxOrderTime;
+    orderActive = true;
 
-        orderUI.UpdateOrder(currentOrder);
+    orderUI.UpdateOrder(currentOrder);
 
+    // Atualiza os pedidos na UI sempre que um pedido é gerado ou alterado
+    OrderPanelManager.Instance.UpdateOrders();
 
-        StartCoroutine(OrderCountdown()); 
-    }
+    StartCoroutine(OrderCountdown());
+}
+
 
     public float GetRemainingTime()
     {
