@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 115876553}
   - component: {fileID: 115876552}
   - component: {fileID: 115876551}
-  - component: {fileID: 115876550}
   - component: {fileID: 115876549}
   - component: {fileID: 115876554}
   m_Layer: 0
@@ -153,22 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentOrder: 0
---- !u!114 &115876550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115876548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 1496300017}
-  moneyUI: {fileID: 0}
-  AudioPlayer: {fileID: 0}
 --- !u!114 &115876551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &216640287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1312,8 +1295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 0}
-  moneyUI: {fileID: 0}
+  npcOrderUI: {fileID: 1496300017}
+  moneyUI: {fileID: 216640291}
   AudioPlayer: {fileID: 830825010}
 --- !u!114 &743703803
 MonoBehaviour:
@@ -1681,7 +1664,6 @@ GameObject:
   m_Component:
   - component: {fileID: 872390310}
   - component: {fileID: 872390309}
-  - component: {fileID: 872390312}
   - component: {fileID: 872390311}
   m_Layer: 0
   m_Name: CoffeeMachine
@@ -1806,22 +1788,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.24, y: 0.54}
   m_EdgeRadius: 0
---- !u!114 &872390312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872390307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 0}
-  moneyUI: {fileID: 0}
-  AudioPlayer: {fileID: 975889283}
 --- !u!1 &901543333
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,7 +5560,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1100590205}
   - component: {fileID: 1100590204}
-  - component: {fileID: 1100590207}
   - component: {fileID: 1100590206}
   m_Layer: 0
   m_Name: Toaster
@@ -5719,22 +5684,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.32, y: 0.66}
   m_EdgeRadius: 0
---- !u!114 &1100590207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100590202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 0}
-  moneyUI: {fileID: 0}
-  AudioPlayer: {fileID: 975889283}
 --- !u!1 &1195626390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,7 +5695,6 @@ GameObject:
   - component: {fileID: 1195626395}
   - component: {fileID: 1195626394}
   - component: {fileID: 1195626393}
-  - component: {fileID: 1195626392}
   - component: {fileID: 1195626391}
   - component: {fileID: 1195626396}
   m_Layer: 0
@@ -5769,22 +5717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentOrder: 1
---- !u!114 &1195626392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195626390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 1496300017}
-  moneyUI: {fileID: 0}
-  AudioPlayer: {fileID: 0}
 --- !u!114 &1195626393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6148,7 +6080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '{0}'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        moneyUI.UpdateMoney(money);
         move_input = inputActions.Player.Move.ReadValue<Vector2>();
         float value = move_input.x;
         if (value < 0) value *= -1;
