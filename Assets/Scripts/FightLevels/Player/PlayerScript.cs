@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject punch;
     public int punchDamage = 20;
     [SerializeField] private GameObject colpunch;
+    [SerializeField] private AudioSource punchsound;
     void Awake()
     {
         //lê os inputs
@@ -98,6 +99,7 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator PunchTimer()
     {
+        punchsound.Play();
         punch.SetActive(true);
         Punching = true;
         anim.SetBool("Punching", true);
