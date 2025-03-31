@@ -10,11 +10,12 @@ public class NPCOrder : MonoBehaviour
     private float maxOrderTime = 15f;
     private bool orderActive = false;
 
+    private NPCOrderUI orderUI;
+
     private void Start()
     {
-        orderTime = maxOrderTime;
-        orderActive = true;
-        StartCoroutine(OrderCountdown());
+        orderUI = FindFirstObjectByType<NPCOrderUI>();
+        GenerateNewOrder();
     }
 
     private IEnumerator OrderCountdown()
@@ -34,8 +35,24 @@ public class NPCOrder : MonoBehaviour
     public void OrderFailed()
     {
         Debug.Log($"Pedido falhou para NPC {gameObject.name}! Perdeu dinheiro.");
-        FindFirstObjectByType<NPCManager>().RemoveCustomer();
         FindFirstObjectByType<GameManager>().RemoveSleep(200);
+
+        GenerateNewOrder();
+    }
+
+    private void GenerateNewOrder()
+    {
+        StopAllCoroutines();
+        currentOrder = (OrderType)Random.Range(0, 3); // pedido aleatorio
+        orderTime = maxOrderTime;
+        orderActive = true;
+
+        Debug.Log($"Novo pedido para {gameObject.name}: {currentOrder}");
+
+        orderUI.UpdateOrder(currentOrder);
+
+
+        StartCoroutine(OrderCountdown()); 
     }
 
     public float GetRemainingTime()

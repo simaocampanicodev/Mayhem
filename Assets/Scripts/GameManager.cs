@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(Regen());
     }
 
+    void Update()
+    {
+        UpdateSleepBar();
+    }
+
     private void UpdateSleepBar()
     {
         RectTransform rect = canvas.transform.Find("SleepBar").Find("Filled").GetComponent<RectTransform>();

@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 0}
+  npcOrderUI: {fileID: 1496300017}
   moneyUI: {fileID: 0}
   AudioPlayer: {fileID: 0}
 --- !u!114 &115876551
@@ -5796,7 +5796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2130509606}
-  npcOrderUI: {fileID: 0}
+  npcOrderUI: {fileID: 1496300017}
   moneyUI: {fileID: 0}
   AudioPlayer: {fileID: 0}
 --- !u!114 &1195626393

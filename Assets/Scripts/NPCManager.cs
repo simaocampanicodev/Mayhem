@@ -70,19 +70,21 @@ public class NPCManager : MonoBehaviour
     //  }
 
     public void RemoveCustomer()
+{
+    if (leftNPC)
     {
-        // Identificar qual NPC está sendo removido
-        if (leftNPC != null && leftNPC.GetComponent<NPCOrder>() == null)
-        {
-            Destroy(leftNPC);
-            leftNPC = null;
-            Debug.Log("NPC da esquerda removido");
-        }
-        else if (rightNPC != null && rightNPC.GetComponent<NPCOrder>() == null)
-        {
-            Destroy(rightNPC);
-            rightNPC = null;
-            Debug.Log("NPC da direita removido");
-        }
+        Destroy(leftNPC);
+        Debug.Log("NPC da esquerda removido");
     }
+
+    if (rightNPC)
+    {
+        Destroy(rightNPC);
+        Debug.Log("NPC da direita removido");
+    }
+
+    // Criar novos NPCs após uma pequena espera
+    Invoke(nameof(SpawnNPCs), 2f);
+}
+
 }
