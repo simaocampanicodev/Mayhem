@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private float _maxSleep = 80;
     private float _sleep = 0;
+    [SerializeField] private string cena;
 
     void Start()
     {
@@ -49,6 +50,6 @@ public class GameManager : MonoBehaviour
 
     private void Overslepted()
     {
-        SceneManager.LoadScene("FightClub");
+        SceneManager.LoadScene(cena);
     }
 }

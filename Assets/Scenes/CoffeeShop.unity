@@ -9994,6 +9994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 699513091}
+  cena: Video
 --- !u!4 &2130509607
 Transform:
   m_ObjectHideFlags: 0
