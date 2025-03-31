@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 OPR/117.0.0.0" version="26.1.1">
   <diagram name="Página-1" id="Oiau-EBAm0pEdXq3X8eG">
-    <mxGraphModel dx="1986" dy="1123" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="662" dy="374" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -723,6 +723,88 @@
         </mxCell>
         <mxCell id="_wVrlsKMYfcGuGQFK_c0-146" value="&lt;b&gt;+ 30 Stress&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1580" y="789" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-2" value="&lt;b&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;In-game&lt;/font&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="180" as="sourcePoint" />
+            <mxPoint x="260" y="105" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-4" value="[if orders == 100%]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QDF_SdWO3tE7UrLsGk3u-3">
+          <mxGeometry x="0.0632" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-5" value="&lt;b&gt;Results screen for daytime portion&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="90" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="210" as="sourcePoint" />
+            <mxPoint x="305" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-12" value="[if worst outcome&lt;div&gt;== False&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QDF_SdWO3tE7UrLsGk3u-11">
+          <mxGeometry x="0.227" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-7" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="190" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="210" as="sourcePoint" />
+            <mxPoint x="460" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-9" value="[if best outcome&lt;div&gt;== True]&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QDF_SdWO3tE7UrLsGk3u-8">
+          <mxGeometry x="-0.3615" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-10" target="QDF_SdWO3tE7UrLsGk3u-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="280" />
+              <mxPoint x="501" y="280" />
+              <mxPoint x="501" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-10" value="Stats menu&lt;div&gt;(buffs)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="80" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=-0.009;entryY=0.408;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-13" target="QDF_SdWO3tE7UrLsGk3u-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="110" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-13" value="Stats menu&lt;div&gt;(nerfs)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="180" width="80" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="QDF_SdWO3tE7UrLsGk3u-14" target="QDF_SdWO3tE7UrLsGk3u-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="302.4" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-14" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Stats for the fight&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;b style=&quot;&quot;&gt;(nº of enemies)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="270" width="85" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QDF_SdWO3tE7UrLsGk3u-18" value="&lt;b&gt;&lt;font style=&quot;color: rgb(252, 252, 252);&quot;&gt;End&lt;/font&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="278.75" y="352.5" width="47.5" height="47.5" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
