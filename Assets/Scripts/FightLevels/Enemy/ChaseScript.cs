@@ -3,7 +3,7 @@ using UnityEngine;
 public class ChaseScript : MonoBehaviour
 {
     public EnemyScript enemy;
-    public float minDistance = .5f;
+    public float minDistance = 2f;
 
     private void OnTriggerStay2D(Collider2D collision)
     {

@@ -18,9 +18,10 @@ public class EnemyScript : MonoBehaviour
     public Transform spr;
     private PlayerScript player;
     private bool ATKrunning = false;
-    public int damage = 10;
+    public int damage = 20;
     public Collider2D owntrigger;
     [SerializeField] private GameObject popUpPrefab;
+    [SerializeField] private AudioSource punchsound;
     public float timeFrame = .1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -99,7 +100,8 @@ public class EnemyScript : MonoBehaviour
         owntrigger.enabled = false;
         // anim.SetBool("Move", false);
         // anim.SetBool("Hurt", true);
-        yield return new WaitForSeconds(pool);
+        yield return new WaitForSeconds(pool-.1f);
+        punchsound.Play();
         // anim.SetBool("Hurt", false);
         IsAttacked = false;
         owntrigger.enabled = true;
@@ -115,6 +117,7 @@ public class EnemyScript : MonoBehaviour
             //caso ele possa atacar o jogador
             player.Attacked(damage);
             anim.SetBool("Punching", true);
+            punchsound.Play();
             StartCoroutine(AttackEnemy());
             ATKrunning = false;
             yield break;

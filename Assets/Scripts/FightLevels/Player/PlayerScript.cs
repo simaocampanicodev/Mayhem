@@ -35,7 +35,8 @@ public class PlayerScript : MonoBehaviour
         inputActions.Player.Attack.Enable();
         inputActions.Player.Attack.performed += Onattack;
         inputActions.Player.Defend.Enable();
-        inputActions.Player.Defend.performed += Ondefend;
+        inputActions.Player.Defend.started += Ondefend;
+        inputActions.Player.Defend.canceled += Ondefend;
 
     }
 
@@ -47,7 +48,8 @@ public class PlayerScript : MonoBehaviour
         inputActions.Player.Attack.Disable();
         inputActions.Player.Attack.performed -= Onattack;
         inputActions.Player.Defend.Disable();
-        inputActions.Player.Defend.performed -= Ondefend;
+        inputActions.Player.Defend.started -= Ondefend;
+        inputActions.Player.Defend.canceled -= Ondefend;
     }
     public float speed = 5f;
     public float jump_force = 7f;
@@ -82,6 +84,7 @@ public class PlayerScript : MonoBehaviour
         {
             //dá set do ataque de terra
             damage = 20;
+            CanMove = false;
             AttackArea.SetActive(true);
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
             anim.SetBool("Punching", true);
@@ -115,27 +118,35 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
         anim.SetBool("Punching", false);
         Attacking = false;
+        CanMove = true;
         AttackArea.SetActive(false);
     }
 
     public void Attacked(int value)
     {
+        Debug.Log("Defending: " + Defending);
+        GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
         if (!Defending)
         {
             life -= value;
-            GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
-                    popUp.GetComponentInChildren<TMP_Text>().text = value.ToString();
-            Lifetext.text = life.ToString();
-            if (life <= 0)
-            {
-                life = 0;
-                Destroy(gameObject);
-            }
-            else
-            {
-                // anim.SetBool("Hurt", true);
-                StartCoroutine(HurtTimer());
-            }
+            popUp.GetComponentInChildren<TMP_Text>().text = value.ToString();
+        }
+        else if (Defending)
+        {
+            life -= value / 3;
+            popUp.GetComponentInChildren<TMP_Text>().text = (value/3).ToString();
+        }
+        Lifetext.text = life.ToString();
+        if (life <= 0)
+        {
+            life = 0;
+            Destroy(gameObject);
+        }
+        else
+        {
+            // anim.SetBool("Hurt", true);
+            StartCoroutine(HurtTimer());
+
         }
     }
     IEnumerator HurtTimer()
