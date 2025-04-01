@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateSleepBar();
+        StartCoroutine(Timer());
 
         //StartCoroutine(Regen());
     }
@@ -22,6 +23,18 @@ public class GameManager : MonoBehaviour
         RectTransform rect = canvas.transform.Find("SleepBar").Find("Filled").GetComponent<RectTransform>();
         float size = 631 * (_sleep / _maxSleep);
         rect.sizeDelta = new Vector2(size, rect.sizeDelta.y);
+    }
+
+    private IEnumerator Timer()
+    {
+        float duration = 30f;
+        float normalizedTime = 0;
+        while (normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+        Overslepted();
     }
 
     //private IEnumerator Regen()
