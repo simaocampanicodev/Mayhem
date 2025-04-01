@@ -1,61 +1,66 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
+    public Transform spr;
     private InputSystem_Actions inputActions;
-    [SerializeField] public float speed = 15f;
-    private Rigidbody2D rb;
-    private SpriteRenderer spr;
-    private Animator anim;
-    private bool CanMove;
-    private bool Punching;
-    private bool Defending;
-    [SerializeField] private GameObject punch;
-    public int punchDamage = 20;
-    [SerializeField] private GameObject colpunch;
-    [SerializeField] private AudioSource punchsound;
+    public Rigidbody2D rb;
+    public Animator anim;
+    private bool Attacking = false;
+    public GameObject AttackArea;
+    public int damage = 0;
+    private int life = 100;
+    private bool CanMove = true;
+    private bool Defending = false;
+    [SerializeField] TMP_Text Lifetext;
+    void Start()
+    {
+        Lifetext.text = life.ToString();
+    }
     void Awake()
     {
         //lê os inputs
         inputActions = new InputSystem_Actions();
     }
+
     private void OnEnable()
     {
         //verifica se o jogador clicou nas setas/joystick ou espaço/cruz
         inputActions.Player.Enable();
         inputActions.Player.Move.Enable();
         inputActions.Player.Attack.Enable();
-        inputActions.Player.Defend.Enable();
         inputActions.Player.Attack.performed += Onattack;
-        inputActions.Player.Defend.started += Ondefend;
-        inputActions.Player.Defend.canceled += Ondefend;
+        inputActions.Player.Defend.Enable();
+        inputActions.Player.Defend.performed += Ondefend;
+
     }
+
     private void OnDisable()
     {
         //idem 
         inputActions.Player.Disable();
         inputActions.Player.Move.Disable();
         inputActions.Player.Attack.Disable();
-        inputActions.Player.Defend.Disable();
         inputActions.Player.Attack.performed -= Onattack;
-        inputActions.Player.Defend.started -= Ondefend;
-        inputActions.Player.Defend.canceled -= Ondefend;
+        inputActions.Player.Defend.Disable();
+        inputActions.Player.Defend.performed -= Ondefend;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        spr = GetComponent<SpriteRenderer>();
-    }
+    public float speed = 5f;
+    public float jump_force = 7f;
 
     // Update is called once per frame
     void Update()
     {
-        // lê o x axis e inverte o sprite
         Vector2 move_input = inputActions.Player.Move.ReadValue<Vector2>();
+        // lê input do gamepad/teclas
+        if (Attacking)
+        {
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
+        }
+
         if (CanMove == true)
         {
             rb.linearVelocity = new Vector2(move_input.x * speed, rb.linearVelocity.y);
@@ -69,20 +74,25 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+
     private void Onattack(InputAction.CallbackContext context)
     {
-        // verifica se pode esmurrar
-        if (!Punching && !Defending)
+        if (!Attacking && CanMove && !Defending)
         {
-            // inicia corotina
-            StartCoroutine(PunchTimer());
+            //dá set do ataque de terra
+            damage = 20;
+            AttackArea.SetActive(true);
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
+            anim.SetBool("Punching", true);
+            Attacking = true;
+            StartCoroutine(AttackTiming());
         }
     }
 
     private void Ondefend(InputAction.CallbackContext context)
     {
         // verifica se pode defender e se o botão está largado
-        if (!Punching)
+        if (!Attacking)
         {
             if (context.started)
             {
@@ -97,17 +107,39 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    IEnumerator PunchTimer()
+
+    IEnumerator AttackTiming()
     {
-        punchsound.Play();
-        punch.SetActive(true);
-        Punching = true;
-        anim.SetBool("Punching", true);
-        CanMove = false;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-        CanMove = true;
+        float attackTime = anim.GetCurrentAnimatorStateInfo(0).length; // pega no tempo que a anim demora
+        yield return new WaitForSeconds(attackTime);
         anim.SetBool("Punching", false);
-        Punching = false;
-        punch.SetActive(false);
+        Attacking = false;
+        AttackArea.SetActive(false);
+    }
+
+    public void Attacked(int value)
+    {
+        if (!Defending)
+        {
+            life -= value;
+            Lifetext.text = life.ToString();
+            if (life <= 0)
+            {
+                life = 0;
+                Destroy(gameObject);
+            }
+            else
+            {
+                // anim.SetBool("Hurt", true);
+                StartCoroutine(HurtTimer());
+            }
+        }
+    }
+    IEnumerator HurtTimer()
+    {
+        CanMove = false;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - .2f);
+        CanMove = true;
+        // anim.SetBool("Hurt", false);
     }
 }
