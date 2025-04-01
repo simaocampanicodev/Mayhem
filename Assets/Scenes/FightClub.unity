@@ -639,6 +639,7 @@ MonoBehaviour:
   AttackArea: {fileID: 2034855960}
   damage: 0
   Lifetext: {fileID: 1073619254}
+  popUpPrefab: {fileID: 6941848737422444607, guid: a7f457cf8cd385e40bad4695384d8f13, type: 3}
   speed: 20
   jump_force: 7
 --- !u!95 &769463924

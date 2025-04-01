@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     private bool CanMove = true;
     private bool Defending = false;
     [SerializeField] TMP_Text Lifetext;
+    [SerializeField] private GameObject popUpPrefab;
     void Start()
     {
         Lifetext.text = life.ToString();
@@ -122,6 +123,8 @@ public class PlayerScript : MonoBehaviour
         if (!Defending)
         {
             life -= value;
+            GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
+                    popUp.GetComponentInChildren<TMP_Text>().text = value.ToString();
             Lifetext.text = life.ToString();
             if (life <= 0)
             {
