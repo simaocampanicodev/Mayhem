@@ -1,6 +1,7 @@
 using Unity.Multiplayer.Center.Common.Analytics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private NPCOrderUI npcOrderUI;
     [SerializeField] private MoneyUI moneyUI;
+    private string RestartLevel = "CoffeeShop 2.0";
     private bool hasCoffee = false;
     private bool hasToast = false;
     private int money = 0;
@@ -64,6 +66,10 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadRestartLevel();
+        }
         moneyUI.UpdateMoney(money);
         move_input = inputActions.Player.Move.ReadValue<Vector2>();
         float value = move_input.x;
@@ -107,6 +113,11 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("You got a coffee!");
             }
         }
+    }
+
+    private void LoadRestartLevel()
+    {
+        SceneManager.LoadScene(RestartLevel);
     }
     private void OnTriggerExit2D(Collider2D other)
     {

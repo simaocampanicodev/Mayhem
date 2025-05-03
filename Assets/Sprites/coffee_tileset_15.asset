@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: coffee_scene_tileset
+  m_Name: coffee_tileset_15
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 260021615907820229, guid: 31d036becf2a2c24996f59a6287f1801, type: 3}
+  m_Sprite: {fileID: 846007528, guid: f65188582e033fa48b1b992079593b36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

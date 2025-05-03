@@ -146,7 +146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115876548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fc1ed2cc211eb64aa95824b78bb6334, type: 3}
   m_Name: 
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115876548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b272a087cedc15746a2bc061f60843e7, type: 3}
   m_Name: 
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743703784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9d77ec228093d24799480ce729beddc, type: 3}
   m_Name: 
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743703784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ea5b007878cee8449b9e1da65f389c4, type: 3}
   m_Name: 
@@ -1470,14 +1470,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: Switches to scene CoffeeShop
+  _explanation: Switches to scene CoffeeShop 2.0
   description: 
   enableAction: 1
   hasTags: 0
   actionTags: []
   hasConditions: 0
   actionConditions: []
-  sceneName: CoffeeShop
+  sceneName: CoffeeShop 2.0
 --- !u!114 &784092447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: "When key Escape is pressed:\n          switches to scene CoffeeShop\n"
+  _explanation: "When key Escape is pressed:\n          switches to scene CoffeeShop
+    2.0\n"
   description: 
   enableTrigger: 1
   allowRetrigger: 1
@@ -5711,7 +5712,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195626390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fc1ed2cc211eb64aa95824b78bb6334, type: 3}
   m_Name: 
@@ -5724,7 +5725,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195626390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b272a087cedc15746a2bc061f60843e7, type: 3}
   m_Name: 
@@ -9988,7 +9989,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130509605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 390435784f608224a9f6816af284bba7, type: 3}
   m_Name: 
