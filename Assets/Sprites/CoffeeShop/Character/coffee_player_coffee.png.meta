@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5fd24e86381815f4c900d434a5675afe
+guid: c01bdb7fcb8938645bcf415bf410c8e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1212620033428731605
-    second: energy_drink_0
+      213: 933468834207025525
+    second: coffee_player_coffee_0
+  - first:
+      213: 853152974038185584
+    second: coffee_player_coffee_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,30 +125,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energy_drink_0
+      name: coffee_player_coffee_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 1
-        width: 13
-        height: 19
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2945fb1188eb2fe0800000000000000
-      internalID: -1212620033428731605
+      spriteID: 579cecf75f854fc00800000000000000
+      internalID: 933468834207025525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffee_player_coffee_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0763d941c1207db00800000000000000
+      internalID: 853152974038185584
       vertices: []
       indices: 
       edges: []
@@ -164,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +186,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      energy_drink_0: -1212620033428731605
+      coffee_player_coffee_0: 933468834207025525
+<<<<<<< HEAD:Assets/Sprites/CoffeeShop/Character/coffee_player_coffee.gif.meta
+=======
+      coffee_player_coffee_1: 853152974038185584
+>>>>>>> 55114e37f4e9101cc74eee8b8725c01af542ef2c:Assets/Sprites/CoffeeShop/Character/coffee_player_coffee.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 2cf3cec6341520e4daf099e35e6ea02c
+guid: 203002654acfbc44d8bd7a745b06f242
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 933468834207025525
-    second: coffee_player_coffee_0
+      213: 7187420006542307318
+    second: cook_Sheet_0
+  - first:
+      213: -8209748339603844294
+    second: cook_Sheet_1
+  - first:
+      213: -4796195698244224207
+    second: cook_Sheet_2
+  - first:
+      213: 4301199332327630500
+    second: cook_Sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee_player_coffee_0
+      name: cook_Sheet_0
       rect:
         serializedVersion: 2
-        x: 39
+        x: 0
         y: 0
-        width: 162
-        height: 169
+        width: 31
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 579cecf75f854fc00800000000000000
-      internalID: 933468834207025525
+      spriteID: 6ff6d755a68deb360800000000000000
+      internalID: 7187420006542307318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cook_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a335f8ad16d111e80800000000000000
+      internalID: -8209748339603844294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cook_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b75ec7c6d707db0800000000000000
+      internalID: -4796195698244224207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cook_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a62987010ee0bb30800000000000000
+      internalID: 4301199332327630500
       vertices: []
       indices: 
       edges: []
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coffee_player_coffee_0: 933468834207025525
+      cook_Sheet_0: 7187420006542307318
+      cook_Sheet_1: -8209748339603844294
+      cook_Sheet_2: -4796195698244224207
+      cook_Sheet_3: 4301199332327630500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

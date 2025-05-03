@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 27144e8e3a331dd46b08f9dddb1735f9
+guid: a458ac8bdce983343ab4a9a3c587ad7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5664848433716012085
-    second: coffee_player_back_idle_0
+      213: 1431913233810943361
+    second: coffee_player_turnaround_0
+  - first:
+      213: 1408523896574832527
+    second: coffee_player_turnaround_1
+  - first:
+      213: 1952138536238258257
+    second: coffee_player_turnaround_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee_player_back_idle_0
+      name: coffee_player_turnaround_0
       rect:
         serializedVersion: 2
-        x: 55
+        x: 6
         y: 0
-        width: 154
-        height: 169
+        width: 21
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bcbdde9fc5a6261b0800000000000000
-      internalID: -5664848433716012085
+      spriteID: 18d6b72ef7d2fd310800000000000000
+      internalID: 1431913233810943361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffee_player_turnaround_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fedf075051c8310800000000000000
+      internalID: 1408523896574832527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffee_player_turnaround_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15815d4e7a3671b10800000000000000
+      internalID: 1952138536238258257
       vertices: []
       indices: 
       edges: []
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coffee_player_back_idle_0: -5664848433716012085
+      coffee_player_turnaround_0: 1431913233810943361
+      coffee_player_turnaround_1: 1408523896574832527
+      coffee_player_turnaround_2: 1952138536238258257
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
