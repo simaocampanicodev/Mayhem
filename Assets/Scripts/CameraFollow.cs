@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform targetEntity;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float lerpSpeed = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,11 +31,11 @@ public class CameraFollow : MonoBehaviour
                 transform.position = currentTarget;
                 break;
             case Type.Linear:
-                transform.position = currentTarget;
+                transform.position = Vector3.Lerp(transform.position, currentTarget, lerpSpeed * Time.deltaTime);
                 break;
             case Type.FeedbackLoop: {
                 Vector3 toTarget = currentTarget - transform.position;
-                transform.position = transform.position + toTarget * maxSpeed;
+                transform.position = Vector3.Lerp(transform.position, transform.position + toTarget * maxSpeed, lerpSpeed * Time.deltaTime);
             }
             break;
         }
