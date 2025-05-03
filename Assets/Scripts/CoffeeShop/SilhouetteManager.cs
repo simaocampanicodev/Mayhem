@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SilhouetteManager : MonoBehaviour
 {
     [SerializeField] private GameObject silhouettePrefab;
-    [SerializeField] private Transform[] seatPositions; // Assign 5 seats in Inspector
+    [SerializeField] private Transform[] seatPositions;
     [SerializeField] private float minStartDelay = 1f;
     [SerializeField] private float maxStartDelay = 5f;
     [SerializeField] private float silhouetteDuration = 15f;
