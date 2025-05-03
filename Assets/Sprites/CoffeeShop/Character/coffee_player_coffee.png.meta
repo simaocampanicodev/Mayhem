@@ -187,7 +187,10 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       coffee_player_coffee_0: 933468834207025525
+<<<<<<< HEAD:Assets/Sprites/CoffeeShop/Character/coffee_player_coffee.gif.meta
+=======
       coffee_player_coffee_1: 853152974038185584
+>>>>>>> 55114e37f4e9101cc74eee8b8725c01af542ef2c:Assets/Sprites/CoffeeShop/Character/coffee_player_coffee.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

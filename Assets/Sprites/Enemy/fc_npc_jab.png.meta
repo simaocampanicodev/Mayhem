@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 6c65d833a4e78154ea22241cad828dbe
+guid: 3b89acbfedd865c48b1b65a54b5a5320
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5664848433716012085
-    second: coffee_player_back_idle_0
+      213: 3177295883738050954
+    second: fc_npc_jab_0
   - first:
-      213: -2982187814477807758
-    second: coffee_player_back_idle_1
+      213: -4318730161941035729
+    second: fc_npc_jab_1
+  - first:
+      213: -4260349780282940467
+    second: fc_npc_jab_2
+  - first:
+      213: -2646575705279858708
+    second: fc_npc_jab_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,62 +118,93 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee_player_back_idle_0
+      name: fc_npc_jab_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bcbdde9fc5a6261b0800000000000000
-      internalID: -5664848433716012085
+      spriteID: a817480b5c5081c20800000000000000
+      internalID: 3177295883738050954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coffee_player_back_idle_1
+      name: fc_npc_jab_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 48
         y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f3d88abf32d96d0800000000000000
-      internalID: -2982187814477807758
+      spriteID: f254db0acc9c014c0800000000000000
+      internalID: -4318730161941035729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fc_npc_jab_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc36257727230e4c0800000000000000
+      internalID: -4260349780282940467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fc_npc_jab_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce77d9f0b69754bd0800000000000000
+      internalID: -2646575705279858708
       vertices: []
       indices: 
       edges: []
@@ -176,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b1432232fac9c484bad43a10055dcaf9
     internalID: 0
     vertices: []
     indices: 
@@ -186,11 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coffee_player_back_idle_0: -5664848433716012085
-<<<<<<< HEAD:Assets/Sprites/CoffeeShop/Character/coffee_player_back_idle.gif.meta
-=======
-      coffee_player_back_idle_1: -2982187814477807758
->>>>>>> 55114e37f4e9101cc74eee8b8725c01af542ef2c:Assets/Sprites/CoffeeShop/Character/coffee_player_back_idle.png.meta
+      fc_npc_jab_0: 3177295883738050954
+      fc_npc_jab_1: -4318730161941035729
+      fc_npc_jab_2: -4260349780282940467
+      fc_npc_jab_3: -2646575705279858708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
