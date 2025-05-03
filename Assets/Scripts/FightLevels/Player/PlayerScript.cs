@@ -52,7 +52,7 @@ public class PlayerScript : MonoBehaviour
         inputActions.Player.Defend.started -= Ondefend;
         inputActions.Player.Defend.canceled -= Ondefend;
     }
-    public float speed = 5f;
+    public float speed = 10f;
     public float jump_force = 7f;
 
     // Update is called once per frame

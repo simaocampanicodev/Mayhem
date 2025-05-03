@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Stress_Bar_states_0: 6955253880885782054
+      Stress_Bar_states_1: -4895226800895674171
+      Stress_Bar_states_2: -7163341614314411602
+      Stress_Bar_states_3: -979989917833895683
+      Stress_Bar_states_4: 5727444598842950432
+      Stress_Bar_states_5: 7037145146954197231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
