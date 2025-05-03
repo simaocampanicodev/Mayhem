@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
     public bool Attacking = false;
     private Transform target;
     public Rigidbody2D rb;
-    public float speed = 1.3f;
+    public float speed = 5f;
     public Transform spr;
     private PlayerScript player;
     private bool ATKrunning = false;
@@ -65,12 +65,8 @@ public class EnemyScript : MonoBehaviour
         //atacar o jogador
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerScript plr = FindAnyObjectByType<PlayerScript>();
             if (!ATKrunning && !IsAttacked) //verificar se já começou a atacar
             {
-                if (plr.Uppercut == true) {
-                    rb.AddForce(transform.up * 50, ForceMode2D.Impulse);
-                }
                 anim.SetBool("Punching", true);
                 ATKrunning = true;
                 StartCoroutine(AttackEnemy());
@@ -100,11 +96,15 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackedPool()
     {
+        PlayerScript plr = FindAnyObjectByType<PlayerScript>();
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
         owntrigger.enabled = false;
         // anim.SetBool("Move", false);
         // anim.SetBool("Hurt", true);
+        if (plr.Uppercut == true) {
+            rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
+        }
         yield return new WaitForSeconds(pool-.1f);
         punchsound.Play();
         // anim.SetBool("Hurt", false);
