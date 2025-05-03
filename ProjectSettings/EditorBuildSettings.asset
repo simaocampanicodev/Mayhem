@@ -21,5 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CoffeeShop 2.0.unity
     guid: 029ee61a97dac6e40817fe1cd58046fd
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 8700e4edbde595645a1dbbba928b7963, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 59693295dca03e34593ca8e3c5c6ee85, type: 3}
   m_UseUCBPForAssetBundles: 0
