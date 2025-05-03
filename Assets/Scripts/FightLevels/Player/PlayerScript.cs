@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image LifeUI;
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private Sprite[] lifebarList;
+    [SerializeField] private GameObject particles;
     public bool Uppercut = false;
     void Awake()
     {
@@ -153,6 +155,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Attacked(int value)
     {
+        GameObject blood = Instantiate(particles, transform.position, transform.rotation);
         Debug.Log("Defending: " + Defending);
         GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
         if (!Defending)
@@ -177,15 +180,16 @@ public class PlayerScript : MonoBehaviour
         else
         {
             // anim.SetBool("Hurt", true);
-            StartCoroutine(HurtTimer());
+            StartCoroutine(HurtTimer(blood));
 
         }
     }
-    IEnumerator HurtTimer()
+    IEnumerator HurtTimer(GameObject blood)
     {
         CanMove = false;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - .2f);
         CanMove = true;
+        Destroy(blood);
         // anim.SetBool("Hurt", false);
     }
 }

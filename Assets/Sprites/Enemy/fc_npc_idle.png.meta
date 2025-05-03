@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: b1cbae75c1e1e0e4ea32d525186dc1ad
+guid: 622621aaf391ec743b29867d5c35433a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4080483348827171413
-    second: coffee_player_food_0
+      213: -5955798809332605588
+    second: fc_npc_idle_0
+  - first:
+      213: 1463553116891430939
+    second: fc_npc_idle_1
+  - first:
+      213: -6956401877534738268
+    second: fc_npc_idle_2
+  - first:
+      213: 8370473613650513526
+    second: fc_npc_idle_3
+  - first:
+      213: 4257249103340839543
+    second: fc_npc_idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,30 +121,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee_player_food_0
+      name: fc_npc_idle_0
       rect:
         serializedVersion: 2
-        x: 31
+        x: 0
         y: 0
-        width: 170
-        height: 169
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba5924973063f57c0800000000000000
-      internalID: -4080483348827171413
+      spriteID: c6d1900c980c85da0800000000000000
+      internalID: -5955798809332605588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fc_npc_idle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10ca3a3ec59f4410800000000000000
+      internalID: 1463553116891430939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fc_npc_idle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a87ea65955e57f90800000000000000
+      internalID: -6956401877534738268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fc_npc_idle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e4b672765e92470800000000000000
+      internalID: 8370473613650513526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fc_npc_idle_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7722bfce089c41b30800000000000000
+      internalID: 4257249103340839543
       vertices: []
       indices: 
       edges: []
@@ -151,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4fe449f8413c8cd429c6edaed49d868c
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coffee_player_food_0: -4080483348827171413
+      fc_npc_idle_0: -5955798809332605588
+      fc_npc_idle_1: 1463553116891430939
+      fc_npc_idle_2: -6956401877534738268
+      fc_npc_idle_3: 8370473613650513526
+      fc_npc_idle_4: 4257249103340839543
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

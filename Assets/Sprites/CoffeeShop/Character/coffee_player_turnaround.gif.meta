@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      coffee_player_turnaround_0: 1431913233810943361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

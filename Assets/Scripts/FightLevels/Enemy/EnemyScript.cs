@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using JetBrains.Annotations;
 using TMPro;
-using System;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -22,6 +20,7 @@ public class EnemyScript : MonoBehaviour
     public Collider2D owntrigger;
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private AudioSource punchsound;
+    [SerializeField] private GameObject particles;
     public float timeFrame = .1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,21 +42,21 @@ public class EnemyScript : MonoBehaviour
         {
             if (transform.position.x < target.position.x)
             {
-                // anim.SetBool("Move", true);
+                anim.SetBool("Move", true);
                 rb.linearVelocity = new Vector3(speed, rb.linearVelocity.y);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
 
             if (transform.position.x > target.position.x)
             {
-                // anim.SetBool("Move", true);
+                anim.SetBool("Move", true);
                 rb.linearVelocity = new Vector3(-speed, rb.linearVelocity.y);
                 transform.rotation = Quaternion.identity;
             }
         }
         if (!ChaseMode && !Attacking && !IsAttacked)
         {
-            // anim.SetBool("Move", false);
+            anim.SetBool("Move", false);
         }
     }
 
@@ -101,6 +100,8 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackedPool()
     {
+        anim.SetBool("Move", false);
+        GameObject blood = Instantiate(particles, transform.position, transform.rotation);
         owntrigger.enabled = false;
         // anim.SetBool("Move", false);
         // anim.SetBool("Hurt", true);
@@ -109,6 +110,7 @@ public class EnemyScript : MonoBehaviour
         // anim.SetBool("Hurt", false);
         IsAttacked = false;
         owntrigger.enabled = true;
+        Destroy(blood);
     }
 
     IEnumerator AttackEnemy()
@@ -130,7 +132,7 @@ public class EnemyScript : MonoBehaviour
         {
             //caso o jogador fuja da frame do inimigo
             ATKrunning = false;
-            // anim.SetBool("Move", false);
+            anim.SetBool("Move", false);
             anim.SetBool("Punching", false);
         }
 
