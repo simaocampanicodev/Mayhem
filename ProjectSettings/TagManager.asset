@@ -61,5 +61,8 @@ TagManager:
   - name: NPC
     uniqueID: 1981963553
     locked: 0
+  - name: UI
+    uniqueID: 1546741305
+    locked: 0
   m_RenderingLayers:
   - Default

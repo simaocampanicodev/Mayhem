@@ -66,8 +66,12 @@ public class EnemyScript : MonoBehaviour
         //atacar o jogador
         if (collision.gameObject.CompareTag("Player"))
         {
+            PlayerScript plr = FindAnyObjectByType<PlayerScript>();
             if (!ATKrunning && !IsAttacked) //verificar se já começou a atacar
             {
+                if (plr.Uppercut == true) {
+                    rb.AddForce(transform.up * 50, ForceMode2D.Impulse);
+                }
                 anim.SetBool("Punching", true);
                 ATKrunning = true;
                 StartCoroutine(AttackEnemy());

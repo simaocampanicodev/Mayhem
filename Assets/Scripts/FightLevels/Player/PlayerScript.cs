@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image LifeUI;
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private Sprite[] lifebarList;
+    public bool Uppercut = false;
     void Awake()
     {
         //lê os inputs
@@ -68,26 +69,44 @@ public class PlayerScript : MonoBehaviour
             if (move_input.x > 0)
             {
                 transform.rotation = Quaternion.identity;
+                anim.SetBool("Walk", true);
             }
             else if (move_input.x < 0)
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
+                anim.SetBool("Walk", true);
+            }
+            else {
+                anim.SetBool("Walk", false);
             }
         }
     }
 
     private void Onattack(InputAction.CallbackContext context)
     {
-        if (!Attacking && CanMove && !Defending)
+        if (!Attacking && !Defending)
         {
+            anim.SetBool("Walk", false);
             //dá set do ataque de terra
-            damage = 20;
+            Vector2 move_input = inputActions.Player.Move.ReadValue<Vector2>();
             CanMove = false;
+            if (move_input.y > 0) {
+                damage = 30;
+                anim.SetBool("Uppercut", true);
+            }
+            else {
+                damage = 20;
+                anim.SetBool("Punching", true);
+            }
             AttackArea.SetActive(true);
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
-            anim.SetBool("Punching", true);
             Attacking = true;
-            StartCoroutine(AttackTiming());
+            if (move_input.y > 0) {
+                StartCoroutine(UppercutTiming());
+            }
+            else {
+                StartCoroutine(AttackTiming());
+            }
         }
     }
 
@@ -120,9 +139,20 @@ public class PlayerScript : MonoBehaviour
         AttackArea.SetActive(false);
     }
 
+    IEnumerator UppercutTiming()
+    {
+        Uppercut = true;
+        float attackTime = anim.GetCurrentAnimatorStateInfo(0).length; // pega no tempo que a anim demora
+        yield return new WaitForSeconds(attackTime);
+        anim.SetBool("Uppercut", false);
+        Uppercut = false;
+        Attacking = false;
+        CanMove = true;
+        AttackArea.SetActive(false);
+    }
+
     public void Attacked(int value)
     {
-        float previousLife = life;
         Debug.Log("Defending: " + Defending);
         GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
         if (!Defending)
