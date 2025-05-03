@@ -3680,6 +3680,7 @@ GameObject:
   - component: {fileID: 1119340789}
   - component: {fileID: 1119340788}
   - component: {fileID: 1119340791}
+  - component: {fileID: 1119340793}
   - component: {fileID: 1119340792}
   m_Layer: 5
   m_Name: StressBar
@@ -3723,6 +3724,11 @@ MonoBehaviour:
   frequency: 30
   tremor: 1
   durationTremor: 0.5
+  rectTransform: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  time: 0
+  active: 0
+  stressBarManager: {fileID: 0}
 --- !u!114 &1119340789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3792,14 +3798,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1119340786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c65989ba8b4fd34fab0f3c8d5a3aefe, type: 3}
+  m_Script: {fileID: 11500000, guid: e3c84b0c217d7de479743d8789d210f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StressBar: {fileID: 1119340789}
-  animator: {fileID: 1119340791}
+  StressBar: {fileID: 0}
+  animator: {fileID: 0}
   maxStress: 100
   actualStress: 0
   changeScene: Video
+--- !u!114 &1119340793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119340786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5beb8b711218314488fd4153c11f7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 15
+  frequency: 100
+  tremor: 1
+  durationTremor: 0.5
 --- !u!1 &1353360601
 GameObject:
   m_ObjectHideFlags: 0
@@ -4272,7 +4294,7 @@ GameObject:
   - component: {fileID: 1534930502}
   - component: {fileID: 1534930501}
   - component: {fileID: 1534930505}
-  - component: {fileID: 1534930500}
+  - component: {fileID: 1534930506}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4280,23 +4302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1534930500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534930499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07727e8c91868f84eb92c89629905ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1534930502}
-  groundCheck: {fileID: 184262938}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!70 &1534930501
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4454,6 +4459,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1534930506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534930499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b808c4ed4b63543aab6dced2a2272e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1534930502}
+  groundCheck: {fileID: 184262938}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1595002033
 GameObject:
   m_ObjectHideFlags: 0
