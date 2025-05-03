@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
@@ -15,12 +16,9 @@ public class PlayerScript : MonoBehaviour
     private int life = 100;
     private bool CanMove = true;
     private bool Defending = false;
-    [SerializeField] TMP_Text Lifetext;
+    [SerializeField] private Image LifeUI;
     [SerializeField] private GameObject popUpPrefab;
-    void Start()
-    {
-        Lifetext.text = life.ToString();
-    }
+    [SerializeField] private Sprite[] lifebarList;
     void Awake()
     {
         //lê os inputs
@@ -124,6 +122,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Attacked(int value)
     {
+        float previousLife = life;
         Debug.Log("Defending: " + Defending);
         GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
         if (!Defending)
@@ -136,7 +135,10 @@ public class PlayerScript : MonoBehaviour
             life -= value / 3;
             popUp.GetComponentInChildren<TMP_Text>().text = (value/3).ToString();
         }
-        Lifetext.text = life.ToString();
+        int maxLife = 100; // max de vida
+        float lifePercent = (float)life / maxLife; // percentagem de vida dividido pelo maximo
+        int spriteNum = Mathf.Clamp((int)(lifePercent * lifebarList.Length), 0, lifebarList.Length - 1); // escolhe da lista a imagem consoante a percentagem de vida, e apróxima-la para um int        
+        LifeUI.sprite = lifebarList[spriteNum];
         if (life <= 0)
         {
             life = 0;
