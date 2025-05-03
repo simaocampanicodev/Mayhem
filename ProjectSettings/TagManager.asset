@@ -55,10 +55,13 @@ TagManager:
   - name: Balcony
     uniqueID: 2045852611
     locked: 0
+  - name: NPC
+    uniqueID: 1699285731
+    locked: 0
   - name: Chair
     uniqueID: 775123781
     locked: 0
-  - name: NPC
+  - name: Top
     uniqueID: 1981963553
     locked: 0
   - name: UI
