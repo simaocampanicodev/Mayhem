@@ -23,27 +23,7 @@ public class FinalLevel : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Player") {
-            StartCoroutine(FadeOut());
+            SceneManager.LoadSceneAsync(num);
         }
-    }
-
-    IEnumerator FadeOut()
-    {
-        yield return new WaitForSeconds(1f);
-        
-        Color c = black.color;
-        float timer = fadeDuration;
-
-        while (timer < fadeDuration)
-        {
-            timer -= Time.deltaTime;
-            c.a = Mathf.Lerp(1f, 0f, timer / fadeDuration);
-            black.color = c;
-            yield return null;
-        }
-
-        c.a = 0f;
-        black.color = c;
-        SceneManager.LoadSceneAsync(num);
     }
 }
