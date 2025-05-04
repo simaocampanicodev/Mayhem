@@ -38,21 +38,12 @@ public class PlayerInventory : MonoBehaviour
     {
         hasCoffee = value;
         UpdateUI();
-        
-        if (value)
-            Debug.Log("Jogador pegou café");
-        else
-            Debug.Log("Jogador soltou café");
     }
     public void ToggleToast(bool value)
     {
         hasToast = value;
         UpdateUI();
         
-        if (value)
-            Debug.Log("Jogador pegou tosta");
-        else
-            Debug.Log("Jogador soltou tosta");
     }
     
     void UpdateUI()

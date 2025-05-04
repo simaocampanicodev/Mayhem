@@ -35,29 +35,21 @@ public class FoodPreparation : MonoBehaviour
     void HandleGameStarted()
     {
         gameActive = true;
-        if (showDebug)
-            Debug.Log("Jogo iniciado, FoodPreparation ativado");
     }
     
     void HandleGameEnded()
     {
         gameActive = false;
-        if (showDebug)
-            Debug.Log("Jogo terminado, FoodPreparation desativado");
     }
     
     public void SetPlayerInCoffeeArea(bool value)
     {
         playerInCoffeeArea = value;
-        if (showDebug)
-            Debug.Log("Player in coffee area: " + value);
     }
     
     public void SetPlayerInToastArea(bool value)
     {
         playerInToastArea = value;
-        if (showDebug)
-            Debug.Log("Player in toast area: " + value);
     }
 
     private void Start()
@@ -65,16 +57,11 @@ public class FoodPreparation : MonoBehaviour
         if (playerInventory == null)
         {
             playerInventory = FindObjectOfType<PlayerInventory>();
-            if (playerInventory == null && showDebug)
-                Debug.LogError("PlayerInventory não encontrado!");
         }
         if (coffeeProgressIndicator != null)
             coffeeProgressIndicator.SetActive(false);
         if (toastProgressIndicator != null)
             toastProgressIndicator.SetActive(false);
-            
-        if (showDebug)
-            Debug.Log("FoodPreparation iniciado. Pressione Enter nas áreas corretas para preparar comida.");
     }
 
     private void Update()
@@ -83,13 +70,8 @@ public class FoodPreparation : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            if (showDebug)
-                Debug.Log("Tecla Enter pressionada");
-            
             if (playerInCoffeeArea)
             {
-                if (showDebug)
-                    Debug.Log("Jogador está na área de café");
                     
                 if (!isPreparingCoffee && !coffeeReady)
                 {
@@ -102,8 +84,6 @@ public class FoodPreparation : MonoBehaviour
             }
             if (playerInToastArea)
             {
-                if (showDebug)
-                    Debug.Log("Jogador está na área de tosta");
                     
                 if (!isPreparingToast && !toastReady)
                 {
@@ -120,8 +100,6 @@ public class FoodPreparation : MonoBehaviour
     private IEnumerator PrepareCoffee()
     {
         isPreparingCoffee = true;
-        ShowMessage("Preparando café...");
-        Debug.Log("Preparando café...");
 
         if (coffeeProgressIndicator != null)
             coffeeProgressIndicator.SetActive(true);
@@ -130,15 +108,11 @@ public class FoodPreparation : MonoBehaviour
 
         coffeeReady = true;
         isPreparingCoffee = false;
-        ShowMessage("Café pronto!");
-        Debug.Log("Café pronto!");
     }
 
     private IEnumerator PrepareToast()
     {
         isPreparingToast = true;
-        ShowMessage("Preparando tosta...");
-        Debug.Log("Preparando tosta...");
 
         if (toastProgressIndicator != null)
             toastProgressIndicator.SetActive(true);
@@ -147,8 +121,6 @@ public class FoodPreparation : MonoBehaviour
 
         toastReady = true;
         isPreparingToast = false;
-        ShowMessage("Tosta pronta!");
-        Debug.Log("Tosta pronta!");
     }
 
     private void TryCollectCoffee()
@@ -159,16 +131,9 @@ public class FoodPreparation : MonoBehaviour
         {
             playerInventory.ToggleCoffee(true);
             coffeeReady = false;
-            ShowMessage("Pegou café");
-            Debug.Log("Pegou café");
             
             if (coffeeProgressIndicator != null)
                 coffeeProgressIndicator.SetActive(false);
-        }
-        else
-        {
-            ShowMessage("Você já tem café!");
-            Debug.Log("Você já tem café!");
         }
     }
 
@@ -180,16 +145,9 @@ public class FoodPreparation : MonoBehaviour
         {
             playerInventory.ToggleToast(true);
             toastReady = false;
-            ShowMessage("Pegou tosta");
-            Debug.Log("Pegou tosta");
             
             if (toastProgressIndicator != null)
                 toastProgressIndicator.SetActive(false);
-        }
-        else
-        {
-            ShowMessage("Você já tem tosta!");
-            Debug.Log("Você já tem tosta!");
         }
     }
 

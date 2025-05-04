@@ -10,10 +10,10 @@ public class SilhouetteManager : MonoBehaviour
     [SerializeField] private float maxStartDelay = 5f;
     [SerializeField] private float silhouetteDuration = 15f;
     [SerializeField] private int maxSilhouettes = 2;
-    
     [SerializeField] private float minDelayAtMaxStress = 1f;
     [SerializeField] private float maxDelayAtMaxStress = 2f;
     [SerializeField] private StressBarManager stressManager;
+    [SerializeField] private OrderDisplay orderDisplay;
 
     private List<int> occupiedSeats = new List<int>();
     private bool gameStarted = false;
@@ -39,6 +39,11 @@ public class SilhouetteManager : MonoBehaviour
         if (stressManager == null)
         {
             stressManager = FindObjectOfType<StressBarManager>();
+        }
+        
+        if (orderDisplay == null)
+        {
+            orderDisplay = FindObjectOfType<OrderDisplay>();
         }
     }
     
@@ -78,16 +83,29 @@ public class SilhouetteManager : MonoBehaviour
         GameObject silhouette = Instantiate(silhouettePrefab, seatPositions[seatIndex].position, Quaternion.identity, transform);
         SilhouetteOrder s = silhouette.GetComponent<SilhouetteOrder>();
 
-        s.Initialize(silhouetteDuration - 3f, () => {
-            occupiedSeats.Remove(seatIndex);
-            float delay = GetRandomDelay();
-            StartCoroutine(SpawnSilhouetteWithDelay(delay));
+        if (s != null)
+        {
+            s.Initialize(silhouetteDuration - 3f, () => {
+                if (orderDisplay != null)
+                {
+                    orderDisplay.HideOrder(seatIndex);
+                }
+                
+                occupiedSeats.Remove(seatIndex);
+                float delay = GetRandomDelay();
+                StartCoroutine(SpawnSilhouetteWithDelay(delay));
+                
+                if (stressManager != null && !s.IsOrderFulfilled())
+                {
+                    stressManager.IncreaseStress(15f);
+                }
+            });
             
-            if (stressManager != null && !s.IsOrderFulfilled())
+            if (orderDisplay != null)
             {
-                stressManager.IncreaseStress(15f);
+                orderDisplay.ShowOrder(seatIndex, s.GetCurrentOrder());
             }
-        });
+        }
     }
 
     int GetRandomFreeSeat()

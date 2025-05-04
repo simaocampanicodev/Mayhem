@@ -22,6 +22,8 @@ public class SilhouetteOrder : MonoBehaviour
     private Collider2D myCollider;
     
     private StressBarManager stressManager;
+    private OrderDisplay orderDisplay;
+    private int seatIndex = -1;
 
     public enum OrderType
     {
@@ -34,6 +36,7 @@ public class SilhouetteOrder : MonoBehaviour
     {
         myCollider = GetComponent<Collider2D>();
         stressManager = FindObjectOfType<StressBarManager>();
+        orderDisplay = FindObjectOfType<OrderDisplay>();
     }
 
     public void Initialize(float duration, Action onDestroy)
@@ -44,6 +47,15 @@ public class SilhouetteOrder : MonoBehaviour
         GenerateRandomOrder();
         ShowOrder();
         StartCoroutine(FadeInOutSequence(duration));
+        
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            if (transform.parent.GetChild(i) == transform)
+            {
+                seatIndex = i;
+                break;
+            }
+        }
     }
 
     private void GenerateRandomOrder()
@@ -130,6 +142,12 @@ public class SilhouetteOrder : MonoBehaviour
             }
             
             orderFulfilled = true;
+            
+            if (orderDisplay != null && seatIndex >= 0)
+            {
+                orderDisplay.HideOrder(seatIndex);
+            }
+            
             StartDestroySequence();
         }
     }
@@ -138,16 +156,7 @@ public class SilhouetteOrder : MonoBehaviour
     {
         if (orderText != null)
         {
-            if (isCorrect)
-            {
-                orderText.text = "Obrigado!";
-                orderText.color = Color.green;
-            }
-            else
-            {
-                orderText.text = "Errado!";
-                orderText.color = Color.red;
-            }
+            
         }
     }
 

@@ -126,7 +126,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0005072281, y: -0.0029312074}
+  m_Offset: {x: -0.017237013, y: -0.0029312074}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -136,7 +136,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.18618326, y: 0.4841376}
+  m_Size: {x: 0.13890468, y: 0.4841376}
   m_EdgeRadius: 0
 --- !u!95 &2119597202273388217
 Animator:
@@ -189,8 +189,9 @@ MonoBehaviour:
   orderIcon: {fileID: 0}
   toastSprite: {fileID: 4243476900488732440, guid: 57057ba22f50dc14486ffd5410c22584, type: 3}
   coffeeSprite: {fileID: -7262840644187413011, guid: 57057ba22f50dc14486ffd5410c22584, type: 3}
-  bothSprite: {fileID: 0}
+  bothSprite: {fileID: -5783092950991352995, guid: 8561cbf6192678b4a9c690dbf1bb744d, type: 3}
   fadeDuration: 1.5
+  currentOrder: 0
 --- !u!114 &1313664186673680750
 MonoBehaviour:
   m_ObjectHideFlags: 0

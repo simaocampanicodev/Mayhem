@@ -10,16 +10,13 @@ public class CoffeeArea : MonoBehaviour
         if (foodPrep == null)
         {
             foodPrep = FindObjectOfType<FoodPreparation>();
-            if (foodPrep == null && showDebug)
-                Debug.LogError("FoodPreparation não encontrado!");
+
         }
         
         Collider2D collider = GetComponent<Collider2D>();
         if (collider != null && !collider.isTrigger)
         {
             collider.isTrigger = true;
-            if (showDebug)
-                Debug.Log("Collider configurado como trigger.");
         }
     }
 
@@ -27,9 +24,6 @@ public class CoffeeArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (showDebug)
-                Debug.Log("Jogador entrou na área de café");
-                
             foodPrep.SetPlayerInCoffeeArea(true);
         }
     }
@@ -38,9 +32,6 @@ public class CoffeeArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (showDebug)
-                Debug.Log("Jogador saiu da área de café");
-                
             foodPrep.SetPlayerInCoffeeArea(false);
         }
     }

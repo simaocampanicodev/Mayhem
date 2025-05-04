@@ -12,7 +12,7 @@ public class EnterButtonFade : MonoBehaviour
     private void Start()
     {
         spriteRenderer = imageObject.GetComponent<SpriteRenderer>();
-        SetAlpha(0f); // Começa invisível
+        SetAlpha(0f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
