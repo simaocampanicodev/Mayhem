@@ -176,15 +176,15 @@ public class PlayerScript : MonoBehaviour
         LifeUI.sprite = lifebarList[spriteNum];
         if (life <= 0)
         {
-            AudioClip grunt = hurtSound.DeathSound;
-            radioSource.PlayOneShot(grunt);
+            AudioClip grunt = hurtSound.DeathSound; // gera um número entre 0 e o final da lista
+            radioSource.PlayOneShot(grunt); // escolhe um audio da lista de acordo com esse número
             life = 0;
             Destroy(gameObject);
         }
         else
         {
-            AudioClip grunt = hurtSound.GruntSound;
-            radioSource.PlayOneShot(grunt);
+            AudioClip grunt = hurtSound.GruntSound; // gera um número entre 0 e o final da lista
+            radioSource.PlayOneShot(grunt); // escolhe um audio da lista de acordo com esse número
             // anim.SetBool("Hurt", true);
             StartCoroutine(HurtTimer(blood));
 

@@ -14,6 +14,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private AudioClip correctOrderSound;
     [SerializeField] private AudioClip incorrectOrderSound;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audios;
 
     void Update()
     {
@@ -85,14 +86,18 @@ public class PlayerInventory : MonoBehaviour
             switch (orderType)
             {
                 case SilhouetteOrder.OrderType.Coffee:
+                    audioSource.PlayOneShot(audios[0]);
                     hasCoffee = false;
                     break;
 
                 case SilhouetteOrder.OrderType.Toast:
+                    audioSource.PlayOneShot(audios[1]);
                     hasToast = false;
                     break;
 
                 case SilhouetteOrder.OrderType.Both:
+                    audioSource.PlayOneShot(audios[1]);
+                    audioSource.PlayOneShot(audios[0]);
                     hasCoffee = false;
                     hasToast = false;
                     break;
