@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 57057ba22f50dc14486ffd5410c22584
+guid: f4f069d7ab8f6604e85c030ab44b11b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4243476900488732440
-    second: order_icons_0
+      213: -5484836445612409346
+    second: timers_0
   - first:
-      213: -7262840644187413011
-    second: order_icons_1
+      213: 6187073616376640893
+    second: timers_1
+  - first:
+      213: -6827078206241474775
+    second: timers_2
+  - first:
+      213: -2700093231427387676
+    second: timers_3
+  - first:
+      213: -711837406660005632
+    second: timers_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: order_icons_0
+      name: timers_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 9
-        width: 36
-        height: 28
+        x: 2
+        y: 1
+        width: 28
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81fd43212cbd3ea30800000000000000
-      internalID: 4243476900488732440
+      spriteID: efdf7280052f1e3b0800000000000000
+      internalID: -5484836445612409346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: order_icons_1
+      name: timers_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 5
-        width: 35
-        height: 42
+        x: 34
+        y: 1
+        width: 28
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +175,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de5a0fe0ae4353b90800000000000000
-      internalID: -7262840644187413011
+      spriteID: d75325f6ca6ecd550800000000000000
+      internalID: 6187073616376640893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timers_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9277a27fa885141a0800000000000000
+      internalID: -6827078206241474775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timers_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee75500387578ad0800000000000000
+      internalID: -2700093231427387676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timers_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001f13e66ab0f16f0800000000000000
+      internalID: -711837406660005632
       vertices: []
       indices: 
       edges: []
@@ -186,8 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      order_icons_0: 4243476900488732440
-      order_icons_1: -7262840644187413011
+      timers_0: -5484836445612409346
+      timers_1: 6187073616376640893
+      timers_2: -6827078206241474775
+      timers_3: -2700093231427387676
+      timers_4: -711837406660005632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

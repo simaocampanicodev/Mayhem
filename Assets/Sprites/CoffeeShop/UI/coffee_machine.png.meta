@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 57057ba22f50dc14486ffd5410c22584
+guid: 09373829f48e8df4baf9311a4b9d9d43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4243476900488732440
-    second: order_icons_0
-  - first:
-      213: -7262840644187413011
-    second: order_icons_1
+      213: 7475937566755873792
+    second: coffee_machine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: order_icons_0
+      name: coffee_machine_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 9
-        width: 36
-        height: 28
+        x: 0
+        y: 0
+        width: 32
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81fd43212cbd3ea30800000000000000
-      internalID: 4243476900488732440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: order_icons_1
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 5
-        width: 35
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de5a0fe0ae4353b90800000000000000
-      internalID: -7262840644187413011
+      spriteID: 0046b759b9ddfb760800000000000000
+      internalID: 7475937566755873792
       vertices: []
       indices: 
       edges: []
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      order_icons_0: 4243476900488732440
-      order_icons_1: -7262840644187413011
+      coffee_machine_0: 7475937566755873792
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

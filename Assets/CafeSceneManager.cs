@@ -12,7 +12,8 @@ public class CafeSceneManager : MonoBehaviour
     [SerializeField] private SilhouetteManager silhouetteManager;
     [SerializeField] private StressBarManager stressManager;
     [SerializeField] private FoodPreparation foodPreparation;
-    
+    [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private AudioSource audioSource;
     public delegate void GameStateChanged();
     public static event GameStateChanged OnGameStarted;
     public static event GameStateChanged OnGameEnded;
@@ -42,6 +43,13 @@ public class CafeSceneManager : MonoBehaviour
 
     void Start()
     {
+        if (audioSource != null && backgroundMusic != null)
+        {
+            audioSource.clip = backgroundMusic;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+
         if (fadePanel != null)
         {
             Color panelColor = fadePanel.color;

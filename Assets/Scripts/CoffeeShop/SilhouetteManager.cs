@@ -98,6 +98,8 @@ public class SilhouetteManager : MonoBehaviour
                 if (stressManager != null && !s.IsOrderFulfilled())
                 {
                     stressManager.IncreaseStress(15f);
+                    GetComponent<MoneyManager>()?.SubtractMoney(15);
+                    GetComponent<MoneyManager>()?.OnSilhouetteTimeoutSound?.Invoke();
                 }
             });
             

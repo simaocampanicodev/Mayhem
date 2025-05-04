@@ -10,71 +10,57 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private GameObject toastIndicator;
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private float messageDuration = 2f;
+    [SerializeField] private MoneyManager moneyManager;
+    [SerializeField] private AudioClip correctOrderSound;
+    [SerializeField] private AudioClip incorrectOrderSound;
+    [SerializeField] private AudioSource audioSource;
 
     void Update()
     {
-       
+        
     }
-    
+
     void Start()
     {
         UpdateUI();
         
-        if (messageText != null)
+        if (moneyManager == null)
         {
-            messageText.text = "";
-            messageText.gameObject.SetActive(false);
+            moneyManager = FindObjectOfType<MoneyManager>();
         }
     }
+
     public bool HasCoffee()
     {
         return hasCoffee;
     }
+
     public bool HasToast()
     {
         return hasToast;
     }
+
     public void ToggleCoffee(bool value)
     {
         hasCoffee = value;
         UpdateUI();
     }
+
     public void ToggleToast(bool value)
     {
         hasToast = value;
         UpdateUI();
-        
     }
-    
+
     void UpdateUI()
     {
         if (coffeeIndicator != null)
             coffeeIndicator.SetActive(hasCoffee);
-            
+
         if (toastIndicator != null)
             toastIndicator.SetActive(hasToast);
     }
-    
-    void ShowMessage(string message)
-    {
-        if (messageText != null)
-        {
-            messageText.text = message;
-            messageText.gameObject.SetActive(true);
-            
-            CancelInvoke("HideMessage");
-            Invoke("HideMessage", messageDuration);
-        }
-    }
-    
-    void HideMessage()
-    {
-        if (messageText != null)
-        {
-            messageText.gameObject.SetActive(false);
-        }
-    }
-    
+
     public bool CheckAndDeliverOrder(SilhouetteOrder.OrderType orderType)
     {
         bool isCorrect = false;
@@ -84,11 +70,11 @@ public class PlayerInventory : MonoBehaviour
             case SilhouetteOrder.OrderType.Coffee:
                 isCorrect = hasCoffee && !hasToast;
                 break;
-                
+
             case SilhouetteOrder.OrderType.Toast:
                 isCorrect = hasToast && !hasCoffee;
                 break;
-                
+
             case SilhouetteOrder.OrderType.Both:
                 isCorrect = hasToast && hasCoffee;
                 break;
@@ -101,20 +87,36 @@ public class PlayerInventory : MonoBehaviour
                 case SilhouetteOrder.OrderType.Coffee:
                     hasCoffee = false;
                     break;
-                    
+
                 case SilhouetteOrder.OrderType.Toast:
                     hasToast = false;
                     break;
-                    
+
                 case SilhouetteOrder.OrderType.Both:
                     hasCoffee = false;
                     hasToast = false;
                     break;
             }
-            
+
             UpdateUI();
+            
+            moneyManager?.AddMoney(20);
+            
+            if (audioSource != null && correctOrderSound != null)
+            {
+                audioSource.PlayOneShot(correctOrderSound);
+            }
         }
-        
+        else
+        {
+            moneyManager?.SubtractMoney(10);
+            
+            if (audioSource != null && incorrectOrderSound != null)
+            {
+                audioSource.PlayOneShot(incorrectOrderSound);
+            }
+        }
+
         return isCorrect;
     }
 }
