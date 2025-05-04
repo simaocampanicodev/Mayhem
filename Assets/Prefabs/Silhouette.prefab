@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2119597202273388217}
   - component: {fileID: 3148869220382397025}
   - component: {fileID: 6001141253438509441}
-  - component: {fileID: 1313664186673680750}
   m_Layer: 6
   m_Name: Silhouette
   m_TagString: Untagged
@@ -192,16 +191,3 @@ MonoBehaviour:
   bothSprite: {fileID: -5783092950991352995, guid: 8561cbf6192678b4a9c690dbf1bb744d, type: 3}
   fadeDuration: 1.5
   currentOrder: 0
---- !u!114 &1313664186673680750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7564292162545370990}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a16a62ce957024eb18df66112b9d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 3

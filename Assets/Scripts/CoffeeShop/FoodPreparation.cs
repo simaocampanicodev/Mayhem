@@ -14,6 +14,14 @@ public class FoodPreparation : MonoBehaviour
     [SerializeField] private AudioClip toastClickSound;
     [SerializeField] private AudioClip coffeeClickSound;
     [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private CoffeeMachineShake coffeeMachineShake;
+    [SerializeField] private GameObject coffeeReadyCheckMark;
+
+    [SerializeField] private Animator marioAnimator;
+    [SerializeField] private string marioEntregandoAnimName = "MarioEntregando";
+    [SerializeField] private string idleMarioAnimName = "IdleMario";
+    [SerializeField] private string idleCabineAnimName = "IdleCabine";
     
     private bool coffeeReady = false;
     private bool toastReady = false;
@@ -22,6 +30,9 @@ public class FoodPreparation : MonoBehaviour
     private bool playerInCoffeeArea = false;
     private bool playerInToastArea = false;
     private bool gameActive = false;
+    
+    private static readonly int EntregandoParam = Animator.StringToHash("Entregando");
+    private static readonly int ProntoParam = Animator.StringToHash("Pronto");
     
     void OnEnable()
     {
@@ -65,6 +76,15 @@ public class FoodPreparation : MonoBehaviour
             coffeeProgressIndicator.SetActive(false);
         if (toastProgressIndicator != null)
             toastProgressIndicator.SetActive(false);
+        
+        if (coffeeReadyCheckMark != null)
+            coffeeReadyCheckMark.SetActive(false);
+        
+        if (marioAnimator != null)
+        {
+            marioAnimator.SetBool(EntregandoParam, false);
+            marioAnimator.SetBool(ProntoParam, false);
+        }
     }
 
     private void Update()
@@ -109,8 +129,16 @@ public class FoodPreparation : MonoBehaviour
 
         if (coffeeProgressIndicator != null)
             coffeeProgressIndicator.SetActive(true);
+        
+        if (coffeeMachineShake != null)
+            coffeeMachineShake.StopShaking();
 
         yield return new WaitForSeconds(preparationTime);
+        
+        if (coffeeMachineShake != null)
+            coffeeMachineShake.StopShaking();
+        if (coffeeReadyCheckMark != null)
+            coffeeReadyCheckMark.SetActive(true);
 
         coffeeReady = true;
         isPreparingCoffee = false;
@@ -128,6 +156,19 @@ public class FoodPreparation : MonoBehaviour
 
         yield return new WaitForSeconds(preparationTime);
 
+        if (marioAnimator != null)
+        {
+            marioAnimator.SetBool(EntregandoParam, true);
+            
+            AnimatorStateInfo stateInfo = marioAnimator.GetCurrentAnimatorStateInfo(0);
+            float animationLength = stateInfo.length;
+            
+            yield return new WaitForSeconds(animationLength);
+            
+            marioAnimator.SetBool(EntregandoParam, false);
+            marioAnimator.SetBool(ProntoParam, true);
+        }
+
         toastReady = true;
         isPreparingToast = false;
     }
@@ -143,6 +184,9 @@ public class FoodPreparation : MonoBehaviour
             
             if (coffeeProgressIndicator != null)
                 coffeeProgressIndicator.SetActive(false);
+            
+            if (coffeeReadyCheckMark != null)
+                coffeeReadyCheckMark.SetActive(false);
         }
     }
 
@@ -157,6 +201,11 @@ public class FoodPreparation : MonoBehaviour
             
             if (toastProgressIndicator != null)
                 toastProgressIndicator.SetActive(false);
+
+            if (marioAnimator != null)
+            {
+                marioAnimator.SetBool(ProntoParam, false);
+            }
         }
     }
 
