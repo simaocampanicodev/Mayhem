@@ -4344,7 +4344,7 @@ MonoBehaviour:
   toastProgressIndicator: {fileID: 0}
   messageDuration: 2
   showDebug: 1
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1534930510}
   coffeeMachineShake: {fileID: 415945181}
   coffeeReadyCheckMark: {fileID: 3162053226259956580}
   marioAnimator: {fileID: 1353360603}
