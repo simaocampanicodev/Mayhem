@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("CoffeeShop 2.0");
+            SceneManager.LoadScene("CoffeeShop");
         }
     }
 }

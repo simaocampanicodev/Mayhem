@@ -5,7 +5,7 @@ public class StartMenuController : MonoBehaviour
 {
     public void OnStartCick()
     {
-        SceneManager.LoadScene("CoffeeShop 2.0");
+        SceneManager.LoadScene("CoffeeShop");
     }
 
     public void OnExitClick()
