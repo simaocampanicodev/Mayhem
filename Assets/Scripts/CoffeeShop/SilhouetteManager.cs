@@ -10,16 +10,34 @@ public class SilhouetteManager : MonoBehaviour
     [SerializeField] private float maxStartDelay = 5f;
     [SerializeField] private float silhouetteDuration = 15f;
     [SerializeField] private int maxSilhouettes = 2;
+    
+    [SerializeField] private float minDelayAtMaxStress = 1f;
+    [SerializeField] private float maxDelayAtMaxStress = 2f;
+    [SerializeField] private StressBarManager stressManager;
 
     private List<int> occupiedSeats = new List<int>();
 
     void Start()
     {
+        if (stressManager == null)
+        {
+            stressManager = FindObjectOfType<StressBarManager>();
+        }
+
         for (int i = 0; i < maxSilhouettes; i++)
         {
-            float delay = Random.Range(minStartDelay, maxStartDelay);
+            float delay = GetRandomDelay();
             StartCoroutine(SpawnSilhouetteWithDelay(delay));
         }
+    }
+
+    float GetRandomDelay()
+    {
+        float stressPercent = stressManager != null ? stressManager.StressPercentage() : 0f;
+        float minDelay = Mathf.Lerp(minStartDelay, minDelayAtMaxStress, stressPercent);
+        float maxDelay = Mathf.Lerp(maxStartDelay, maxDelayAtMaxStress, stressPercent);
+        
+        return Random.Range(minDelay, maxDelay);
     }
 
     IEnumerator SpawnSilhouetteWithDelay(float delay)
@@ -38,12 +56,17 @@ public class SilhouetteManager : MonoBehaviour
         occupiedSeats.Add(seatIndex);
 
         GameObject silhouette = Instantiate(silhouettePrefab, seatPositions[seatIndex].position, Quaternion.identity, transform);
-        Silhouette s = silhouette.GetComponent<Silhouette>();
+        SilhouetteOrder s = silhouette.GetComponent<SilhouetteOrder>();
 
-        s.Initialize(silhouetteDuration, () => {
+        s.Initialize(silhouetteDuration - 3f, () => {
             occupiedSeats.Remove(seatIndex);
-            float delay = Random.Range(minStartDelay, maxStartDelay);
+            float delay = GetRandomDelay();
             StartCoroutine(SpawnSilhouetteWithDelay(delay));
+            
+            if (stressManager != null && !s.IsOrderFulfilled())
+            {
+                stressManager.IncreaseStress(15f);
+            }
         });
     }
 

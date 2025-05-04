@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3852074993287286406}
   - component: {fileID: 3553281969352513744}
+  - component: {fileID: -7214831255485616725}
   - component: {fileID: 2119597202273388217}
   - component: {fileID: 3148869220382397025}
+  - component: {fileID: 6001141253438509441}
   - component: {fileID: 1313664186673680750}
   m_Layer: 6
   m_Name: Silhouette
@@ -90,6 +92,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &-7214831255485616725
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564292162545370990}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0005072281, y: -0.0029312074}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.49}
+    newSize: {x: 0.32, y: 0.49}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.18618326, y: 0.4841376}
+  m_EdgeRadius: 0
 --- !u!95 &2119597202273388217
 Animator:
   serializedVersion: 7
@@ -124,7 +172,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1313664186673680750
+--- !u!114 &6001141253438509441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +181,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 7564292162545370990}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b6a90e31263eb40a3cace14cdb6490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderBubble: {fileID: 0}
+  orderText: {fileID: 0}
+  orderIcon: {fileID: 0}
+  toastSprite: {fileID: 4243476900488732440, guid: 57057ba22f50dc14486ffd5410c22584, type: 3}
+  coffeeSprite: {fileID: -7262840644187413011, guid: 57057ba22f50dc14486ffd5410c22584, type: 3}
+  bothSprite: {fileID: 0}
+  fadeDuration: 1.5
+--- !u!114 &1313664186673680750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564292162545370990}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70a16a62ce957024eb18df66112b9d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 3
