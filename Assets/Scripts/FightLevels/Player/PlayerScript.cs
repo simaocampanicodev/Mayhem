@@ -121,11 +121,13 @@ public class PlayerScript : MonoBehaviour
         {
             if (context.started)
             {
+                anim.SetBool("Block", true);
                 Defending = true;
                 CanMove = false;
             }
             if (context.canceled)
             {
+                anim.SetBool("Block", false);
                 Defending = false;
                 CanMove = true;
             }
