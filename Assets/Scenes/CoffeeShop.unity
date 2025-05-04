@@ -5928,13 +5928,11 @@ MonoBehaviour:
   toastIndicator: {fileID: 238352210}
   messageText: {fileID: 0}
   messageDuration: 2
-  moneyManager: {fileID: 0}
-  correctOrderSound: {fileID: 0}
-  incorrectOrderSound: {fileID: 0}
+  moneyManager: {fileID: 1337304231}
   audioSource: {fileID: 1534930510}
   audios:
-  - {fileID: 8300000, guid: 8188e505a5c40a14d8d366cbc6d7c194, type: 3}
-  - {fileID: 8300000, guid: 253257f56e1959c48919c144d83f757c, type: 3}
+  - {fileID: 8300000, guid: baa8a4538ae7c4e49b9f605db2526016, type: 3}
+  - {fileID: 8300000, guid: af52cd4413e587144bd82c1bca809de8, type: 3}
 --- !u!82 &1534930510
 AudioSource:
   m_ObjectHideFlags: 0

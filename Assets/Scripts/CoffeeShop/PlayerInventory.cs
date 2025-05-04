@@ -11,8 +11,6 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private float messageDuration = 2f;
     [SerializeField] private MoneyManager moneyManager;
-    [SerializeField] private AudioClip correctOrderSound;
-    [SerializeField] private AudioClip incorrectOrderSound;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audios;
 
@@ -83,21 +81,18 @@ public class PlayerInventory : MonoBehaviour
         
         if (isCorrect)
         {
+            audioSource.PlayOneShot(audios[0]);
             switch (orderType)
             {
                 case SilhouetteOrder.OrderType.Coffee:
-                    audioSource.PlayOneShot(audios[0]);
                     hasCoffee = false;
                     break;
 
                 case SilhouetteOrder.OrderType.Toast:
-                    audioSource.PlayOneShot(audios[1]);
                     hasToast = false;
                     break;
 
                 case SilhouetteOrder.OrderType.Both:
-                    audioSource.PlayOneShot(audios[1]);
-                    audioSource.PlayOneShot(audios[0]);
                     hasCoffee = false;
                     hasToast = false;
                     break;
@@ -106,20 +101,11 @@ public class PlayerInventory : MonoBehaviour
             UpdateUI();
             
             moneyManager?.AddMoney(20);
-            
-            if (audioSource != null && correctOrderSound != null)
-            {
-                audioSource.PlayOneShot(correctOrderSound);
-            }
         }
         else
         {
+            audioSource.PlayOneShot(audios[1]);
             moneyManager?.SubtractMoney(10);
-            
-            if (audioSource != null && incorrectOrderSound != null)
-            {
-                audioSource.PlayOneShot(incorrectOrderSound);
-            }
         }
 
         return isCorrect;
