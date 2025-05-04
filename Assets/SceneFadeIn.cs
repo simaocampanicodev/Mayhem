@@ -14,7 +14,7 @@ public class SceneFadeIn : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
         
         Color c = fadeImage.color;
         float timer = 0f;

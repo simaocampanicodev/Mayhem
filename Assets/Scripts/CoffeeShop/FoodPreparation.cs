@@ -18,6 +18,33 @@ public class FoodPreparation : MonoBehaviour
     private bool isPreparingToast = false;
     private bool playerInCoffeeArea = false;
     private bool playerInToastArea = false;
+    private bool gameActive = false;
+    
+    void OnEnable()
+    {
+        CafeSceneManager.OnGameStarted += HandleGameStarted;
+        CafeSceneManager.OnGameEnded += HandleGameEnded;
+    }
+    
+    void OnDisable()
+    {
+        CafeSceneManager.OnGameStarted -= HandleGameStarted;
+        CafeSceneManager.OnGameEnded -= HandleGameEnded;
+    }
+    
+    void HandleGameStarted()
+    {
+        gameActive = true;
+        if (showDebug)
+            Debug.Log("Jogo iniciado, FoodPreparation ativado");
+    }
+    
+    void HandleGameEnded()
+    {
+        gameActive = false;
+        if (showDebug)
+            Debug.Log("Jogo terminado, FoodPreparation desativado");
+    }
     
     public void SetPlayerInCoffeeArea(bool value)
     {
@@ -52,6 +79,8 @@ public class FoodPreparation : MonoBehaviour
 
     private void Update()
     {
+        if (!gameActive) return;
+        
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             if (showDebug)

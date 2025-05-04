@@ -16,6 +16,23 @@ public class SilhouetteManager : MonoBehaviour
     [SerializeField] private StressBarManager stressManager;
 
     private List<int> occupiedSeats = new List<int>();
+    private bool gameStarted = false;
+
+    void OnEnable()
+    {
+        CafeSceneManager.OnGameStarted += HandleGameStarted;
+    }
+    
+    void OnDisable()
+    {
+        CafeSceneManager.OnGameStarted -= HandleGameStarted;
+    }
+    
+    void HandleGameStarted()
+    {
+        gameStarted = true;
+        StartSpawning();
+    }
 
     void Start()
     {
@@ -23,7 +40,10 @@ public class SilhouetteManager : MonoBehaviour
         {
             stressManager = FindObjectOfType<StressBarManager>();
         }
-
+    }
+    
+    void StartSpawning()
+    {
         for (int i = 0; i < maxSilhouettes; i++)
         {
             float delay = GetRandomDelay();

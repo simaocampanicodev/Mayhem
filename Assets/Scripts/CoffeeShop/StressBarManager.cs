@@ -16,9 +16,42 @@ public class StressBarManager : MonoBehaviour
     private float Stress70 = 70f;
     private float Stress90 = 90f;
     
-    [SerializeField] private string changeScene = "Video";
+    [SerializeField] private string changeScene = "FightClub";
+    [SerializeField] private float gameOverTimer = 60f;
+    
+    private bool gameActive = false;
+    private bool gameOverScheduled = false;
 
     private static readonly string PARAMETRO_NIVEL_STRESS = "Stress";
+
+    void OnEnable()
+    {
+        CafeSceneManager.OnGameStarted += HandleGameStarted;
+        CafeSceneManager.OnGameEnded += HandleGameEnded;
+    }
+    
+    void OnDisable()
+    {
+        CafeSceneManager.OnGameStarted -= HandleGameStarted;
+        CafeSceneManager.OnGameEnded -= HandleGameEnded;
+    }
+    
+    void HandleGameStarted()
+    {
+        gameActive = true;
+        Invoke("GameOver", gameOverTimer);
+        gameOverScheduled = true;
+    }
+    
+    void HandleGameEnded()
+    {
+        gameActive = false;
+        if (gameOverScheduled)
+        {
+            CancelInvoke("GameOver");
+            gameOverScheduled = false;
+        }
+    }
 
     private void Start()
     {
@@ -28,12 +61,12 @@ public class StressBarManager : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
-
-        Invoke("GameOver", 60f);
     }
 
     public void IncreaseStress(float quantity)
     {
+        if (!gameActive) return;
+        
         actualStress = Mathf.Clamp(actualStress + quantity, 0, maxStress);
         UpdateBar();
         UpdateAnimator();
@@ -41,6 +74,8 @@ public class StressBarManager : MonoBehaviour
     
     public void DecreaseStress(float quantity)
     {
+        if (!gameActive) return;
+        
         actualStress = Mathf.Clamp(actualStress - quantity, 0, maxStress);
         UpdateBar();
         UpdateAnimator();
@@ -48,6 +83,8 @@ public class StressBarManager : MonoBehaviour
 
     public void DefineStress(float value)
     {
+        if (!gameActive) return;
+        
         actualStress = Mathf.Clamp(value, 0, maxStress);
         UpdateBar();
         UpdateAnimator();
@@ -73,13 +110,11 @@ public class StressBarManager : MonoBehaviour
     
     private void GameOver()
     {
+        gameOverScheduled = false;
+        
         if (!string.IsNullOrEmpty(changeScene))
         {
-            SceneManager.LoadScene(changeScene);
-        }
-        else
-        {
-            Debug.LogWarning("Nome da cena de Game Over não foi definido!");
+            SceneManager.LoadScene("FightClub");
         }
     }
     
@@ -95,6 +130,9 @@ public class StressBarManager : MonoBehaviour
 
     private void Update()
     {
-        DefineStress(actualStress);
+        if (gameActive)
+        {
+            DefineStress(actualStress);
+        }
     }
 }
