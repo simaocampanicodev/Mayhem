@@ -21,6 +21,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private AudioSource punchsound;
     [SerializeField] private GameObject particles;
+    [SerializeField] private AudioSource radioSource;
+    [SerializeField] private GruntScript hurtSound;
     public float timeFrame = .1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +37,8 @@ public class EnemyScript : MonoBehaviour
     {
         if (life <= 0)
         {
+            AudioClip grunt = hurtSound.DeathSound;
+            radioSource.PlayOneShot(grunt);
             Destroy(gameObject);
         }
         //código para o inimigo perseguir o jogador
@@ -96,6 +100,10 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackedPool()
     {
+        if (life != 0) {
+            AudioClip grunt = hurtSound.GruntSound;
+            radioSource.PlayOneShot(grunt);
+        } 
         PlayerScript plr = FindAnyObjectByType<PlayerScript>();
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);

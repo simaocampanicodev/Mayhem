@@ -22,6 +22,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Sprite[] lifebarList;
     [SerializeField] private GameObject particles;
     public bool Uppercut = false;
+    [SerializeField] private AudioSource radioSource;
+    [SerializeField] private GruntScript hurtSound;
     void Awake()
     {
         //lê os inputs
@@ -174,11 +176,15 @@ public class PlayerScript : MonoBehaviour
         LifeUI.sprite = lifebarList[spriteNum];
         if (life <= 0)
         {
+            AudioClip grunt = hurtSound.DeathSound;
+            radioSource.PlayOneShot(grunt);
             life = 0;
             Destroy(gameObject);
         }
         else
         {
+            AudioClip grunt = hurtSound.GruntSound;
+            radioSource.PlayOneShot(grunt);
             // anim.SetBool("Hurt", true);
             StartCoroutine(HurtTimer(blood));
 
