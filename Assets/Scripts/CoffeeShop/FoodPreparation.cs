@@ -131,7 +131,7 @@ public class FoodPreparation : MonoBehaviour
             coffeeProgressIndicator.SetActive(true);
         
         if (coffeeMachineShake != null)
-            coffeeMachineShake.StopShaking();
+            coffeeMachineShake.StartShaking();
 
         yield return new WaitForSeconds(preparationTime);
         
