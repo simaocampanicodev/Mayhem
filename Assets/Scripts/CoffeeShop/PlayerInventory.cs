@@ -6,31 +6,14 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private bool hasCoffee = false;
     [SerializeField] private bool hasToast = false;
-    
-    [SerializeField] private KeyCode toastKey = KeyCode.Q;
-    [SerializeField] private KeyCode coffeeKey = KeyCode.W;
-    
     [SerializeField] private GameObject coffeeIndicator;
     [SerializeField] private GameObject toastIndicator;
-    
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private float messageDuration = 2f;
 
     void Update()
     {
-        if (Input.GetKeyDown(coffeeKey))
-        {
-            hasCoffee = !hasCoffee;
-            UpdateUI();
-            ShowMessage(hasCoffee ? "Pegou café" : "Soltou café");
-        }
-        
-        if (Input.GetKeyDown(toastKey))
-        {
-            hasToast = !hasToast;
-            UpdateUI();
-            ShowMessage(hasToast ? "Pegou tosta" : "Soltou tosta");
-        }
+       
     }
     
     void Start()
@@ -42,6 +25,34 @@ public class PlayerInventory : MonoBehaviour
             messageText.text = "";
             messageText.gameObject.SetActive(false);
         }
+    }
+    public bool HasCoffee()
+    {
+        return hasCoffee;
+    }
+    public bool HasToast()
+    {
+        return hasToast;
+    }
+    public void ToggleCoffee(bool value)
+    {
+        hasCoffee = value;
+        UpdateUI();
+        
+        if (value)
+            Debug.Log("Jogador pegou café");
+        else
+            Debug.Log("Jogador soltou café");
+    }
+    public void ToggleToast(bool value)
+    {
+        hasToast = value;
+        UpdateUI();
+        
+        if (value)
+            Debug.Log("Jogador pegou tosta");
+        else
+            Debug.Log("Jogador soltou tosta");
     }
     
     void UpdateUI()
