@@ -11,8 +11,6 @@ public class FoodPreparation : MonoBehaviour
     [SerializeField] private GameObject toastProgressIndicator;
     [SerializeField] private float messageDuration = 2f;
     [SerializeField] private bool showDebug = true;
-    [SerializeField] private AudioClip toastClickSound;
-    [SerializeField] private AudioClip coffeeClickSound;
     [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private CoffeeMachineShake coffeeMachineShake;
@@ -22,6 +20,7 @@ public class FoodPreparation : MonoBehaviour
     [SerializeField] private string marioEntregandoAnimName = "MarioEntregando";
     [SerializeField] private string idleMarioAnimName = "IdleMario";
     [SerializeField] private string idleCabineAnimName = "IdleCabine";
+    [SerializeField] private AudioClip[] audios;
     
     private bool coffeeReady = false;
     private bool toastReady = false;
@@ -122,8 +121,7 @@ public class FoodPreparation : MonoBehaviour
 
     private IEnumerator PrepareCoffee()
     {
-        if (audioSource != null && coffeeClickSound != null)
-            audioSource.PlayOneShot(coffeeClickSound);
+        audioSource.PlayOneShot(audios[0]);
 
         isPreparingCoffee = true;
 
@@ -146,8 +144,7 @@ public class FoodPreparation : MonoBehaviour
 
     private IEnumerator PrepareToast()
     {
-        if (audioSource != null && toastClickSound != null)
-            audioSource.PlayOneShot(toastClickSound);
+        audioSource.PlayOneShot(audios[1]);
 
         isPreparingToast = true;
 
