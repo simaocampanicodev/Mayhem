@@ -1,5 +1,5 @@
 [
-    "To punch",
-    "To defend",
-    "+ Up to uppercut"
+    {"num":0,"text":"To punch"},
+    {"num":1,"text":"To defend"},
+    {"num":2,"text":"+ Up to uppercut"}
 ]

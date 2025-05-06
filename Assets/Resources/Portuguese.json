@@ -1,5 +1,5 @@
 [
-    "Para dar um soco",
-    "Para defender",
-    "+ Cima para dar Uppercut"
+    {"num":0,"text":"Para dar um soco"},
+    {"num":1,"text":"Para defender"},
+    {"num":2,"text":"+ Cima para dar Uppercut"}
 ]

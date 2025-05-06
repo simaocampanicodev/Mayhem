@@ -24,6 +24,6 @@ public class TextLanguage : MonoBehaviour
         TextAsset jsonFile = Resources.Load<TextAsset>(language.ToString()); // vai buscar json das mensagens
         JArray text = JArray.Parse(jsonFile.text); // dá parse
         uiText = GetComponent<TMP_Text>();
-        uiText.text = text[line].ToString();
+        uiText.text = text[line]["text"].ToString();
     }
 }
