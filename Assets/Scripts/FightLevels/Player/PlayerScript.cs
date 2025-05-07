@@ -15,15 +15,18 @@ public class PlayerScript : MonoBehaviour
     public GameObject AttackArea;
     public int damage = 0;
     private int life = 100;
+    private const int MAXLIFE = 100;
     private bool CanMove = true;
     private bool Defending = false;
-    [SerializeField] private Image LifeUI;
     [SerializeField] private GameObject popUpPrefab;
-    [SerializeField] private Sprite[] lifebarList;
+    [SerializeField] private Image lifebar;
     [SerializeField] private GameObject particles;
     public bool Uppercut = false;
     [SerializeField] private AudioSource radioSource;
     [SerializeField] private GruntScript hurtSound;
+    void Start()
+    {
+    }
     void Awake()
     {
         //lê os inputs
@@ -172,10 +175,9 @@ public class PlayerScript : MonoBehaviour
             life -= value / 3;
             popUp.GetComponentInChildren<TMP_Text>().text = (value/3).ToString();
         }
-        int maxLife = 100; // max de vida
-        float lifePercent = (float)life / maxLife; // percentagem de vida dividido pelo maximo
-        int spriteNum = Mathf.Clamp((int)(lifePercent * lifebarList.Length), 0, lifebarList.Length - 1); // escolhe da lista a imagem consoante a percentagem de vida, e apróxima-la para um int        
-        LifeUI.sprite = lifebarList[spriteNum];
+        float lifePercent = Mathf.Clamp01((float)life / MAXLIFE);
+        lifebar.fillAmount = lifePercent;
+        
         if (life <= 0)
         {
             AudioClip grunt = hurtSound.DeathSound; // gera um número entre 0 e o final da lista

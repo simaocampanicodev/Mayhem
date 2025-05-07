@@ -1201,6 +1201,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1481918867}
   - {fileID: 1905289910}
   - {fileID: 1027107339}
   m_Father: {fileID: 0}
@@ -2418,15 +2419,8 @@ MonoBehaviour:
   anim: {fileID: 769463924}
   AttackArea: {fileID: 2034855960}
   damage: 0
-  LifeUI: {fileID: 1905289911}
   popUpPrefab: {fileID: 6941848737422444607, guid: a7f457cf8cd385e40bad4695384d8f13, type: 3}
-  lifebarList:
-  - {fileID: 1446078823659024958, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
-  - {fileID: -8245565107588344395, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
-  - {fileID: -7415057624537481545, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
-  - {fileID: 8580201588215871132, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
-  - {fileID: -2910482699516700778, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
-  - {fileID: -8852995704630408839, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
+  lifebar: {fileID: 1481918868}
   particles: {fileID: 708440199679308887, guid: 95a9a960c6b660441b724f8be8601d74, type: 3}
   Uppercut: 0
   radioSource: {fileID: 769463930}
@@ -4711,6 +4705,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481918866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481918867}
+  - component: {fileID: 1481918869}
+  - component: {fileID: 1481918868}
+  m_Layer: 5
+  m_Name: LifeBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1481918867
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481918866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 323598042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 302, y: -155}
+  m_SizeDelta: {x: 364.6355, y: 85.26013}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1481918868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481918866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -410795818933106804, guid: 335ce8b0d88ee1646a66f7b48a2648aa, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1481918869
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481918866}
+  m_CullTransparentMesh: 1
 --- !u!1 &1486487409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5742,7 +5811,7 @@ GameObject:
   - component: {fileID: 1905289912}
   - component: {fileID: 1905289911}
   m_Layer: 5
-  m_Name: Life bar
+  m_Name: LifeBarOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5780,14 +5849,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.22352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8852995704630408839, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e0bb686465e30a468617a3be654accc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
