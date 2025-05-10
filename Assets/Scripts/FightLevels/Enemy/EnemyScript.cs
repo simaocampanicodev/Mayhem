@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private AudioSource radioSource;
     [SerializeField] private GruntScript hurtSound;
     public float timeFrame = .1f;
+    private bool canJuggle = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -90,7 +92,7 @@ public class EnemyScript : MonoBehaviour
                 ATKrunning = false;
                 life -= player.damage;
                 GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
-                    popUp.GetComponentInChildren<TMP_Text>().text = player.damage.ToString();
+                popUp.GetComponentInChildren<TMP_Text>().text = player.damage.ToString();
                 IsAttacked = true;
                 Debug.Log(life);
             }
@@ -98,22 +100,39 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canJuggle = false;
+        }
+    }
+
     IEnumerator AttackedPool()
     {
-        if (life != 0) {
+        if (life != 0)
+        {
             AudioClip grunt = hurtSound.GruntSound;
             radioSource.PlayOneShot(grunt);
-        } 
+        }
         PlayerScript plr = FindAnyObjectByType<PlayerScript>();
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
         owntrigger.enabled = false;
         // anim.SetBool("Move", false);
         // anim.SetBool("Hurt", true);
-        if (plr.Uppercut == true) {
-            rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
+        if (plr.Uppercut == true && canJuggle == false)
+        {
+            canJuggle = true;
+            rb.AddForce(transform.up * 15, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
         }
-        yield return new WaitForSeconds(pool-.1f);
+        if (canJuggle == true)
+        {
+            rb.AddForce(transform.up * 10, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
+        }
+        yield return new WaitForSeconds(pool - .1f);
         punchsound.Play();
         // anim.SetBool("Hurt", false);
         IsAttacked = false;
