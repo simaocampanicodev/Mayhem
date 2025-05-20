@@ -2,12 +2,14 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 
 public class EnemyScript : MonoBehaviour
 {
     private int life = 80;
     private bool IsAttacked = false;
     public Animator anim;
+    private AnimatorController animC;
     public float pool = 1f;
     public bool ChaseMode = false;
     public bool Attacking = false;
@@ -26,10 +28,29 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private GruntScript hurtSound;
     public float timeFrame = .1f;
     private bool canJuggle = false;
+    private TypeEnemy typeenemy;
+    public AnimatorController whiteAnimator;
+    public AnimatorController blackAnimator;
+    public AnimatorController asianAnimator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // pega nos componentes do jogador
+        typeenemy = (TypeEnemy)Random.Range(0, 3);
+        switch (typeenemy)
+        {
+            case TypeEnemy.White:
+                animC = whiteAnimator;
+                break;
+            case TypeEnemy.Black:
+                animC = blackAnimator;
+                break;
+            case TypeEnemy.Asian:
+                animC = asianAnimator;
+                break;
+        }
+
+        anim.runtimeAnimatorController = animC;
         target = GameObject.FindWithTag("Player").transform;
         player = GameObject.FindWithTag("Player").GetComponent<PlayerScript>();
     }

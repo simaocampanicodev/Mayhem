@@ -241,6 +241,9 @@ MonoBehaviour:
   radioSource: {fileID: 6637447411072642651}
   hurtSound: {fileID: 3424096823948535775}
   timeFrame: 0
+  whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
+  blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
+  asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
 --- !u!95 &2896078130567660604
 Animator:
   serializedVersion: 7

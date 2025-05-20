@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: b90d625c985d4ef499fa833a0de3c99c
+guid: dbf1c7bbc72c7a641943c212302660b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9016607483983178484
-    second: menu_buttons_0
+      213: 3499225648586295012
+    second: bruce_wang_0
   - first:
-      213: -7421592913449672578
-    second: menu_buttons_1
+      213: -1928655659955697281
+    second: bruce_wang_1
   - first:
-      213: -8519022737440003418
-    second: menu_buttons_2
+      213: -4273818960941247982
+    second: bruce_wang_2
+  - first:
+      213: -4738713921332757917
+    second: bruce_wang_3
+  - first:
+      213: 3909834784482178368
+    second: bruce_wang_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,56 +138,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menu_buttons_0
+      name: bruce_wang_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 32
-        width: 123
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c05dd0ee3439ed280800000000000000
-      internalID: -9016607483983178484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu_buttons_1
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 64
-        width: 123
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e70a6460194310990800000000000000
-      internalID: -7421592913449672578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu_buttons_2
-      rect:
-        serializedVersion: 2
-        x: 1
+        x: 5
         y: 0
-        width: 123
+        width: 24
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -191,8 +153,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aaa96db4f956c980800000000000000
-      internalID: -8519022737440003418
+      spriteID: 4e60cec003fbf8030800000000000000
+      internalID: 3499225648586295012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bruce_wang_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f794b4e45e90c35e0800000000000000
+      internalID: -1928655659955697281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bruce_wang_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21294c67c4850b4c0800000000000000
+      internalID: -4273818960941247982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bruce_wang_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a33ca9bc4bc3eb0800000000000000
+      internalID: -4738713921332757917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bruce_wang_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045b6837506824630800000000000000
+      internalID: 3909834784482178368
       vertices: []
       indices: 
       edges: []
@@ -211,9 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      menu_buttons_0: -9016607483983178484
-      menu_buttons_1: -7421592913449672578
-      menu_buttons_2: -8519022737440003418
+      bruce_wang_0: 3499225648586295012
+      bruce_wang_1: -1928655659955697281
+      bruce_wang_2: -4273818960941247982
+      bruce_wang_3: -4738713921332757917
+      bruce_wang_4: 3909834784482178368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

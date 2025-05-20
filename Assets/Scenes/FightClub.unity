@@ -790,6 +790,9 @@ MonoBehaviour:
   radioSource: {fileID: 262664420}
   hurtSound: {fileID: 262664419}
   timeFrame: 0
+  whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
+  blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
+  asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
 --- !u!95 &262664418
 Animator:
   serializedVersion: 7
@@ -1327,6 +1330,9 @@ MonoBehaviour:
   radioSource: {fileID: 404401020}
   hurtSound: {fileID: 404401019}
   timeFrame: 0
+  whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
+  blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
+  asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
 --- !u!114 &404401019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,6 +2781,9 @@ MonoBehaviour:
   radioSource: {fileID: 848772774}
   hurtSound: {fileID: 848772773}
   timeFrame: 0
+  whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
+  blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
+  asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
 --- !u!114 &848772773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3283,6 +3292,9 @@ MonoBehaviour:
   radioSource: {fileID: 925070198}
   hurtSound: {fileID: 925070197}
   timeFrame: 0
+  whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
+  blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
+  asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
 --- !u!114 &925070197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6043,6 +6055,9 @@ MonoBehaviour:
   radioSource: {fileID: 1936206975}
   hurtSound: {fileID: 1936206974}
   timeFrame: 0
+  whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
+  blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
+  asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
 --- !u!114 &1936206974
 MonoBehaviour:
   m_ObjectHideFlags: 0
