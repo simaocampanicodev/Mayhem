@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 302bc3af78dad0640ac9203f50766a27
+guid: b90d625c985d4ef499fa833a0de3c99c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8753285148500969919
-    second: MAYHEM_0
+      213: -9016607483983178484
+    second: menu_buttons_0
   - first:
-      213: 2681818060390190186
-    second: MAYHEM_1
+      213: -7421592913449672578
+    second: menu_buttons_1
   - first:
-      213: -2737866814210592579
-    second: MAYHEM_2
-  - first:
-      213: -8963468230528271309
-    second: MAYHEM_3
-  - first:
-      213: -5601025874072217312
-    second: MAYHEM_4
+      213: -8519022737440003418
+    second: menu_buttons_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -58,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -87,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAYHEM_0
+      name: menu_buttons_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 128
-        width: 1738
-        height: 867
+        x: 1
+        y: 32
+        width: 123
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 146b5e9c885168680800000000000000
-      internalID: -8753285148500969919
+      spriteID: c05dd0ee3439ed280800000000000000
+      internalID: -9016607483983178484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAYHEM_1
+      name: menu_buttons_1
       rect:
         serializedVersion: 2
-        x: 518
-        y: 989
-        width: 13
-        height: 9
+        x: 2
+        y: 64
+        width: 123
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6cc8c9215bb73520800000000000000
-      internalID: 2681818060390190186
+      spriteID: e70a6460194310990800000000000000
+      internalID: -7421592913449672578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAYHEM_2
+      name: menu_buttons_2
       rect:
         serializedVersion: 2
-        x: 519
-        y: 995
-        width: 6
-        height: 6
+        x: 1
+        y: 0
+        width: 123
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,52 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db0b5a863a4210ad0800000000000000
-      internalID: -2737866814210592579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAYHEM_3
-      rect:
-        serializedVersion: 2
-        x: 535
-        y: 992
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 33cfcd3822d5b9380800000000000000
-      internalID: -8963468230528271309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAYHEM_4
-      rect:
-        serializedVersion: 2
-        x: 678
-        y: 103
-        width: 17
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 029572e94a82542b0800000000000000
-      internalID: -5601025874072217312
+      spriteID: 6aaa96db4f956c980800000000000000
+      internalID: -8519022737440003418
       vertices: []
       indices: 
       edges: []
@@ -251,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +210,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      MAYHEM_0: -8753285148500969919
-      MAYHEM_1: 2681818060390190186
-      MAYHEM_2: -2737866814210592579
-      MAYHEM_3: -8963468230528271309
-      MAYHEM_4: -5601025874072217312
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

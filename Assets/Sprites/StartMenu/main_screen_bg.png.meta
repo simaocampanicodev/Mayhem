@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 302bc3af78dad0640ac9203f50766a27
+guid: 0f99765b713929144831d3ea40390606
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8753285148500969919
-    second: MAYHEM_0
-  - first:
-      213: 2681818060390190186
-    second: MAYHEM_1
-  - first:
-      213: -2737866814210592579
-    second: MAYHEM_2
-  - first:
-      213: -8963468230528271309
-    second: MAYHEM_3
-  - first:
-      213: -5601025874072217312
-    second: MAYHEM_4
+      213: 79237014842290812
+    second: main_screen_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAYHEM_0
+      name: main_screen_bg_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 128
-        width: 1738
-        height: 867
+        x: 0
+        y: 0
+        width: 2255
+        height: 1400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,96 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 146b5e9c885168680800000000000000
-      internalID: -8753285148500969919
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAYHEM_1
-      rect:
-        serializedVersion: 2
-        x: 518
-        y: 989
-        width: 13
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a6cc8c9215bb73520800000000000000
-      internalID: 2681818060390190186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAYHEM_2
-      rect:
-        serializedVersion: 2
-        x: 519
-        y: 995
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db0b5a863a4210ad0800000000000000
-      internalID: -2737866814210592579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAYHEM_3
-      rect:
-        serializedVersion: 2
-        x: 535
-        y: 992
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 33cfcd3822d5b9380800000000000000
-      internalID: -8963468230528271309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAYHEM_4
-      rect:
-        serializedVersion: 2
-        x: 678
-        y: 103
-        width: 17
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 029572e94a82542b0800000000000000
-      internalID: -5601025874072217312
+      spriteID: c72bcba25a1891100800000000000000
+      internalID: 79237014842290812
       vertices: []
       indices: 
       edges: []
@@ -251,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MAYHEM_0: -8753285148500969919
-      MAYHEM_1: 2681818060390190186
-      MAYHEM_2: -2737866814210592579
-      MAYHEM_3: -8963468230528271309
-      MAYHEM_4: -5601025874072217312
+      main_screen_bg_0: 79237014842290812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

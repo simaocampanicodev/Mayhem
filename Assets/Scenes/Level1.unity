@@ -1890,8 +1890,8 @@ MonoBehaviour:
   - {fileID: 8165872311004145395, guid: 73ef501e0ce029143b178d9c0ef17c2b, type: 3}
   - {fileID: 8165872311004145395, guid: 73ef501e0ce029143b178d9c0ef17c2b, type: 3}
   range:
-  - 10
-  - 15
+  - 20
+  - 30
 --- !u!61 &1815296916
 BoxCollider2D:
   m_ObjectHideFlags: 0
