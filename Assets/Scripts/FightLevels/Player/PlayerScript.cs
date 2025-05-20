@@ -189,7 +189,7 @@ public class PlayerScript : MonoBehaviour
         {
             AudioClip grunt = hurtSound.GruntSound; // gera um número entre 0 e o final da lista
             radioSource.PlayOneShot(grunt); // escolhe um audio da lista de acordo com esse número
-            // anim.SetBool("Hurt", true);
+            anim.SetBool("Hurt", true);
             StartCoroutine(HurtTimer(blood));
 
         }
@@ -200,6 +200,6 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - .2f);
         CanMove = true;
         Destroy(blood);
-        // anim.SetBool("Hurt", false);
+        anim.SetBool("Hurt", false);
     }
 }
