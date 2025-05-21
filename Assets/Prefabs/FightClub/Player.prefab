@@ -309,6 +309,7 @@ MonoBehaviour:
   Uppercut: 0
   radioSource: {fileID: 2566855579189004828}
   hurtSound: {fileID: 2136129848389548701}
+  cadaver: {fileID: 5762391859521674724, guid: 622003f5de33bd244b90aee29f2d2d28, type: 3}
   speed: 12
   jump_force: 7
 --- !u!82 &2566855579189004828

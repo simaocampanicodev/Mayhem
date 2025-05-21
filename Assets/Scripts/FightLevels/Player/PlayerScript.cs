@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     public bool Uppercut = false;
     [SerializeField] private AudioSource radioSource;
     [SerializeField] private GruntScript hurtSound;
+    [SerializeField] private GameObject cadaver;
     void Start()
     {
     }
@@ -183,6 +184,7 @@ public class PlayerScript : MonoBehaviour
             AudioClip grunt = hurtSound.DeathSound; // gera um número entre 0 e o final da lista
             radioSource.PlayOneShot(grunt); // escolhe um audio da lista de acordo com esse número
             life = 0;
+            Instantiate(cadaver, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         else
@@ -198,8 +200,8 @@ public class PlayerScript : MonoBehaviour
     {
         CanMove = false;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - .2f);
+        anim.SetBool("Hurt", false);
         CanMove = true;
         Destroy(blood);
-        anim.SetBool("Hurt", false);
     }
 }
