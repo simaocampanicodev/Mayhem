@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 81970e16a62579f4ab9c1cf0d8b489dc
+guid: d8a4b2e058a047d4bb6f6060b6c0a9a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5908544594053489030
-    second: blocktyrone_0
+      213: -6956491928471598652
+    second: soap bar_0
   - first:
-      213: -4301953917222047768
-    second: blocktyrone_1
+      213: 1230614952401991491
+    second: soap bar_1
   - first:
-      213: -1507878380119594059
-    second: blocktyrone_2
-  - first:
-      213: 6570319399715736140
-    second: blocktyrone_3
+      213: 1293808552571407297
+    second: soap bar_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blocktyrone_0
+      name: soap bar_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 25
-        height: 32
+        x: 17
+        y: 1
+        width: 60
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 681ec14e00e5ff150800000000000000
-      internalID: 5908544594053489030
+      spriteID: 4c90498b273957f90800000000000000
+      internalID: -6956491928471598652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blocktyrone_1
+      name: soap bar_1
       rect:
         serializedVersion: 2
-        x: 49
+        x: 104
         y: 0
-        width: 27
-        height: 32
+        width: 84
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ef21eb74b36c44c0800000000000000
-      internalID: -4301953917222047768
+      spriteID: 347743577c5041110800000000000000
+      internalID: 1230614952401991491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blocktyrone_2
+      name: soap bar_2
       rect:
         serializedVersion: 2
-        x: 99
+        x: 201
         y: 0
-        width: 27
-        height: 32
+        width: 83
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,30 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bbea743a90f21be0800000000000000
-      internalID: -1507878380119594059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blocktyrone_3
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 0
-        width: 27
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4a0ae8dea67e2b50800000000000000
-      internalID: 6570319399715736140
+      spriteID: 1cb816f060884f110800000000000000
+      internalID: 1293808552571407297
       vertices: []
       indices: 
       edges: []
@@ -235,11 +210,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      blocktyrone_0: 5908544594053489030
-      blocktyrone_1: -4301953917222047768
-      blocktyrone_2: -1507878380119594059
-      blocktyrone_3: 6570319399715736140
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
