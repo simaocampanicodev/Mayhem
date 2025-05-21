@@ -39,13 +39,13 @@ public class EnemyScript : MonoBehaviour
         typeenemy = (TypeEnemy)Random.Range(0, 3);
         switch (typeenemy)
         {
-            case TypeEnemy.White:
+            case TypeEnemy.JaneDoe:
                 animC = whiteAnimator;
                 break;
-            case TypeEnemy.Black:
+            case TypeEnemy.Tyrone:
                 animC = blackAnimator;
                 break;
-            case TypeEnemy.Asian:
+            case TypeEnemy.Wang:
                 animC = asianAnimator;
                 break;
         }

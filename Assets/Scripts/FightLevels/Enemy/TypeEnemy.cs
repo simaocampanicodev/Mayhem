@@ -1,6 +1,6 @@
 public enum TypeEnemy
 {
-    White,
-    Black,
-    Asian
+    JaneDoe,
+    Tyrone,
+    Wang
 }
