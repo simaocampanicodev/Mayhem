@@ -92,13 +92,17 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
-    
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Punch"))
         { //é atacado normalmente
             if (!IsAttacked)
             {
+                StopCoroutine(AttackEnemy());
+                StopCoroutine(BlockEnemy());
+                anim.SetBool("Punching", false);
+                anim.SetBool("Blocking", false);
                 Attacking = false;
                 if (!Blocking) { life -= player.damage; }
                 if (Blocking) { life -= player.damage / 3; }
@@ -121,11 +125,6 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackedPool()
     {
-        StopCoroutine(AttackEnemy());
-        StopCoroutine(BlockEnemy());
-        anim.SetBool("Punching", false);
-        anim.SetBool("Blocking", false);
-
         if (life != 0)
         {
             AudioClip grunt = hurtSound.GruntSound;
@@ -177,7 +176,7 @@ public class EnemyScript : MonoBehaviour
         punchsound.Play();
         anim.SetBool("Punching", false);
         Attacking = false;
-        if (!ChaseMode)
+        if (!ChaseMode || !IsAttacked)
         {
             ChooseMove();
         }
@@ -190,7 +189,7 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         Blocking = false;
         anim.SetBool("Blocking", false);
-        if (!ChaseMode)
+        if (!ChaseMode || !IsAttacked)
         {
             ChooseMove();
         }
