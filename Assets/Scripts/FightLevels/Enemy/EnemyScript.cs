@@ -136,7 +136,12 @@ public class EnemyScript : MonoBehaviour
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
         // anim.SetBool("Move", false);
         // anim.SetBool("Hurt", true);
-        if (plr.Uppercut == true && !Blocking)
+        if (canJuggle)
+        {
+            rb.AddForce(transform.up * 25, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        }
+        if (plr.Uppercut == true && !Blocking && !canJuggle)
         {
             canJuggle = true;
             rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
