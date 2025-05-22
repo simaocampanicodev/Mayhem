@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ca350778abe790b459575f3418ba81d7
+guid: f53dd0d4da5af5042bb07bd5e329557a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 104517960148599714
-    second: stats paper2_0
+      213: 4460939263882000557
+    second: customer dialogue 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stats paper2_0
+      name: customer dialogue 1_0
       rect:
         serializedVersion: 2
-        x: 215
+        x: 1
         y: 0
-        width: 1238
-        height: 1004
+        width: 122
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a34e4fe782537100800000000000000
-      internalID: 104517960148599714
+      spriteID: da8774c10a078ed30800000000000000
+      internalID: 4460939263882000557
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stats paper2_0: 104517960148599714
+      customer dialogue 1_0: 4460939263882000557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

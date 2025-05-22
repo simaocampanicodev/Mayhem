@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
-using UnityEditor.Animations;
 
 public class EnemyScript : MonoBehaviour
 {
     private int life = 80;
     private bool IsAttacked = false;
     public Animator anim;
-    private AnimatorController animC;
+    private RuntimeAnimatorController animC;
     public bool ChaseMode = false;
     public bool Attacking = false;
     private Transform target;
@@ -24,9 +23,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private GruntScript hurtSound;
     private bool canJuggle = false;
     private TypeEnemy typeenemy;
-    public AnimatorController whiteAnimator;
-    public AnimatorController blackAnimator;
-    public AnimatorController asianAnimator;
+    public RuntimeAnimatorController whiteAnimator;
+    public RuntimeAnimatorController blackAnimator;
+    public RuntimeAnimatorController asianAnimator;
     [SerializeField] private GameObject JaneBody;
     [SerializeField] private GameObject TyroneBody;
     [SerializeField] private GameObject WangBody;
