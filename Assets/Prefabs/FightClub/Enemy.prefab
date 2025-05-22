@@ -234,7 +234,7 @@ MonoBehaviour:
   spr: {fileID: 1750581721047359842}
   damage: 20
   popUpPrefab: {fileID: 6941848737422444607, guid: a7f457cf8cd385e40bad4695384d8f13, type: 3}
-  punchsound: {fileID: 0}
+  punchsound: {fileID: 6637447411072642651}
   particles: {fileID: 708440199679308887, guid: 95a9a960c6b660441b724f8be8601d74, type: 3}
   radioSource: {fileID: 6637447411072642651}
   hurtSound: {fileID: 3424096823948535775}
@@ -303,9 +303,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 06a94fb09de4cd147b922faa22027c42, type: 3}
+  m_Resource: {fileID: 8300000, guid: 06a94fb09de4cd147b922faa22027c42, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

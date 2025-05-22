@@ -147,13 +147,15 @@ public class EnemyScript : MonoBehaviour
     {
         if (life != 0)
         {
+            PlayerScript playerS = FindFirstObjectByType<PlayerScript>();
+            playerS.BeatenEnemies += 1;
             AudioClip grunt = hurtSound.GruntSound;
             radioSource.PlayOneShot(grunt);
         }
         PlayerScript plr = FindAnyObjectByType<PlayerScript>();
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
-        if (canJuggle)
+        if (canJuggle && plr.Uppercut == true)
         {
             anim.SetBool("Air", false);
             anim.SetBool("Air", true);
