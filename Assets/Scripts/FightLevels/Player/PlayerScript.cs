@@ -104,7 +104,12 @@ public class PlayerScript : MonoBehaviour
                 damage = 30;
                 anim.SetBool("Uppercut", true);
             }
-            else {
+            else if (move_input.y < 0) {
+                damage = 30;
+                anim.SetBool("Downwards", true);
+            }
+            else
+            {
                 damage = 20;
                 anim.SetBool("Punching", true);
             }
@@ -145,6 +150,7 @@ public class PlayerScript : MonoBehaviour
     {
         float attackTime = anim.GetCurrentAnimatorStateInfo(0).length; // pega no tempo que a anim demora
         yield return new WaitForSeconds(attackTime);
+        anim.SetBool("Downwards", false);
         anim.SetBool("Punching", false);
         Attacking = false;
         CanMove = true;
