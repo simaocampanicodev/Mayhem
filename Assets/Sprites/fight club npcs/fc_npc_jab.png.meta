@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fc_npc_jab_0: 3177295883738050954
+      fc_npc_jab_1: -4318730161941035729
+      fc_npc_jab_2: -4260349780282940467
+      fc_npc_jab_3: -2646575705279858708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

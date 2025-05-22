@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 120583c3e6d044842908136ec977444d
+guid: cd8f8946a1ebfe2429fb9552b9ff530b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -140560649672300203
-    second: overheadtyrone_0
-  - first:
-      213: 970167619797795206
-    second: overheadtyrone_1
-  - first:
-      213: 4677479049010540617
-    second: overheadtyrone_2
-  - first:
-      213: 2446551462258177064
-    second: overheadtyrone_3
-  - first:
-      213: -7410797504399563417
-    second: overheadtyrone_4
-  - first:
-      213: 3206181098948706367
-    second: overheadtyrone_5
+      213: 4460939263882000557
+    second: customer dialogue 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: overheadtyrone_0
+      name: customer dialogue 1_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 1
         y: 0
-        width: 25
-        height: 32
+        width: 122
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,118 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55962e675d0ac0ef0800000000000000
-      internalID: -140560649672300203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheadtyrone_1
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 0
-        width: 31
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68142ae5f4ab67d00800000000000000
-      internalID: 970167619797795206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheadtyrone_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 940fa98a96eb9e040800000000000000
-      internalID: 4677479049010540617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheadtyrone_3
-      rect:
-        serializedVersion: 2
-        x: 98
-        y: 0
-        width: 23
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8247c90b795e3f120800000000000000
-      internalID: 2446551462258177064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheadtyrone_4
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 0
-        width: 20
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 765a9ef0fee872990800000000000000
-      internalID: -7410797504399563417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overheadtyrone_5
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 0
-        width: 24
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f30c860f8b4ae7c20800000000000000
-      internalID: 3206181098948706367
+      spriteID: da8774c10a078ed30800000000000000
+      internalID: 4460939263882000557
       vertices: []
       indices: 
       edges: []
@@ -285,13 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      overheadtyrone_0: -140560649672300203
-      overheadtyrone_1: 970167619797795206
-      overheadtyrone_2: 4677479049010540617
-      overheadtyrone_3: 2446551462258177064
-      overheadtyrone_4: -7410797504399563417
-      overheadtyrone_5: 3206181098948706367
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

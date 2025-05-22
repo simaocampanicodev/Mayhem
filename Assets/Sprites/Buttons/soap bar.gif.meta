@@ -210,7 +210,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      soap bar_0: -6956491928471598652
+      soap bar_1: 1230614952401991491
+      soap bar_2: 1293808552571407297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

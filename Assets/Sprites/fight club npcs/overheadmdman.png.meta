@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      overheadmdman_0: 8167909200673905776
+      overheadmdman_1: 1760050833578205821
+      overheadmdman_2: -7007556989916064722
+      overheadmdman_3: -7376750379020629789
+      overheadmdman_4: -7243954770245610765
+      overheadmdman_5: -6580546313074706970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

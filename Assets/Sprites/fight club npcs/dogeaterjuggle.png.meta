@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dogeaterjuggle_0: -1054458390149093582
+      dogeaterjuggle_1: 7466607117123649872
+      dogeaterjuggle_2: -5762425381237681925
+      dogeaterjuggle_3: -7456448272207011387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

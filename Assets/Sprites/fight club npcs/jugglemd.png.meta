@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jugglemd_0: -8063810905503782393
+      jugglemd_1: -4958857435449096460
+      jugglemd_2: -6669219345678171321
+      jugglemd_3: -1381073077374624797
+      jugglemd_4: -8658275581984129639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

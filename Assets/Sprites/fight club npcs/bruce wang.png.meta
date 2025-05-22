@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bruce wang_0: -7358339926904212317
+      bruce wang_1: 584793829050782239
+      bruce wang_2: -3710835067955646131
+      bruce wang_3: -4801879083137712294
+      bruce wang_4: 1276474318179154628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

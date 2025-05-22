@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DOGEATER SPRITESHEET_0: -9100312189597940933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
