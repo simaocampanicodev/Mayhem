@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -30,7 +31,14 @@ public class EnemySpawner : MonoBehaviour
                     enemyScript.ChaseMode = true;
                 }
             }
-            Destroy(gameObject);
+            GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(TimerActive());
         }
+    }
+    IEnumerator TimerActive()
+    {
+        yield return new WaitForSeconds(5f);
+        GetComponent<Collider2D>().enabled = true;
+        Debug.Log("Active");
     }
 }
