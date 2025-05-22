@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8165872311004145395}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.1201973, y: -0.017719269, z: 0.047388494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -111,7 +111,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -227,23 +227,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2896078130567660604}
-  pool: 1
   ChaseMode: 0
   Attacking: 0
   rb: {fileID: 8095555571336963277}
   speed: 5
   spr: {fileID: 1750581721047359842}
   damage: 20
-  owntrigger: {fileID: 5578698607952376654}
   popUpPrefab: {fileID: 6941848737422444607, guid: a7f457cf8cd385e40bad4695384d8f13, type: 3}
   punchsound: {fileID: 6637447411072642651}
   particles: {fileID: 708440199679308887, guid: 95a9a960c6b660441b724f8be8601d74, type: 3}
   radioSource: {fileID: 6637447411072642651}
   hurtSound: {fileID: 3424096823948535775}
-  timeFrame: 0
   whiteAnimator: {fileID: 9100000, guid: 789dabeb9c9ecf44aae3331106e869c8, type: 2}
   blackAnimator: {fileID: 9100000, guid: 19d122883b2f9ed46986de4eee21d087, type: 2}
   asianAnimator: {fileID: 9100000, guid: 9ff765c525ab948458ae15b2e0cd06cc, type: 2}
+  JaneBody: {fileID: 5762391859521674724, guid: a3e8bb68b369e4f46b22ebfbef0f9138, type: 3}
+  TyroneBody: {fileID: 5762391859521674724, guid: f581c7aebe0f9474fbb1f7ae9a343031, type: 3}
+  WangBody: {fileID: 5762391859521674724, guid: ae378b9076b15b845ad4baf088eab181, type: 3}
 --- !u!95 &2896078130567660604
 Animator:
   serializedVersion: 7
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 6554031926693928649}
   - component: {fileID: 777220496305722359}
   - component: {fileID: 1492021820652921593}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: EnemyCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

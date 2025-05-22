@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: cd8f8946a1ebfe2429fb9552b9ff530b
+=======
+guid: f53dd0d4da5af5042bb07bd5e329557a
+>>>>>>> e060da06876fc2ba82de4e0c7d704f16cafc6526
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +164,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable: {}
+=======
+    nameFileIdTable:
+      customer dialogue 1_0: 4460939263882000557
+>>>>>>> e060da06876fc2ba82de4e0c7d704f16cafc6526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 50788070da0d6104fbed21762c447cf8
+=======
+guid: 024ecd6f160a0cf4191de895f19808fb
+>>>>>>> e060da06876fc2ba82de4e0c7d704f16cafc6526
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +164,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+<<<<<<< HEAD
     nameFileIdTable: {}
+=======
+    nameFileIdTable:
+      bossmadkek_0: 213505109989578803
+>>>>>>> e060da06876fc2ba82de4e0c7d704f16cafc6526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

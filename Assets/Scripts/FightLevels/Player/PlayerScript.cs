@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
     }
+
+    public int BeatenEnemies { get; set; }
     void Awake()
     {
         //lê os inputs

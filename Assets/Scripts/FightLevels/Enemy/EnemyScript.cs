@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
-using UnityEditor.Animations;
 
 public class EnemyScript : MonoBehaviour
 {
     private int life = 80;
     private bool IsAttacked = false;
     public Animator anim;
-    private AnimatorController animC;
+    private RuntimeAnimatorController animC;
     public bool ChaseMode = false;
     public bool Attacking = false;
     private Transform target;
@@ -24,9 +23,13 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private GruntScript hurtSound;
     private bool canJuggle = false;
     private TypeEnemy typeenemy;
-    public AnimatorController whiteAnimator;
-    public AnimatorController blackAnimator;
-    public AnimatorController asianAnimator;
+    public RuntimeAnimatorController whiteAnimator;
+    public RuntimeAnimatorController blackAnimator;
+    public RuntimeAnimatorController asianAnimator;
+    [SerializeField] private GameObject JaneBody;
+    [SerializeField] private GameObject TyroneBody;
+    [SerializeField] private GameObject WangBody;
+    private GameObject Body;
     private bool Blocking = false;
 
     void Start()
@@ -37,12 +40,15 @@ public class EnemyScript : MonoBehaviour
         {
             case TypeEnemy.JaneDoe:
                 animC = whiteAnimator;
+                Body = JaneBody;
                 break;
             case TypeEnemy.Tyrone:
                 animC = blackAnimator;
+                Body = TyroneBody;
                 break;
             case TypeEnemy.Wang:
                 animC = asianAnimator;
+                Body = WangBody;
                 break;
         }
 
@@ -55,6 +61,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (life <= 0)
         {
+            Instantiate(Body, transform.position, transform.rotation);
             AudioClip grunt = hurtSound.DeathSound;
             radioSource.PlayOneShot(grunt);
             Destroy(gameObject);
@@ -93,24 +100,36 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //atacar o jogador
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            CancelAll();
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Punch"))
         { //é atacado normalmente
             if (!IsAttacked)
             {
-                StopCoroutine(AttackEnemy());
-                StopCoroutine(BlockEnemy());
-                anim.SetBool("Punching", false);
-                anim.SetBool("Blocking", false);
-                Attacking = false;
+                IsAttacked = true;
                 if (!Blocking) { life -= player.damage; }
                 if (Blocking) { life -= player.damage / 3; }
                 GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
                 popUp.GetComponentInChildren<TMP_Text>().text = player.damage.ToString();
-                IsAttacked = true;
                 Debug.Log(life);
                 StartCoroutine(AttackedPool());
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (IsAttacked) //verificar se já começou a atacar
+            {
+                CancelAll();
             }
         }
     }
@@ -120,6 +139,7 @@ public class EnemyScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             canJuggle = false;
+            anim.SetBool("Air", false);
         }
     }
 
@@ -127,43 +147,54 @@ public class EnemyScript : MonoBehaviour
     {
         if (life != 0)
         {
+            PlayerScript playerS = FindFirstObjectByType<PlayerScript>();
+            playerS.BeatenEnemies += 1;
             AudioClip grunt = hurtSound.GruntSound;
             radioSource.PlayOneShot(grunt);
         }
         PlayerScript plr = FindAnyObjectByType<PlayerScript>();
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
-        // anim.SetBool("Move", false);
-        // anim.SetBool("Hurt", true);
-        if (canJuggle)
+        if (canJuggle && plr.Uppercut == true)
         {
+            anim.SetBool("Air", false);
+            anim.SetBool("Air", true);
             rb.AddForce(transform.up * 25, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
         if (plr.Uppercut == true && !Blocking && !canJuggle)
         {
+            anim.SetBool("Air", false);
+            anim.SetBool("Air", true);
             canJuggle = true;
             rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
+        else
+        {
+            anim.SetBool("Hit", true);
+        }
         punchsound.Play();
-        // anim.SetBool("Hurt", false);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        anim.SetBool("Hit", false);
         IsAttacked = false;
         Destroy(blood);
     }
 
     private void ChooseMove()
     {
-        int choice = Random.Range(0, 2);
-        switch (choice)
+        if (!IsAttacked)
         {
-            case 0:
-                StartCoroutine(AttackEnemy());
-                break;
-            case 1:
-                StartCoroutine(BlockEnemy());
-                break;
+            int choice = Random.Range(0, 2);
+            switch (choice)
+            {
+                case 0:
+                    StartCoroutine(AttackEnemy());
+                    break;
+                case 1:
+                    StartCoroutine(BlockEnemy());
+                    break;
+            }
         }
     }
 
@@ -172,11 +203,12 @@ public class EnemyScript : MonoBehaviour
         Attacking = true;
         anim.SetBool("Punching", true);
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-        player.Attacked(damage);
+        if (!IsAttacked) { player.Attacked(damage); }
         punchsound.Play();
         anim.SetBool("Punching", false);
         Attacking = false;
-        if (!ChaseMode || !IsAttacked)
+
+        if (!IsAttacked && !ChaseMode)
         {
             ChooseMove();
         }
@@ -189,9 +221,19 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         Blocking = false;
         anim.SetBool("Blocking", false);
-        if (!ChaseMode || !IsAttacked)
+
+        if (!IsAttacked && !ChaseMode)
         {
             ChooseMove();
         }
+    }
+
+    private void CancelAll()
+    {
+        Attacking = false;
+        StopCoroutine(AttackEnemy());
+        StopCoroutine(BlockEnemy());
+        anim.SetBool("Blocking", false);
+        anim.SetBool("Punching", false);
     }
 }
