@@ -1234,6 +1234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1550483485}
   fadeDuration: 4
+  LoadNextScene: 0
+  sceneName: 
 --- !u!114 &1550483485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,10 +1352,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 378065138}
   - {fileID: 1759071049}
-  - {fileID: 2095094697}
+  - {fileID: 378065138}
   - {fileID: 1132646188}
+  - {fileID: 2095094697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997001472
@@ -1500,7 +1502,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3627579450081708158, guid: 78a4095324bd10b4a8fdf06601ffa1c0, type: 3}
       propertyPath: m_Name
-      value: stats paper2_0
+      value: good1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627579450081708158, guid: 78a4095324bd10b4a8fdf06601ffa1c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4057390962376644331, guid: 78a4095324bd10b4a8fdf06601ffa1c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1557,7 +1563,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1167586057955431110, guid: e564d976f02c8f9448e2449cec208714, type: 3}
       propertyPath: m_Name
-      value: stats paper final2_0
+      value: bad1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167586057955431110, guid: e564d976f02c8f9448e2449cec208714, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2362354740739390152, guid: e564d976f02c8f9448e2449cec208714, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1654,7 +1664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8458119850575508591, guid: bbb63c0b583c41b4db067525228390aa, type: 3}
       propertyPath: m_Name
-      value: stats paper_0
+      value: good2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458119850575508591, guid: bbb63c0b583c41b4db067525228390aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1671,7 +1685,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3211010104574307971, guid: 7e989e06e7b145846997c78b507750ab, type: 3}
       propertyPath: m_Name
-      value: stats paper final1_0
+      value: bad2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211010104574307971, guid: 7e989e06e7b145846997c78b507750ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8969137513802594931, guid: 7e989e06e7b145846997c78b507750ab, type: 3}
       propertyPath: m_LocalPosition.x
