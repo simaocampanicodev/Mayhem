@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     public float speed = 5f;
     public Transform spr;
     private PlayerScript player;
-    public int damage = 25;
+    public int damage = 20;
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private AudioSource punchsound;
     [SerializeField] private GameObject particles;

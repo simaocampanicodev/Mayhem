@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     private bool Attacking = false;
     public GameObject AttackArea;
     public int damage = 0;
-    private int life = 100;
+    public int life = 100;
     private const int MAXLIFE = 100;
     private bool CanMove = true;
     private bool Defending = false;
@@ -51,13 +51,16 @@ public class PlayerScript : MonoBehaviour
     private void OnDisable()
     {
         //idem 
-        inputActions.Player.Disable();
-        inputActions.Player.Move.Disable();
-        inputActions.Player.Attack.Disable();
         inputActions.Player.Attack.performed -= Onattack;
-        inputActions.Player.Defend.Disable();
         inputActions.Player.Defend.started -= Ondefend;
         inputActions.Player.Defend.canceled -= Ondefend;
+        
+        inputActions.Player.Disable();
+        inputActions.Disable();
+    }
+    private void OnDestroy()
+    {
+        inputActions.Dispose();
     }
     public float speed = 10f;
     public float jump_force = 7f;
