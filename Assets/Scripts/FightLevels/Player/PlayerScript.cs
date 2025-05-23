@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
     public int multiplier = 1;
     private bool right;
     private float stress = 0;
+    private float stressFactor;
 
     public int BeatenEnemies { get; set; }
     [SerializeField] private bool DestroyLoad = false;
@@ -36,7 +37,7 @@ public class PlayerScript : MonoBehaviour
         KeepGameData data = GameObject.Find("KeepCoffeeData").GetComponent<KeepGameData>();
         stress = data.stress;
         if (DestroyLoad) { Destroy(data); }
-        float stressFactor = 1f - (stress / 100f); // 0 stress = 1f (100%), 100 stress = 0f (0%)
+        stressFactor = 1f - (stress / 100f); // 0 stress = 1f (100%), 100 stress = 0f (0%)
         MAXLIFE = (int)(MAXLIFE * stressFactor);
     }
     void Awake()
@@ -124,17 +125,17 @@ public class PlayerScript : MonoBehaviour
             }
             if (move_input.y > 0)
             {
-                damage = 30 * multiplier;
+                damage = 30 *(int)stressFactor * multiplier;;
                 anim.SetBool("Uppercut", true);
             }
             else if (move_input.y < 0)
             {
-                damage = 30 * multiplier;
+                damage = 30 *(int)stressFactor * multiplier;;
                 anim.SetBool("Downwards", true);
             }
             else
             {
-                damage = (20 * multiplier);
+                damage = 20 *(int)stressFactor * multiplier;
                 anim.SetBool("Punching", true);
             }
             AttackArea.SetActive(true);
