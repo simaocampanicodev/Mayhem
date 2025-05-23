@@ -55,6 +55,7 @@ public class StressBarManager : MonoBehaviour
 
     private void Start()
     {
+        Invoke("GameOver", gameOverTimer);
         UpdateBar();
 
         if (animator == null)

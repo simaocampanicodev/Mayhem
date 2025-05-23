@@ -1234,8 +1234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1550483485}
   fadeDuration: 4
-  LoadNextScene: 0
-  sceneName: 
+  LoadNextScene: 1
+  sceneName: Hospital
 --- !u!114 &1550483485
 MonoBehaviour:
   m_ObjectHideFlags: 0

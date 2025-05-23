@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1570,7 +1570,7 @@ MonoBehaviour:
   fadeImage: {fileID: 1027107337}
   fadeDuration: 5
   LoadNextScene: 0
-  sceneName: 
+  sceneName: Papers
 --- !u!1 &1050627919
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,13 +3517,13 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7fdc579728deb6f4b9ec8a59dda2564c, type: 3}
   m_Resource: {fileID: 8300000, guid: 7fdc579728deb6f4b9ec8a59dda2564c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.122
+  m_Volume: 0.062
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 130
   DopplerLevel: 1
   MinDistance: 65.04683
   MaxDistance: 500
