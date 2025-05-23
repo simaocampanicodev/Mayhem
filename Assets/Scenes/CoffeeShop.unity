@@ -7715,7 +7715,7 @@ GameObject:
   - component: {fileID: 1922862497}
   - component: {fileID: 1922862496}
   m_Layer: 0
-  m_Name: KeepGameData
+  m_Name: KeepCoffeeData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

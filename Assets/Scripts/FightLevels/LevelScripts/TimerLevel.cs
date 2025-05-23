@@ -25,7 +25,7 @@ public class TimerLevel : MonoBehaviour
     {
         Done = true;
         GetComponent<SceneFadeOut>().enabled = true;
-        KeepGameData data = FindFirstObjectByType<KeepGameData>().GetComponent<KeepGameData>();
+        KeepGameData data = GameObject.Find("KeepFightData").GetComponent<KeepGameData>();
         data.KeepFightDataAfterLoad();
     }
 }

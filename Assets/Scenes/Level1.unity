@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 208155235}
   - component: {fileID: 208155234}
   m_Layer: 0
-  m_Name: KeepGameData
+  m_Name: KeepFightData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

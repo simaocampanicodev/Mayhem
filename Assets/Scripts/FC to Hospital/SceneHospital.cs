@@ -10,7 +10,7 @@ public class SceneHospital : MonoBehaviour
     [SerializeField] private GameObject bad2;
     void Start()
     {
-        KeepGameData data = FindFirstObjectByType<KeepGameData>();
+        KeepGameData data = GameObject.Find("KeepFightData").GetComponent<KeepGameData>();
         int life = data.life;
         if (life > 75) { Instantiate(good1); }
         if (life <= 75 && life > 50) { Instantiate(good2); }

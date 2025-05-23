@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private bool DestroyLoad = false;
     void Start()
     {
-        KeepGameData data = FindFirstObjectByType<KeepGameData>();
+        KeepGameData data = GameObject.Find("KeepCoffeeData").GetComponent<KeepGameData>();
         stress = data.stress;
         if (DestroyLoad) { Destroy(data); }
         float stressFactor = 1f - (stress / 100f); // 0 stress = 1f (100%), 100 stress = 0f (0%)

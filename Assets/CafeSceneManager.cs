@@ -101,7 +101,7 @@ public class CafeSceneManager : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        KeepGameData data = GameObject.FindFirstObjectByType<KeepGameData>();
+        KeepGameData data = GameObject.Find("KeepCoffeeData").GetComponent<KeepGameData>();
         data.KeepCoffeeDataAfterLoad();
         fadePanel.color = new Color(panelColor.r, panelColor.g, panelColor.b, 1f);
     }
