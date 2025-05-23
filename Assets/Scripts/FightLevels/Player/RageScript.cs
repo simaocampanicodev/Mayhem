@@ -67,7 +67,7 @@ public class RageScript : MonoBehaviour
             rage -= 1;
             float ragePercent = Mathf.Clamp01((float)rage / MAXRAGE);
             ragebar.fillAmount = ragePercent;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
         plr.multiplier = 1;
     }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -123,10 +124,18 @@ public class EnemyScript : MonoBehaviour
             if (!IsAttacked)
             {
                 IsAttacked = true;
-                if (!Blocking) { life -= player.damage; }
-                if (Blocking) { life -= player.damage / 3; }
-                GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
-                popUp.GetComponentInChildren<TMP_Text>().text = player.damage.ToString();
+                if (!Blocking)
+                {
+                    life -= player.damage;
+                    GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
+                    popUp.GetComponentInChildren<TMP_Text>().text = player.damage.ToString();
+                }
+                if (Blocking)
+                {
+                    life -= player.damage / 3;
+                    GameObject popUp = Instantiate(popUpPrefab, rb.transform.position, Quaternion.identity);
+                    popUp.GetComponentInChildren<TMP_Text>().text = (player.damage / 3).ToString();
+                }
                 Debug.Log(life);
                 StartCoroutine(AttackedPool());
             }

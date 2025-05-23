@@ -26,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GruntScript hurtSound;
     [SerializeField] private GameObject cadaver;
     public int multiplier = 1;
+    private bool right;
     void Start()
     {
     }
@@ -102,6 +103,15 @@ public class PlayerScript : MonoBehaviour
             //dá set do ataque de terra
             Vector2 move_input = inputActions.Player.Move.ReadValue<Vector2>();
             CanMove = false;
+            ToggleHand();
+            if (right)
+            {
+                anim.SetBool("Right", true);
+            }
+            else
+            {
+                anim.SetBool("Right", false);
+            }
             if (move_input.y > 0)
             {
                 damage = 30 * multiplier;
@@ -217,5 +227,17 @@ public class PlayerScript : MonoBehaviour
         anim.SetBool("Hurt", false);
         CanMove = true;
         Destroy(blood);
+    }
+
+    void ToggleHand()
+    {
+        if (right == false)
+        {
+            right = true;
+        }
+        else if (right == true)
+        {
+            right = false;
+        }
     }
 }
