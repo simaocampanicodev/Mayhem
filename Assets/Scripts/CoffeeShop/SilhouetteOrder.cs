@@ -36,7 +36,16 @@ public class SilhouetteOrder : MonoBehaviour
     {
         myCollider = GetComponent<Collider2D>();
         stressManager = FindObjectOfType<StressBarManager>();
-        orderDisplay = FindObjectOfType<OrderDisplay>();
+    }
+
+    public void SetSeatIndex(int index)
+    {
+        seatIndex = index;
+    }
+
+    public void SetOrderDisplay(OrderDisplay display)
+    {
+        orderDisplay = display;
     }
 
     public void Initialize(float duration, Action onDestroy)
@@ -46,16 +55,13 @@ public class SilhouetteOrder : MonoBehaviour
         
         GenerateRandomOrder();
         ShowOrder();
-        StartCoroutine(FadeInOutSequence(duration));
         
-        for (int i = 0; i < transform.parent.childCount; i++)
+        if (orderDisplay != null && seatIndex >= 0)
         {
-            if (transform.parent.GetChild(i) == transform)
-            {
-                seatIndex = i;
-                break;
-            }
+            orderDisplay.ShowOrder(seatIndex, currentOrder);
         }
+        
+        StartCoroutine(FadeInOutSequence(duration));
     }
 
     private void GenerateRandomOrder()
@@ -94,7 +100,7 @@ public class SilhouetteOrder : MonoBehaviour
 
     private void Update()
     {
-        if (!isDestroying && Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (!isDestroying && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
             CheckPlayerDelivery();
         }
@@ -132,31 +138,22 @@ public class SilhouetteOrder : MonoBehaviour
                 if (isCorrect)
                 {
                     stressManager.DecreaseStress(10f);
-                    ShowFeedback(true);
                 }
                 else
                 {
                     stressManager.IncreaseStress(20f);
-                    ShowFeedback(false);
                 }
             }
             
             orderFulfilled = true;
             
+            // Esconde o pedido do UI quando é entregue
             if (orderDisplay != null && seatIndex >= 0)
             {
                 orderDisplay.HideOrder(seatIndex);
             }
             
             StartDestroySequence();
-        }
-    }
-
-    private void ShowFeedback(bool isCorrect)
-    {
-        if (orderText != null)
-        {
-            
         }
     }
 
@@ -174,10 +171,7 @@ public class SilhouetteOrder : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         yield return Fade(1, 0, fadeDuration);
         
-        if (onDestroy != null)
-            onDestroy();
-            
-        Destroy(gameObject);
+        DestroyAndCleanup();
     }
 
     private IEnumerator FadeInOutSequence(float visibleTime)
@@ -196,13 +190,23 @@ public class SilhouetteOrder : MonoBehaviour
         {
             isDestroying = true;
             
+            if (orderDisplay != null && seatIndex >= 0)
+            {
+                orderDisplay.HideOrder(seatIndex);
+            }
+            
             yield return Fade(1, 0, fadeDuration);
             
-            if (onDestroy != null)
-                onDestroy();
-                
-            Destroy(gameObject);
+            DestroyAndCleanup();
         }
+    }
+
+    private void DestroyAndCleanup()
+    {
+        if (onDestroy != null)
+            onDestroy();
+            
+        Destroy(gameObject);
     }
 
     private IEnumerator Fade(float from, float to, float duration)

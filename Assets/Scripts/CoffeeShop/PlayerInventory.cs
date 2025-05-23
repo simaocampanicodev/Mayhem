@@ -16,7 +16,15 @@ public class PlayerInventory : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q) && hasToast)
+        {
+            DropToast();
+        }
         
+        if (Input.GetKeyDown(KeyCode.E) && hasCoffee)
+        {
+            DropCoffee();
+        }
     }
 
     void Start()
@@ -60,6 +68,18 @@ public class PlayerInventory : MonoBehaviour
             toastIndicator.SetActive(hasToast);
     }
 
+    private void DropToast()
+    {
+        hasToast = false;
+        UpdateUI();
+    }
+
+    private void DropCoffee()
+    {
+        hasCoffee = false;
+        UpdateUI();
+    }
+
     public bool CheckAndDeliverOrder(SilhouetteOrder.OrderType orderType)
     {
         bool isCorrect = false;
@@ -67,11 +87,11 @@ public class PlayerInventory : MonoBehaviour
         switch (orderType)
         {
             case SilhouetteOrder.OrderType.Coffee:
-                isCorrect = hasCoffee && !hasToast;
+                isCorrect = hasCoffee;
                 break;
 
             case SilhouetteOrder.OrderType.Toast:
-                isCorrect = hasToast && !hasCoffee;
+                isCorrect = hasToast;
                 break;
 
             case SilhouetteOrder.OrderType.Both:
@@ -82,6 +102,7 @@ public class PlayerInventory : MonoBehaviour
         if (isCorrect)
         {
             audioSource.PlayOneShot(audios[0]);
+            
             switch (orderType)
             {
                 case SilhouetteOrder.OrderType.Coffee:
@@ -99,7 +120,6 @@ public class PlayerInventory : MonoBehaviour
             }
 
             UpdateUI();
-            
             moneyManager?.AddMoney(20);
         }
         else

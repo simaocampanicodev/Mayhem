@@ -85,12 +85,10 @@ public class SilhouetteManager : MonoBehaviour
 
         if (s != null)
         {
+            s.SetSeatIndex(seatIndex);
+            s.SetOrderDisplay(orderDisplay);
+            
             s.Initialize(silhouetteDuration - 3f, () => {
-                if (orderDisplay != null)
-                {
-                    orderDisplay.HideOrder(seatIndex);
-                }
-                
                 occupiedSeats.Remove(seatIndex);
                 float delay = GetRandomDelay();
                 StartCoroutine(SpawnSilhouetteWithDelay(delay));
@@ -102,11 +100,6 @@ public class SilhouetteManager : MonoBehaviour
                     GetComponent<MoneyManager>()?.OnSilhouetteTimeoutSound?.Invoke();
                 }
             });
-            
-            if (orderDisplay != null)
-            {
-                orderDisplay.ShowOrder(seatIndex, s.GetCurrentOrder());
-            }
         }
     }
 
