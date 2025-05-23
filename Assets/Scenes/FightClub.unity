@@ -531,7 +531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3586582648104839156, guid: 1269c182bfb18f642a777b3b3950fa99, type: 3}
+  m_Sprite: {fileID: 7268662188922872739, guid: ff2c26478ec32a040846873ea54fa759, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1081,7 +1081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03080168052f6b7408051960667dca92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 404401023}
   ChaseMode: 0
   Attacking: 0
   rb: {fileID: 404401022}
@@ -2232,7 +2231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03080168052f6b7408051960667dca92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 848772777}
   ChaseMode: 0
   Attacking: 0
   rb: {fileID: 848772776}
@@ -2743,7 +2741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03080168052f6b7408051960667dca92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 925070201}
   ChaseMode: 0
   Attacking: 0
   rb: {fileID: 925070200}
@@ -3611,7 +3608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7268662188922872739, guid: ff2c26478ec32a040846873ea54fa759, type: 3}
+  m_Sprite: {fileID: 3586582648104839156, guid: 1269c182bfb18f642a777b3b3950fa99, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3927,7 +3924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   black: {fileID: 1027107337}
   fadeDuration: 1.2
-  num: 4
+  num: 3
 --- !u!1 &1340033999
 GameObject:
   m_ObjectHideFlags: 0
@@ -4841,7 +4838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3586582648104839156, guid: 1269c182bfb18f642a777b3b3950fa99, type: 3}
+  m_Sprite: {fileID: 7268662188922872739, guid: ff2c26478ec32a040846873ea54fa759, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5643,7 +5640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03080168052f6b7408051960667dca92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1936206978}
   ChaseMode: 0
   Attacking: 0
   rb: {fileID: 1936206977}
@@ -6038,7 +6034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3586582648104839156, guid: 1269c182bfb18f642a777b3b3950fa99, type: 3}
+  m_Sprite: {fileID: 7268662188922872739, guid: ff2c26478ec32a040846873ea54fa759, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

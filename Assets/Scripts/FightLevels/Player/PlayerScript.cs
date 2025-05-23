@@ -27,9 +27,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject cadaver;
     public int multiplier = 1;
     private bool right;
-    void Start()
-    {
-    }
 
     public int BeatenEnemies { get; set; }
     void Awake()

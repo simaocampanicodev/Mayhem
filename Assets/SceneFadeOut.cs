@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class SceneFadeIn : MonoBehaviour
+public class SceneFadeOut : MonoBehaviour
 {
     public Image fadeImage;
     public float fadeDuration = 4f;
@@ -12,10 +12,10 @@ public class SceneFadeIn : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeOut());
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeOut()
     {
         yield return new WaitForSeconds(1f);
 
@@ -25,12 +25,10 @@ public class SceneFadeIn : MonoBehaviour
         while (timer < fadeDuration)
         {
             timer += Time.deltaTime;
-            c.a = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+            c.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
             fadeImage.color = c;
             yield return null;
         }
-
-        c.a = 0f;
         fadeImage.color = c;
         if (LoadNextScene) { SceneManager.LoadSceneAsync(sceneName); }
         gameObject.SetActive(false);

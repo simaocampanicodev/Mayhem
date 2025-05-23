@@ -33,12 +33,14 @@ public class EnemyScript : MonoBehaviour
     private GameObject Body;
     private bool Blocking = false;
     private PlayerScript plr;
+    private RageScript rage;
     private bool WithinPlayer;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         plr = FindAnyObjectByType<PlayerScript>();
+        rage = FindAnyObjectByType<RageScript>();
         // pega nos componentes do jogador
         typeenemy = (TypeEnemy)Random.Range(0, 3);
         switch (typeenemy)
@@ -69,6 +71,7 @@ public class EnemyScript : MonoBehaviour
             Instantiate(Body, transform.position, transform.rotation);
             AudioClip grunt = hurtSound.DeathSound;
             radioSource.PlayOneShot(grunt);
+            if (rage != null) { rage.rage += 5; }
             plr.BeatenEnemies += 1;
             Destroy(gameObject);
         }
@@ -183,13 +186,14 @@ public class EnemyScript : MonoBehaviour
             rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
-        else
+        if (!Blocking)
         {
             anim.SetBool("Hit", true);
         }
         punchsound.Play();
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         anim.SetBool("Hit", false);
+        anim.SetBool("Blocking", false);
         IsAttacked = false;
         Destroy(blood);
     }
@@ -215,7 +219,7 @@ public class EnemyScript : MonoBehaviour
     {
         Attacking = true;
         anim.SetBool("Punching", true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         if (!IsAttacked && WithinPlayer)
         {
             player.Attacked(damage);
@@ -233,7 +237,7 @@ public class EnemyScript : MonoBehaviour
     {
         Blocking = true;
         anim.SetBool("Blocking", true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         Blocking = false;
         anim.SetBool("Blocking", false);
         if (WithinPlayer)

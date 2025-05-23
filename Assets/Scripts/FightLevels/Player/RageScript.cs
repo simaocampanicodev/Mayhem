@@ -13,12 +13,14 @@ public class RageScript : MonoBehaviour
         set
         {
             _rage = Mathf.Clamp(value, 0, MAXRAGE);
+            UpdateBar();
         }
     }
     private const int MAXRAGE = 100;
     [SerializeField] private Image ragebar;
     private InputSystem_Actions inputActions;
     private PlayerScript plr;
+    private bool draining = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -43,8 +45,7 @@ public class RageScript : MonoBehaviour
     }
     void Start()
     {
-        float ragePercent = Mathf.Clamp01((float)rage / MAXRAGE);
-        ragebar.fillAmount = ragePercent;
+        UpdateBar();
         plr = FindAnyObjectByType<PlayerScript>();
     }
 
@@ -54,13 +55,20 @@ public class RageScript : MonoBehaviour
 
     }
 
+    void UpdateBar()
+    {
+        float ragePercent = Mathf.Clamp01((float)rage / MAXRAGE);
+        ragebar.fillAmount = ragePercent;
+    }
+
     private void Ragebait(InputAction.CallbackContext context)
     {
-        StartCoroutine(DrainBar());
+        if (!draining && rage >= 90) { StartCoroutine(DrainBar()); }
     }
 
     IEnumerator DrainBar()
     {
+        draining = true;
         plr.multiplier = 2;
         while (rage > 0)
         {
@@ -70,5 +78,6 @@ public class RageScript : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         plr.multiplier = 1;
+        draining = false;
     }
 }
