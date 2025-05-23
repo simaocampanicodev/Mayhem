@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hospital.unity
     guid: 670cfd2052c48fa48aa3cb34a119ed02
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 2a82ac07adf8cc248b72ecd744dcd708
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8700e4edbde595645a1dbbba928b7963, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 59693295dca03e34593ca8e3c5c6ee85, type: 3}

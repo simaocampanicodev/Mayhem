@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     private int life = 80;
     private bool IsAttacked = false;
-    public Animator anim;
+    private Animator anim;
     private RuntimeAnimatorController animC;
     public bool ChaseMode = false;
     public bool Attacking = false;
@@ -31,9 +31,13 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private GameObject WangBody;
     private GameObject Body;
     private bool Blocking = false;
+    private PlayerScript plr;
+    private bool WithinPlayer;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+        plr = FindAnyObjectByType<PlayerScript>();
         // pega nos componentes do jogador
         typeenemy = (TypeEnemy)Random.Range(0, 3);
         switch (typeenemy)
@@ -64,6 +68,7 @@ public class EnemyScript : MonoBehaviour
             Instantiate(Body, transform.position, transform.rotation);
             AudioClip grunt = hurtSound.DeathSound;
             radioSource.PlayOneShot(grunt);
+            plr.BeatenEnemies += 1;
             Destroy(gameObject);
         }
         if (ChaseMode && !Attacking && !IsAttacked && !Blocking)
@@ -95,6 +100,7 @@ public class EnemyScript : MonoBehaviour
         {
             if (!IsAttacked && !Attacking && !Blocking) //verificar se já começou a atacar
             {
+                WithinPlayer = true;
                 ChooseMove();
             }
         }
@@ -105,7 +111,8 @@ public class EnemyScript : MonoBehaviour
         //atacar o jogador
         if (collision.gameObject.CompareTag("Player"))
         {
-            CancelAll();
+            WithinPlayer = false;
+            if (!Attacking) { CancelAll(); }
         }
     }
 
@@ -127,7 +134,7 @@ public class EnemyScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (IsAttacked) //verificar se já começou a atacar
+            if (IsAttacked && !Attacking) //verificar se já começou a atacar
             {
                 CancelAll();
             }
@@ -147,12 +154,9 @@ public class EnemyScript : MonoBehaviour
     {
         if (life != 0)
         {
-            PlayerScript playerS = FindFirstObjectByType<PlayerScript>();
-            playerS.BeatenEnemies += 1;
             AudioClip grunt = hurtSound.GruntSound;
             radioSource.PlayOneShot(grunt);
         }
-        PlayerScript plr = FindAnyObjectByType<PlayerScript>();
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
         if (canJuggle && plr.Uppercut == true)
@@ -202,13 +206,15 @@ public class EnemyScript : MonoBehaviour
     {
         Attacking = true;
         anim.SetBool("Punching", true);
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
-        if (!IsAttacked) { player.Attacked(damage); }
-        punchsound.Play();
+        yield return new WaitForSeconds(.5f);
+        if (!IsAttacked && WithinPlayer)
+        {
+            player.Attacked(damage);
+            punchsound.Play();
+        }
         anim.SetBool("Punching", false);
         Attacking = false;
-
-        if (!IsAttacked && !ChaseMode)
+        if (!IsAttacked && !Attacking && !ChaseMode && !WithinPlayer)
         {
             ChooseMove();
         }
@@ -221,8 +227,7 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         Blocking = false;
         anim.SetBool("Blocking", false);
-
-        if (!IsAttacked && !ChaseMode)
+        if (!IsAttacked && !Attacking && !ChaseMode && !WithinPlayer)
         {
             ChooseMove();
         }
