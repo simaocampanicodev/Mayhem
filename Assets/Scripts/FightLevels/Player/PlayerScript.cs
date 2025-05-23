@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject AttackArea;
     public int damage = 0;
     public int life = 100;
-    private const int MAXLIFE = 100;
+    private int MAXLIFE = 100;
     private bool CanMove = true;
     private bool Defending = false;
     [SerializeField] private GameObject popUpPrefab;
@@ -27,8 +27,18 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject cadaver;
     public int multiplier = 1;
     private bool right;
+    private float stress = 0;
 
     public int BeatenEnemies { get; set; }
+    [SerializeField] private bool DestroyLoad = false;
+    void Start()
+    {
+        KeepGameData data = FindFirstObjectByType<KeepGameData>();
+        stress = data.stress;
+        if (DestroyLoad) { Destroy(data); }
+        float stressFactor = 1f - (stress / 100f); // 0 stress = 1f (100%), 100 stress = 0f (0%)
+        MAXLIFE = (int)(MAXLIFE * stressFactor);
+    }
     void Awake()
     {
         //lê os inputs
@@ -124,7 +134,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                damage = 20 * multiplier;
+                damage = (20 * multiplier);
                 anim.SetBool("Punching", true);
             }
             AttackArea.SetActive(true);

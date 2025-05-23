@@ -8,7 +8,7 @@ public class StressBarManager : MonoBehaviour
     [SerializeField] private Animator animator;
     
     [SerializeField] private float maxStress = 100f;
-    [SerializeField] private float actualStress = 0f;
+    [SerializeField] public float actualStress = 0f;
 
     private float Stress10 = 10f;
     private float Stress30 = 30f;
