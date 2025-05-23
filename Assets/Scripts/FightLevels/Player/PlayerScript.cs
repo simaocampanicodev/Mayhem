@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private AudioSource radioSource;
     [SerializeField] private GruntScript hurtSound;
     [SerializeField] private GameObject cadaver;
+    public int multiplier = 1;
     void Start()
     {
     }
@@ -73,9 +74,9 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
         }
 
-        if (CanMove == true)
+        if (CanMove == true && !Defending)
         {
-            rb.linearVelocity = new Vector2(move_input.x * speed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(move_input.x * speed * multiplier, rb.linearVelocity.y);
             if (move_input.x > 0)
             {
                 transform.rotation = Quaternion.identity;
@@ -86,7 +87,8 @@ public class PlayerScript : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 anim.SetBool("Walk", true);
             }
-            else {
+            else
+            {
                 anim.SetBool("Walk", false);
             }
         }
@@ -100,26 +102,30 @@ public class PlayerScript : MonoBehaviour
             //dá set do ataque de terra
             Vector2 move_input = inputActions.Player.Move.ReadValue<Vector2>();
             CanMove = false;
-            if (move_input.y > 0) {
-                damage = 30;
+            if (move_input.y > 0)
+            {
+                damage = 30 * multiplier;
                 anim.SetBool("Uppercut", true);
             }
-            else if (move_input.y < 0) {
-                damage = 30;
+            else if (move_input.y < 0)
+            {
+                damage = 30 * multiplier;
                 anim.SetBool("Downwards", true);
             }
             else
             {
-                damage = 20;
+                damage = 20 * multiplier;
                 anim.SetBool("Punching", true);
             }
             AttackArea.SetActive(true);
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
             Attacking = true;
-            if (move_input.y > 0) {
+            if (move_input.y > 0)
+            {
                 StartCoroutine(UppercutTiming());
             }
-            else {
+            else
+            {
                 StartCoroutine(AttackTiming());
             }
         }
@@ -182,11 +188,11 @@ public class PlayerScript : MonoBehaviour
         else if (Defending)
         {
             life -= value / 3;
-            popUp.GetComponentInChildren<TMP_Text>().text = (value/3).ToString();
+            popUp.GetComponentInChildren<TMP_Text>().text = (value / 3).ToString();
         }
         float lifePercent = Mathf.Clamp01((float)life / MAXLIFE);
         lifebar.fillAmount = lifePercent;
-        
+
         if (life <= 0)
         {
             AudioClip grunt = hurtSound.DeathSound; // gera um número entre 0 e o final da lista

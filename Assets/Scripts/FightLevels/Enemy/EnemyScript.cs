@@ -15,7 +15,7 @@ public class EnemyScript : MonoBehaviour
     public float speed = 5f;
     public Transform spr;
     private PlayerScript player;
-    public int damage = 20;
+    public int damage = 25;
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private AudioSource punchsound;
     [SerializeField] private GameObject particles;
@@ -214,7 +214,7 @@ public class EnemyScript : MonoBehaviour
         }
         anim.SetBool("Punching", false);
         Attacking = false;
-        if (!IsAttacked && !Attacking && !ChaseMode && !WithinPlayer)
+        if (WithinPlayer)
         {
             ChooseMove();
         }
@@ -224,10 +224,10 @@ public class EnemyScript : MonoBehaviour
     {
         Blocking = true;
         anim.SetBool("Blocking", true);
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(.5f);
         Blocking = false;
         anim.SetBool("Blocking", false);
-        if (!IsAttacked && !Attacking && !ChaseMode && !WithinPlayer)
+        if (WithinPlayer)
         {
             ChooseMove();
         }
