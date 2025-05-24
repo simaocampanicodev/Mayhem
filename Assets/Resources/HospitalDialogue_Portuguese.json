@@ -1,7 +1,7 @@
 [
   {
     "speaker": "doctor",
-    "text": "Bom dia. Por favor, sente-se. Como se está a sentir hoje?"
+    "text": "Bom dia. Por favor, sente-se. Como se esta a sentir hoje?"
   },
   {
     "speaker": "player",
@@ -9,11 +9,11 @@
   },
   {
     "speaker": "doctor",
-    "text": "Entendo. Pode descrever esses sintomas com mais detalhe? Quando começaram?"
+    "text": "Entendo. Pode descrever esses sintomas com mais detalhe? Quando comecaram?"
   },
   {
     "speaker": "player",
-    "text": "Começou há alguns dias. Tenho visto coisas... coisas que não devia."
+    "text": "Comecou ha alguns dias. Tenho visto coisas... coisas que nao devia."
   },
   {
     "speaker": "doctor",
@@ -21,11 +21,11 @@
   },
   {
     "speaker": "player",
-    "text": "Sim, não tenho dormido bem. E tem havido muita pressão no trabalho."
+    "text": "Sim, nao tenho dormido bem. E tem havido muita pressao no trabalho."
   },
   {
     "speaker": "doctor",
-    "text": "Compreendo. Vamos fazer alguns testes para descartar causas físicas."
+    "text": "Compreendo. Vamos fazer alguns testes para descartar causas fisicas."
   },
   {
     "speaker": "player",
@@ -33,6 +33,6 @@
   },
   {
     "speaker": "doctor",
-    "text": "De nada. Não hesite em contactar-me se os sintomas persistirem."
+    "text": "De nada. Nao hesite em contactar-me se os sintomas persistirem."
   }
 ]

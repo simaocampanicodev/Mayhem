@@ -31,7 +31,6 @@ public class HospitalDialogueSystem : MonoBehaviour
             System.Enum.TryParse(lan, out Languages parsedLanguage);
             language = parsedLanguage;
         }
-
         LoadDialogueData();
         StartCoroutine(DelayedStartDialogue());
     }
@@ -104,6 +103,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         {
             yield return StartCoroutine(FadeOutPanel(playerPanel, playerImage));
         }
+        doctorText.text = "";
 
         yield return StartCoroutine(FadeInPanel(doctorPanel, doctorImage));
 
@@ -117,6 +117,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         {
             yield return StartCoroutine(FadeOutPanel(doctorPanel, doctorImage));
         }
+        playerText.text = "";
 
         yield return StartCoroutine(FadeInPanel(playerPanel, playerImage));
 
@@ -213,6 +214,6 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
-        //Fazer aparecer depois a conta do hospital e se tem dinheiro ou não
+        //Usar para mostrar o valor da conta e a opção de pagar ou não
     }
 }
