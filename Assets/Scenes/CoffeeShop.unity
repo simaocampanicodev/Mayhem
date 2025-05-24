@@ -2365,7 +2365,7 @@ GameObject:
   - component: {fileID: 279582348}
   - component: {fileID: 279582347}
   - component: {fileID: 279582349}
-  - component: {fileID: 279582346}
+  - component: {fileID: 279582350}
   m_Layer: 6
   m_Name: ColliderCoffee
   m_TagString: Untagged
@@ -2373,21 +2373,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &279582346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279582345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73de9581b00f905429f811ca1a98f0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageObject: {fileID: 505696041}
-  fadeDuration: 1
-  initialShowDuration: 5
 --- !u!61 &279582347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2463,6 +2448,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodPrep: {fileID: 1000894610}
   showDebug: 1
+--- !u!114 &279582350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279582345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73de9581b00f905429f811ca1a98f0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageObject: {fileID: 505696041}
+  fadeDuration: 1.5
 --- !u!1 &316282822
 GameObject:
   m_ObjectHideFlags: 0
@@ -8358,7 +8357,7 @@ GameObject:
   - component: {fileID: 2121413794}
   - component: {fileID: 2121413796}
   - component: {fileID: 2121413797}
-  - component: {fileID: 2121413795}
+  - component: {fileID: 2121413798}
   m_Layer: 6
   m_Name: ColliderToast
   m_TagString: Untagged
@@ -8381,21 +8380,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 10016914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2121413795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121413793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73de9581b00f905429f811ca1a98f0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageObject: {fileID: 1325447794}
-  fadeDuration: 1
-  initialShowDuration: 5
 --- !u!61 &2121413796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8456,6 +8440,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodPrep: {fileID: 1000894610}
   showDebug: 1
+--- !u!114 &2121413798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121413793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73de9581b00f905429f811ca1a98f0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageObject: {fileID: 1325447794}
+  fadeDuration: 1.5
 --- !u!1 &2130509605
 GameObject:
   m_ObjectHideFlags: 0
