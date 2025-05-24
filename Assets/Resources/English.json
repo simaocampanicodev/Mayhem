@@ -2,5 +2,6 @@
     {"num":0,"text":"To punch"},
     {"num":1,"text":"To defend"},
     {"num":2,"text":"+ Up to uppercut"},
-    {"num":3,"text":"+ Down for a down attack"}
+    {"num":3,"text":"+ Down for a down attack"},
+    {"num":4,"text":"To activate boost"}
 ]
