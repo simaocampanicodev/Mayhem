@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtSound: {fileID: -6333000901827500245}
+  PlayerBod: 1
 --- !u!50 &8412178182956295780
 Rigidbody2D:
   serializedVersion: 5

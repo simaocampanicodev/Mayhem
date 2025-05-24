@@ -3410,6 +3410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1027107337}
   fadeDuration: 5
+  LoadNextScene: 0
+  sceneName: 
 --- !u!1 &1041468631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,6 +3772,10 @@ PrefabInstance:
       propertyPath: lifebar
       value: 
       objectReference: {fileID: 1481918868}
+    - target: {fileID: 8365533316636509736, guid: 52d96bccf02cbb74781a495afd17759f, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1027107337}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
