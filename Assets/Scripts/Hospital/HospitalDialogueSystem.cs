@@ -13,7 +13,6 @@ public class HospitalDialogueSystem : MonoBehaviour
     public TMP_Text playerText;
     public Image doctorImage;
     public Image playerImage;
-
     public float typewriterSpeed = 0.05f;
     public float fadeDuration = 0.5f;
 
@@ -34,6 +33,12 @@ public class HospitalDialogueSystem : MonoBehaviour
         }
 
         LoadDialogueData();
+        StartCoroutine(DelayedStartDialogue());
+    }
+
+    IEnumerator DelayedStartDialogue()
+    {
+        yield return new WaitForSeconds(0.5f);
         StartDialogue();
     }
 
@@ -101,7 +106,9 @@ public class HospitalDialogueSystem : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeInPanel(doctorPanel, doctorImage));
-        yield return StartCoroutine(TypeText(doctorText, text));
+
+        typingCoroutine = StartCoroutine(TypeText(doctorText, text));
+        yield return typingCoroutine;
     }
 
     IEnumerator ShowPlayerDialogue(string text)
@@ -112,7 +119,9 @@ public class HospitalDialogueSystem : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeInPanel(playerPanel, playerImage));
-        yield return StartCoroutine(TypeText(playerText, text));
+
+        typingCoroutine = StartCoroutine(TypeText(playerText, text));
+        yield return typingCoroutine;
     }
 
     IEnumerator FadeOutPanel(GameObject panel, Image characterImage)
@@ -176,6 +185,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
         }
 
         JObject currentLine = (JObject)dialogueData[currentDialogueIndex];
@@ -203,6 +213,6 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
-        // Usar depois para chamar a conta do hospital
+        //Fazer aparecer depois a conta do hospital e se tem dinheiro ou não
     }
 }
