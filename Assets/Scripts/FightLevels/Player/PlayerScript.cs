@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour
         }
         stressFactor = 1f - (stress / 100f);
         MAXLIFE = (int)(MAXLIFE * stressFactor);
+        life = (int)Mathf.Clamp01((float)life / MAXLIFE); ;
         if (stress < 10)
         {
             stress = 25;
