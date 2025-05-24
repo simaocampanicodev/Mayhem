@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -147,28 +147,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hospital_scene-Sheet-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 87
-        width: 162
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c33efb2825abb3a0800000000000000
-      internalID: -6648538832927050815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: hospital_scene-Sheet-Sheet_1
       rect:
         serializedVersion: 2
@@ -177,7 +155,7 @@ TextureImporter:
         width: 33
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -195,11 +173,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 206
-        y: 121
-        width: 33
-        height: 33
+        y: 87
+        width: 162
+        height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,29 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hospital_scene-Sheet-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 87
-        width: 162
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58c1d8b07296ac7d0800000000000000
-      internalID: -2897387793841054587
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hospital_scene-Sheet-Sheet_4
+      name: hospital_scene-Sheet-Sheet_5
       rect:
         serializedVersion: 2
         x: 17
@@ -243,29 +199,7 @@ TextureImporter:
         width: 33
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 126c4fbf727ec70a0800000000000000
-      internalID: -6882371971612096991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hospital_scene-Sheet-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 8
-        width: 162
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -279,37 +213,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hospital_scene-Sheet-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 41
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cea5561a7ff3f45d0800000000000000
-      internalID: -3076169687673513236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: hospital_scene-Sheet-Sheet_7
       rect:
         serializedVersion: 2
         x: 206
         y: 7
         width: 162
-        height: 34
+        height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -326,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: be5d5374224947b4faa00ac61f416d54
     internalID: 0
     vertices: []
     indices: 
@@ -335,7 +247,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hospital_scene-Sheet-Sheet_0: -6648538832927050815
+      hospital_scene-Sheet-Sheet_1: 5899587261318336322
+      hospital_scene-Sheet-Sheet_2: 9166248493175926225
+      hospital_scene-Sheet-Sheet_3: -2897387793841054587
+      hospital_scene-Sheet-Sheet_4: -6882371971612096991
+      hospital_scene-Sheet-Sheet_5: -5091777907998297475
+      hospital_scene-Sheet-Sheet_6: -3076169687673513236
+      hospital_scene-Sheet-Sheet_7: 2978491369288162484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
