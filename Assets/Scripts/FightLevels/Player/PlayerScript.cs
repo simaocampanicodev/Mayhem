@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject cadaver;
     public int multiplier = 1;
     private bool right;
-    private float stress = 0;
+    private float stress = 50;
     private float stressFactor;
 
     public int BeatenEnemies { get; set; }
@@ -43,6 +43,10 @@ public class PlayerScript : MonoBehaviour
         }
         stressFactor = 1f - (stress / 100f);
         MAXLIFE = (int)(MAXLIFE * stressFactor);
+        if (stress < 10)
+        {
+            stress = 25;
+        }
     }
     void Awake()
     {
@@ -129,17 +133,17 @@ public class PlayerScript : MonoBehaviour
             }
             if (move_input.y > 0)
             {
-                damage = (int)(30 * stressFactor * multiplier);
+                damage = (int)(30 * (stress / 100f) * multiplier);
                 anim.SetBool("Uppercut", true);
             }
             else if (move_input.y < 0)
             {
-                damage = (int)(30 * stressFactor * multiplier);
+                damage = (int)(30 * (stress / 100f) * multiplier);
                 anim.SetBool("Downwards", true);
             }
             else
             {
-                damage = (int)(20 * stressFactor * multiplier);
+                damage = (int)(20 * (stress / 100f) * multiplier);
                 anim.SetBool("Punching", true);
             }
             AttackArea.SetActive(true);
