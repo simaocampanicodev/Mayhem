@@ -34,10 +34,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private bool DestroyLoad = false;
     void Start()
     {
-        KeepGameData data = GameObject.Find("KeepCoffeeData").GetComponent<KeepGameData>();
-        stress = data.stress;
-        if (DestroyLoad) { Destroy(data); }
-        stressFactor = 1f - (stress / 100f); // 0 stress = 1f (100%), 100 stress = 0f (0%)
+        GameObject dataObj = GameObject.Find("KeepCoffeeData");
+        if (dataObj != null)
+        {
+            KeepGameData data = dataObj.GetComponent<KeepGameData>();
+            stress = data.stress;
+            if (DestroyLoad) { Destroy(dataObj); }
+        }
+        stressFactor = 1f - (stress / 100f);
         MAXLIFE = (int)(MAXLIFE * stressFactor);
     }
     void Awake()
@@ -65,7 +69,7 @@ public class PlayerScript : MonoBehaviour
         inputActions.Player.Attack.performed -= Onattack;
         inputActions.Player.Defend.started -= Ondefend;
         inputActions.Player.Defend.canceled -= Ondefend;
-        
+
         inputActions.Player.Disable();
         inputActions.Disable();
     }
@@ -125,17 +129,17 @@ public class PlayerScript : MonoBehaviour
             }
             if (move_input.y > 0)
             {
-                damage = 30 *(int)stressFactor * multiplier;;
+                damage = (int)(30 * stressFactor * multiplier);
                 anim.SetBool("Uppercut", true);
             }
             else if (move_input.y < 0)
             {
-                damage = 30 *(int)stressFactor * multiplier;;
+                damage = (int)(30 * stressFactor * multiplier);
                 anim.SetBool("Downwards", true);
             }
             else
             {
-                damage = 20 *(int)stressFactor * multiplier;
+                damage = (int)(20 * stressFactor * multiplier);
                 anim.SetBool("Punching", true);
             }
             AttackArea.SetActive(true);
