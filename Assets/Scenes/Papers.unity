@@ -399,6 +399,53 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 142fa0d94a81ed04984222907daa90ba, type: 2}
+--- !u!1 &212040602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212040604}
+  - component: {fileID: 212040603}
+  m_Layer: 0
+  m_Name: Transition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &212040603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212040602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146d1d65163bc3b4a9beed7b1c9738e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 1550483485}
+  fadeDuration: 2
+  totalSceneDuration: 8
+--- !u!4 &212040604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212040602}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 225.78755, y: -251.763, z: 0.49640992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &234960088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1240,6 @@ GameObject:
   - component: {fileID: 1550483483}
   - component: {fileID: 1550483486}
   - component: {fileID: 1550483485}
-  - component: {fileID: 1550483484}
   m_Layer: 5
   m_Name: FadePanel
   m_TagString: Untagged
@@ -1220,22 +1266,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5.2924194, y: 1.3483276}
   m_SizeDelta: {x: 64.3549, y: 62.0173}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1550483484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550483482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b58f24a36d3584bbcaffe40782762d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeImage: {fileID: 1550483485}
-  fadeDuration: 4
-  LoadNextScene: 1
-  sceneName: Hospital
 --- !u!114 &1550483485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1746,6 +1776,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 934815336}
   - {fileID: 60053492}
+  - {fileID: 1978783703}
   - {fileID: 1176849594}
   - {fileID: 1967314559}
-  - {fileID: 1978783703}
+  - {fileID: 212040604}
