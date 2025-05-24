@@ -15,6 +15,8 @@ public class FoodPreparation : MonoBehaviour
 
     [SerializeField] private CoffeeMachineShake coffeeMachineShake;
     [SerializeField] private GameObject coffeeReadyCheckMark;
+    [SerializeField] private GameObject coffeeSnowflake;
+    [SerializeField] private GameObject toastSnowflake; 
 
     [SerializeField] private Animator marioAnimator;
     [SerializeField] private string marioEntregandoAnimName = "MarioEntregando";
@@ -22,13 +24,25 @@ public class FoodPreparation : MonoBehaviour
     [SerializeField] private string idleCabineAnimName = "IdleCabine";
     [SerializeField] private AudioClip[] audios;
     
+    [SerializeField] private float timeToGetCold = 6f; 
+    [SerializeField] private StressBarManager stressManager;
+    [SerializeField] private GameObject coffeeHelpBalloon;
+    [SerializeField] private GameObject toastHelpBalloon; 
+    [SerializeField] private float helpBalloonDuration = 5f; 
+    
     private bool coffeeReady = false;
     private bool toastReady = false;
+    private bool coffeeCold = false; 
+    private bool toastCold = false; 
     private bool isPreparingCoffee = false;
     private bool isPreparingToast = false;
     private bool playerInCoffeeArea = false;
     private bool playerInToastArea = false;
     private bool gameActive = false;
+    private bool helpBalloonsShown = false; 
+    
+    private Coroutine coffeeColdTimer;
+    private Coroutine toastColdTimer;
     
     private static readonly int EntregandoParam = Animator.StringToHash("Entregando");
     private static readonly int ProntoParam = Animator.StringToHash("Pronto");
@@ -48,6 +62,11 @@ public class FoodPreparation : MonoBehaviour
     void HandleGameStarted()
     {
         gameActive = true;
+        
+        if (!helpBalloonsShown)
+        {
+            StartCoroutine(ShowHelpBalloonsAtStart());
+        }
     }
     
     void HandleGameEnded()
@@ -55,14 +74,40 @@ public class FoodPreparation : MonoBehaviour
         gameActive = false;
     }
     
+    private IEnumerator ShowHelpBalloonsAtStart()
+    {
+        helpBalloonsShown = true;
+        
+        if (coffeeHelpBalloon != null)
+            coffeeHelpBalloon.SetActive(true);
+        if (toastHelpBalloon != null)
+            toastHelpBalloon.SetActive(true);
+        
+        yield return new WaitForSeconds(helpBalloonDuration);
+        if (coffeeHelpBalloon != null && !playerInCoffeeArea)
+            coffeeHelpBalloon.SetActive(false);
+        if (toastHelpBalloon != null && !playerInToastArea)
+            toastHelpBalloon.SetActive(false);
+    }
+    
     public void SetPlayerInCoffeeArea(bool value)
     {
         playerInCoffeeArea = value;
+        
+        if (helpBalloonsShown && coffeeHelpBalloon != null)
+        {
+            coffeeHelpBalloon.SetActive(value);
+        }
     }
     
     public void SetPlayerInToastArea(bool value)
     {
         playerInToastArea = value;
+        
+        if (helpBalloonsShown && toastHelpBalloon != null)
+        {
+            toastHelpBalloon.SetActive(value);
+        }
     }
 
     private void Start()
@@ -71,6 +116,11 @@ public class FoodPreparation : MonoBehaviour
         {
             playerInventory = FindObjectOfType<PlayerInventory>();
         }
+        if (stressManager == null)
+        {
+            stressManager = FindObjectOfType<StressBarManager>();
+        }
+        
         if (coffeeProgressIndicator != null)
             coffeeProgressIndicator.SetActive(false);
         if (toastProgressIndicator != null)
@@ -78,6 +128,15 @@ public class FoodPreparation : MonoBehaviour
         
         if (coffeeReadyCheckMark != null)
             coffeeReadyCheckMark.SetActive(false);
+        if (coffeeSnowflake != null)
+            coffeeSnowflake.SetActive(false);
+        if (toastSnowflake != null)
+            toastSnowflake.SetActive(false);
+        
+        if (coffeeHelpBalloon != null)
+            coffeeHelpBalloon.SetActive(false);
+        if (toastHelpBalloon != null)
+            toastHelpBalloon.SetActive(false);
         
         if (marioAnimator != null)
         {
@@ -94,7 +153,6 @@ public class FoodPreparation : MonoBehaviour
         {
             if (playerInCoffeeArea)
             {
-                    
                 if (!isPreparingCoffee && !coffeeReady)
                 {
                     StartCoroutine(PrepareCoffee());
@@ -106,7 +164,6 @@ public class FoodPreparation : MonoBehaviour
             }
             if (playerInToastArea)
             {
-                    
                 if (!isPreparingToast && !toastReady)
                 {
                     StartCoroutine(PrepareToast());
@@ -140,6 +197,8 @@ public class FoodPreparation : MonoBehaviour
 
         coffeeReady = true;
         isPreparingCoffee = false;
+        
+        coffeeColdTimer = StartCoroutine(MakeCoffeeCold());
     }
 
     private IEnumerator PrepareToast()
@@ -168,6 +227,42 @@ public class FoodPreparation : MonoBehaviour
 
         toastReady = true;
         isPreparingToast = false;
+        
+        toastColdTimer = StartCoroutine(MakeToastCold());
+    }
+    
+    private IEnumerator MakeCoffeeCold()
+    {
+        yield return new WaitForSeconds(timeToGetCold);
+        
+        if (coffeeReady && !coffeeCold)
+        {
+            coffeeCold = true;
+            
+            if (coffeeReadyCheckMark != null)
+                coffeeReadyCheckMark.SetActive(false);
+            if (coffeeSnowflake != null)
+                coffeeSnowflake.SetActive(true);
+                
+            if (showDebug)
+                Debug.Log("Café ficou gelado!");
+        }
+    }
+    
+    private IEnumerator MakeToastCold()
+    {
+        yield return new WaitForSeconds(timeToGetCold);
+        
+        if (toastReady && !toastCold)
+        {
+            toastCold = true;
+            
+            if (toastSnowflake != null)
+                toastSnowflake.SetActive(true);
+                
+            if (showDebug)
+                Debug.Log("Tosta ficou gelada!");
+        }
     }
 
     private void TryCollectCoffee()
@@ -176,14 +271,32 @@ public class FoodPreparation : MonoBehaviour
         
         if (!hasCoffee)
         {
-            playerInventory.ToggleCoffee(true);
+            if (coffeeCold)
+            {
+                playerInventory.ToggleColdCoffee(true);
+                if (stressManager != null)
+                    stressManager.IncreaseStress(20f);
+            }
+            else
+            {
+                playerInventory.ToggleCoffee(true);
+            }
+            
+            if (coffeeColdTimer != null)
+            {
+                StopCoroutine(coffeeColdTimer);
+                coffeeColdTimer = null;
+            }
+            
             coffeeReady = false;
+            coffeeCold = false;
             
             if (coffeeProgressIndicator != null)
                 coffeeProgressIndicator.SetActive(false);
-            
             if (coffeeReadyCheckMark != null)
                 coffeeReadyCheckMark.SetActive(false);
+            if (coffeeSnowflake != null)
+                coffeeSnowflake.SetActive(false);
         }
     }
 
@@ -193,36 +306,36 @@ public class FoodPreparation : MonoBehaviour
         
         if (!hasToast)
         {
-            playerInventory.ToggleToast(true);
+            if (toastCold)
+            {
+                playerInventory.ToggleColdToast(true);
+                if (stressManager != null)
+                    stressManager.IncreaseStress(20f);
+            }
+            else
+            {
+                // Coletar tosta normal
+                playerInventory.ToggleToast(true);
+            }
+            
+            if (toastColdTimer != null)
+            {
+                StopCoroutine(toastColdTimer);
+                toastColdTimer = null;
+            }
+            
             toastReady = false;
+            toastCold = false;
             
             if (toastProgressIndicator != null)
                 toastProgressIndicator.SetActive(false);
+            if (toastSnowflake != null)
+                toastSnowflake.SetActive(false);
 
             if (marioAnimator != null)
             {
                 marioAnimator.SetBool(ProntoParam, false);
             }
-        }
-    }
-
-    private void ShowMessage(string message)
-    {
-        if (messageText != null)
-        {
-            messageText.text = message;
-            messageText.gameObject.SetActive(true);
-            
-            CancelInvoke("HideMessage");
-            Invoke("HideMessage", messageDuration);
-        }
-    }
-    
-    private void HideMessage()
-    {
-        if (messageText != null)
-        {
-            messageText.gameObject.SetActive(false);
         }
     }
 }

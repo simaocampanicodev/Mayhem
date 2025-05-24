@@ -6,24 +6,44 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private bool hasCoffee = false;
     [SerializeField] private bool hasToast = false;
+    [SerializeField] private bool hasColdCoffee = false; 
+    [SerializeField] private bool hasColdToast = false; 
+    
     [SerializeField] private GameObject coffeeIndicator;
     [SerializeField] private GameObject toastIndicator;
-    [SerializeField] private TextMeshProUGUI messageText;
+    [SerializeField] private GameObject coldCoffeeIndicator; 
+    [SerializeField] private GameObject coldToastIndicator; 
+    
     [SerializeField] private float messageDuration = 2f;
     [SerializeField] private MoneyManager moneyManager;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audios;
+    [SerializeField] private StressBarManager stressManager;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && hasToast)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            DropToast();
+            if (hasToast)
+            {
+                DropToast();
+            }
+            else if (hasColdToast)
+            {
+                DropColdToast();
+            }
         }
         
-        if (Input.GetKeyDown(KeyCode.E) && hasCoffee)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            DropCoffee();
+            if (hasCoffee)
+            {
+                DropCoffee();
+            }
+            else if (hasColdCoffee)
+            {
+                DropColdCoffee();
+            }
         }
     }
 
@@ -35,6 +55,10 @@ public class PlayerInventory : MonoBehaviour
         {
             moneyManager = FindObjectOfType<MoneyManager>();
         }
+        if (stressManager == null)
+        {
+            stressManager = FindObjectOfType<StressBarManager>();
+        }
     }
 
     public bool HasCoffee()
@@ -45,6 +69,16 @@ public class PlayerInventory : MonoBehaviour
     public bool HasToast()
     {
         return hasToast;
+    }
+    
+    public bool HasColdCoffee()
+    {
+        return hasColdCoffee;
+    }
+
+    public bool HasColdToast()
+    {
+        return hasColdToast;
     }
 
     public void ToggleCoffee(bool value)
@@ -58,6 +92,18 @@ public class PlayerInventory : MonoBehaviour
         hasToast = value;
         UpdateUI();
     }
+    
+    public void ToggleColdCoffee(bool value)
+    {
+        hasColdCoffee = value;
+        UpdateUI();
+    }
+
+    public void ToggleColdToast(bool value)
+    {
+        hasColdToast = value;
+        UpdateUI();
+    }
 
     void UpdateUI()
     {
@@ -66,6 +112,12 @@ public class PlayerInventory : MonoBehaviour
 
         if (toastIndicator != null)
             toastIndicator.SetActive(hasToast);
+            
+        if (coldCoffeeIndicator != null)
+            coldCoffeeIndicator.SetActive(hasColdCoffee);
+
+        if (coldToastIndicator != null)
+            coldToastIndicator.SetActive(hasColdToast);
     }
 
     private void DropToast()
@@ -79,24 +131,49 @@ public class PlayerInventory : MonoBehaviour
         hasCoffee = false;
         UpdateUI();
     }
+    
+    private void DropColdToast()
+    {
+        hasColdToast = false;
+        UpdateUI();
+    }
+
+    private void DropColdCoffee()
+    {
+        hasColdCoffee = false;
+        UpdateUI();
+    }
 
     public bool CheckAndDeliverOrder(SilhouetteOrder.OrderType orderType)
     {
         bool isCorrect = false;
+        bool hasColdItems = false;
         
         switch (orderType)
         {
             case SilhouetteOrder.OrderType.Coffee:
                 isCorrect = hasCoffee;
+                hasColdItems = hasColdCoffee;
                 break;
 
             case SilhouetteOrder.OrderType.Toast:
                 isCorrect = hasToast;
+                hasColdItems = hasColdToast;
                 break;
 
             case SilhouetteOrder.OrderType.Both:
                 isCorrect = hasToast && hasCoffee;
+                hasColdItems = hasColdToast || hasColdCoffee;
                 break;
+        }
+        
+        if (hasColdItems)
+        {
+            audioSource.PlayOneShot(audios[1]);
+            moneyManager?.SubtractMoney(10);
+            if (stressManager != null)
+                stressManager.IncreaseStress(20f);
+            return false;
         }
         
         if (isCorrect)
@@ -126,6 +203,8 @@ public class PlayerInventory : MonoBehaviour
         {
             audioSource.PlayOneShot(audios[1]);
             moneyManager?.SubtractMoney(10);
+            if (stressManager != null)
+                stressManager.IncreaseStress(20f);
         }
 
         return isCorrect;
