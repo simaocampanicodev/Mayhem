@@ -13,6 +13,7 @@ public class HospitalDialogueSystem : MonoBehaviour
     public TMP_Text playerText;
     public Image doctorImage;
     public Image playerImage;
+
     public float typewriterSpeed = 0.05f;
     public float fadeDuration = 0.5f;
 
@@ -25,14 +26,42 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void Start()
     {
+        LoadLanguage();
+        LoadDialogueData();
+        StartCoroutine(DelayedStartDialogue());
+    }
+
+    void LoadLanguage()
+    {
         if (PlayerPrefs.HasKey("Language"))
         {
             string lan = PlayerPrefs.GetString("Language");
-            System.Enum.TryParse(lan, out Languages parsedLanguage);
-            language = parsedLanguage;
+
+            if (System.Enum.TryParse(lan, out Languages parsedLanguage))
+            {
+                language = parsedLanguage;
+            }
+            else
+            {
+                language = Languages.English;
+            }
         }
-        LoadDialogueData();
-        StartCoroutine(DelayedStartDialogue());
+        else
+        {
+            language = Languages.English;
+        }
+    }
+
+    void LoadDialogueData()
+    {
+        string fileName = "HospitalDialogue_" + language.ToString();
+
+        TextAsset jsonFile = Resources.Load<TextAsset>(fileName);
+
+        if (jsonFile != null)
+        {
+            dialogueData = JArray.Parse(jsonFile.text);
+        }
     }
 
     IEnumerator DelayedStartDialogue()
@@ -47,12 +76,6 @@ public class HospitalDialogueSystem : MonoBehaviour
         {
             HandleInput();
         }
-    }
-
-    void LoadDialogueData()
-    {
-        TextAsset jsonFile = Resources.Load<TextAsset>("HospitalDialogue_" + language.ToString());
-        dialogueData = JArray.Parse(jsonFile.text);
     }
 
     void StartDialogue()
@@ -103,6 +126,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         {
             yield return StartCoroutine(FadeOutPanel(playerPanel, playerImage));
         }
+
         doctorText.text = "";
 
         yield return StartCoroutine(FadeInPanel(doctorPanel, doctorImage));
@@ -117,6 +141,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         {
             yield return StartCoroutine(FadeOutPanel(doctorPanel, doctorImage));
         }
+
         playerText.text = "";
 
         yield return StartCoroutine(FadeInPanel(playerPanel, playerImage));
@@ -214,6 +239,6 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
-        //Usar para mostrar o valor da conta e a opção de pagar ou não
+        // Usar depois para chamar a conta do hospital
     }
 }
