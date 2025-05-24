@@ -282,7 +282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -430, y: -227}
+  m_AnchoredPosition: {x: -430, y: -216}
   m_SizeDelta: {x: 807.7634, y: 111.47101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346793438
@@ -305,9 +305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'test test test
-
-    test test test test'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f7863f8f6bb05748a792ef5f1319646, type: 2}
   m_sharedMaterial: {fileID: 4099852317567786778, guid: 3f7863f8f6bb05748a792ef5f1319646, type: 2}
@@ -2224,7 +2222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 3, y: 0}
   m_SizeDelta: {x: 67.0511, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710523257
@@ -2813,6 +2811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353160482}
+  - component: {fileID: 1353160483}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -2835,6 +2834,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353160483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353160481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3687fda35e0c83e4c834c26b6379f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doctorPanel: {fileID: 995362801}
+  playerPanel: {fileID: 471496175}
+  doctorText: {fileID: 346793438}
+  playerText: {fileID: 1896533114}
+  doctorImage: {fileID: 518675274}
+  playerImage: {fileID: 1914226989}
+  typewriterSpeed: 0.05
+  fadeDuration: 0.5
 --- !u!1 &1357270335
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,7 +3360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 426, y: -227}
+  m_AnchoredPosition: {x: 426, y: -216}
   m_SizeDelta: {x: 807.7634, y: 111.47101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896533114
@@ -3364,9 +3383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'test test test
-
-    test test test test'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f7863f8f6bb05748a792ef5f1319646, type: 2}
   m_sharedMaterial: {fileID: 4099852317567786778, guid: 3f7863f8f6bb05748a792ef5f1319646, type: 2}

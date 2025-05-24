@@ -1,0 +1,38 @@
+[
+  {
+    "speaker": "doctor",
+    "text": "Bom dia. Por favor, sente-se. Como se está a sentir hoje?"
+  },
+  {
+    "speaker": "player",
+    "text": "Tenho tido alguns sintomas estranhos ultimamente."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Entendo. Pode descrever esses sintomas com mais detalhe? Quando começaram?"
+  },
+  {
+    "speaker": "player",
+    "text": "Começou há alguns dias. Tenho visto coisas... coisas que não devia."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Alucinações podem ser preocupantes. Tem estado sob stress ultimamente?"
+  },
+  {
+    "speaker": "player",
+    "text": "Sim, não tenho dormido bem. E tem havido muita pressão no trabalho."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Compreendo. Vamos fazer alguns testes para descartar causas físicas."
+  },
+  {
+    "speaker": "player",
+    "text": "Obrigado, doutor. Agradeço realmente a sua ajuda."
+  },
+  {
+    "speaker": "doctor",
+    "text": "De nada. Não hesite em contactar-me se os sintomas persistirem."
+  }
+]

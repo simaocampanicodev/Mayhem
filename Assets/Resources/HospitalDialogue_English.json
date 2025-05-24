@@ -1,0 +1,38 @@
+[
+  {
+    "speaker": "doctor",
+    "text": "Good morning. Please, have a seat. How are you feeling today?"
+  },
+  {
+    "speaker": "player",
+    "text": "I've been having some strange symptoms lately. I'm not sure what's happening to me."
+  },
+  {
+    "speaker": "doctor",
+    "text": "I see. Can you describe these symptoms in more detail? When did they start?"
+  },
+  {
+    "speaker": "player",
+    "text": "It started a few days ago. I've been seeing things... things that shouldn't be there."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Hallucinations can be concerning. Have you been under any stress lately?"
+  },
+  {
+    "speaker": "player",
+    "text": "Yes, I haven't been sleeping well. And there's been a lot of pressure at work."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Understood. Let's run some tests to rule out any physical causes."
+  },
+  {
+    "speaker": "player",
+    "text": "Thank you, doctor. I really appreciate your help."
+  },
+  {
+    "speaker": "doctor",
+    "text": "You're welcome. Don't hesitate to contact me if the symptoms persist."
+  }
+]
