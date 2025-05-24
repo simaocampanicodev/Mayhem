@@ -6,14 +6,14 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private bool hasCoffee = false;
     [SerializeField] private bool hasToast = false;
-    [SerializeField] private bool hasColdCoffee = false; 
-    [SerializeField] private bool hasColdToast = false; 
-    
+    [SerializeField] private bool hasColdCoffee = false;
+    [SerializeField] private bool hasColdToast = false;
+
     [SerializeField] private GameObject coffeeIndicator;
     [SerializeField] private GameObject toastIndicator;
-    [SerializeField] private GameObject coldCoffeeIndicator; 
-    [SerializeField] private GameObject coldToastIndicator; 
-    
+    [SerializeField] private GameObject coldCoffeeIndicator;
+    [SerializeField] private GameObject coldToastIndicator;
+
     [SerializeField] private float messageDuration = 2f;
     [SerializeField] private MoneyManager moneyManager;
     [SerializeField] private AudioSource audioSource;
@@ -33,7 +33,7 @@ public class PlayerInventory : MonoBehaviour
                 DropColdToast();
             }
         }
-        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (hasCoffee)
@@ -50,7 +50,7 @@ public class PlayerInventory : MonoBehaviour
     void Start()
     {
         UpdateUI();
-        
+
         if (moneyManager == null)
         {
             moneyManager = FindObjectOfType<MoneyManager>();
@@ -70,7 +70,7 @@ public class PlayerInventory : MonoBehaviour
     {
         return hasToast;
     }
-    
+
     public bool HasColdCoffee()
     {
         return hasColdCoffee;
@@ -92,7 +92,7 @@ public class PlayerInventory : MonoBehaviour
         hasToast = value;
         UpdateUI();
     }
-    
+
     public void ToggleColdCoffee(bool value)
     {
         hasColdCoffee = value;
@@ -112,7 +112,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (toastIndicator != null)
             toastIndicator.SetActive(hasToast);
-            
+
         if (coldCoffeeIndicator != null)
             coldCoffeeIndicator.SetActive(hasColdCoffee);
 
@@ -131,7 +131,7 @@ public class PlayerInventory : MonoBehaviour
         hasCoffee = false;
         UpdateUI();
     }
-    
+
     private void DropColdToast()
     {
         hasColdToast = false;
@@ -147,39 +147,55 @@ public class PlayerInventory : MonoBehaviour
     public bool CheckAndDeliverOrder(SilhouetteOrder.OrderType orderType)
     {
         bool isCorrect = false;
-        bool hasColdItems = false;
-        
+        bool hasWrongColdItems = false;
+
         switch (orderType)
         {
             case SilhouetteOrder.OrderType.Coffee:
                 isCorrect = hasCoffee;
-                hasColdItems = hasColdCoffee;
+                hasWrongColdItems = hasColdCoffee;
                 break;
 
             case SilhouetteOrder.OrderType.Toast:
                 isCorrect = hasToast;
-                hasColdItems = hasColdToast;
+                hasWrongColdItems = hasColdToast;
                 break;
 
             case SilhouetteOrder.OrderType.Both:
                 isCorrect = hasToast && hasCoffee;
-                hasColdItems = hasColdToast || hasColdCoffee;
+                hasWrongColdItems = hasColdToast || hasColdCoffee;
                 break;
         }
-        
-        if (hasColdItems)
+
+        if (hasWrongColdItems)
         {
             audioSource.PlayOneShot(audios[1]);
             moneyManager?.SubtractMoney(10);
             if (stressManager != null)
                 stressManager.IncreaseStress(20f);
+
+            if (orderType == SilhouetteOrder.OrderType.Coffee && hasColdCoffee)
+            {
+                hasColdCoffee = false;
+            }
+            else if (orderType == SilhouetteOrder.OrderType.Toast && hasColdToast)
+            {
+                hasColdToast = false;
+            }
+            else if (orderType == SilhouetteOrder.OrderType.Both)
+            {
+                if (hasColdCoffee) hasColdCoffee = false;
+                if (hasColdToast) hasColdToast = false;
+            }
+
+            UpdateUI();
             return false;
         }
-        
+
         if (isCorrect)
         {
             audioSource.PlayOneShot(audios[0]);
-            
+
             switch (orderType)
             {
                 case SilhouetteOrder.OrderType.Coffee:
@@ -198,6 +214,7 @@ public class PlayerInventory : MonoBehaviour
 
             UpdateUI();
             moneyManager?.AddMoney(20);
+            return true;
         }
         else
         {
@@ -205,8 +222,7 @@ public class PlayerInventory : MonoBehaviour
             moneyManager?.SubtractMoney(10);
             if (stressManager != null)
                 stressManager.IncreaseStress(20f);
+            return false;
         }
-
-        return isCorrect;
     }
 }

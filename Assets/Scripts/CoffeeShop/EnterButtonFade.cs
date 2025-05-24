@@ -5,9 +5,28 @@ public class EnterButtonFade : MonoBehaviour
 {
     [SerializeField] private GameObject imageObject;
     [SerializeField] private float fadeDuration = 1.5f;
+    [SerializeField] private float initialShowDuration = 5f;
 
     private SpriteRenderer spriteRenderer;
     private Coroutine currentFade;
+    private bool gameStarted = false;
+    private bool initialSequenceCompleted = false;
+
+    void OnEnable()
+    {
+        CafeSceneManager.OnGameStarted += HandleGameStarted;
+    }
+
+    void OnDisable()
+    {
+        CafeSceneManager.OnGameStarted -= HandleGameStarted;
+    }
+
+    void HandleGameStarted()
+    {
+        gameStarted = true;
+        StartCoroutine(InitialShowSequence());
+    }
 
     private void Start()
     {
@@ -15,9 +34,20 @@ public class EnterButtonFade : MonoBehaviour
         SetAlpha(0f);
     }
 
+    private IEnumerator InitialShowSequence()
+    {
+        StartFade(1f);
+        yield return new WaitForSeconds(initialShowDuration);
+
+        StartFade(0f);
+        yield return new WaitForSeconds(fadeDuration);
+
+        initialSequenceCompleted = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && gameStarted && initialSequenceCompleted)
         {
             StartFade(1f);
         }
@@ -25,7 +55,7 @@ public class EnterButtonFade : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && gameStarted && initialSequenceCompleted)
         {
             StartFade(0f);
         }
