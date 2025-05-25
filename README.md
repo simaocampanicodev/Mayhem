@@ -48,11 +48,11 @@ Don't forget to give the project a star! Thanks again!
 
 . Simão Campaniço - [simaocampanicodev](https://simaocampanicodev.github.io/)
 <br />
-. João Ferreira - [KR1PT1CS](https://github.com/KR1PT1CS.github.io/)
+. João Ferreira - [KR1PT1CS](https://github.com/KR1PT1CS)
 <br />
-. Dinis Barroso - [DinisB](https://github.com/DinisB.github.io/)
+. Dinis Barroso - [DinisB](https://github.com/DinisB)
 <br />
-. Rafael Martins - [RafaelSMartins](https://github.com/RafaelSMartins.github.io/)
+. Rafael Martins - [RafaelSMartins](https://github.com/RafaelSMartins)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
