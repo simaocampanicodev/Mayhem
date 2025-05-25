@@ -68,7 +68,7 @@ public class StressBarManager : MonoBehaviour
     {
         if (!gameActive) return;
         
-        actualStress = Mathf.Clamp(actualStress + quantity, 0, maxStress);
+        actualStress = Mathf.Clamp(actualStress + quantity-11, 0, maxStress);
         UpdateBar();
         UpdateAnimator();
     }

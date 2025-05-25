@@ -252,9 +252,6 @@ public class FoodPreparation : MonoBehaviour
                 coffeeSnowflake.SetActive(true);
             if (coffeeAreaSnowflake != null)
                 coffeeAreaSnowflake.SetActive(true);
-
-            if (showDebug)
-                Debug.Log("Café ficou gelado!");
         }
     }
 

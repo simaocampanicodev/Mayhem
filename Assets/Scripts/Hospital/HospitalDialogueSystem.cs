@@ -4,9 +4,16 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using UnityEngine.SceneManagement;
 
 public class HospitalDialogueSystem : MonoBehaviour
 {
+    public GameObject hospitalBillPanel;
+    public TMP_Text billText;
+    public Button yesButton;
+    public Button noButton;
+    public int baseBillCost = 80;
+
     public GameObject doctorPanel;
     public GameObject playerPanel;
     public TMP_Text doctorText;
@@ -239,6 +246,94 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
-        // Usar depois para chamar a conta do hospital
+        StartCoroutine(EndDialogueSequence());
+    }
+
+    IEnumerator EndDialogueSequence()
+    {
+        if (doctorPanel.activeInHierarchy)
+        {
+            yield return StartCoroutine(FadeOutPanel(doctorPanel, doctorImage));
+        }
+
+        if (playerPanel.activeInHierarchy)
+        {
+            yield return StartCoroutine(FadeOutPanel(playerPanel, playerImage));
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        ShowHospitalBill();
+    }
+
+    void ShowHospitalBill()
+    {
+        int playerLife = GetPlayerLife();
+        int lifeLost = 100 - playerLife;
+        int billCost = baseBillCost + (lifeLost * 2);
+
+        hospitalBillPanel.SetActive(true);
+        billText.text = $"Hospital bill is ${billCost}\nDo you want to pay?";
+
+        yesButton.onClick.RemoveAllListeners();
+        noButton.onClick.RemoveAllListeners();
+
+        yesButton.onClick.AddListener(() => OnYesClicked(billCost));
+        noButton.onClick.AddListener(OnNoClicked);
+    }
+
+    int GetPlayerLife()
+    {
+        GameObject dataObj = GameObject.Find("KeepCoffeeData");
+        if (dataObj != null)
+        {
+            KeepGameData data = dataObj.GetComponent<KeepGameData>();
+            return data.playerLife;
+        }
+        return 100;
+    }
+
+    int GetPlayerMoney()
+    {
+        GameObject dataObj = GameObject.Find("KeepCoffeeData");
+        if (dataObj != null)
+        {
+            KeepGameData data = dataObj.GetComponent<KeepGameData>();
+            return data.money;
+        }
+        return 0;
+    }
+
+    void OnYesClicked(int billCost)
+    {
+        int playerMoney = GetPlayerMoney();
+
+        if (playerMoney >= billCost)
+        {
+            GameObject dataObj = GameObject.Find("KeepCoffeeData");
+            if (dataObj != null)
+            {
+                KeepGameData data = dataObj.GetComponent<KeepGameData>();
+                data.money -= billCost;
+            }
+
+            StartCoroutine(FadeAndLoadScene("CoffeeShop"));
+        }
+        else
+        {
+            StartCoroutine(FadeAndLoadScene("TitleScreen"));
+        }
+    }
+
+    void OnNoClicked()
+    {
+        StartCoroutine(FadeAndLoadScene("TitleScreen"));
+    }
+
+    IEnumerator FadeAndLoadScene(string sceneName)
+    {
+
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }

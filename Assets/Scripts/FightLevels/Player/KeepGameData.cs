@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class KeepGameData : MonoBehaviour
 {
+    public int money;
+    public int playerLife = 100;
     public int life { get; set; }
     public float stress { get; set; }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public void KeepFightDataAfterLoad()
     {
         GameObject playerObj = GameObject.FindWithTag("Player");
