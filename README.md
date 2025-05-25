@@ -46,7 +46,7 @@ Don't forget to give the project a star! Thanks again!
 
 <br />
 
-. Simão Campaniço - [simaocampanicodev](https://simaocampanicodev.github.io/)
+. Simão Campaniço - [simaocampanicodev](https://simaocampanicodev)
 <br />
 . João Ferreira - [KR1PT1CS](https://github.com/KR1PT1CS)
 <br />
