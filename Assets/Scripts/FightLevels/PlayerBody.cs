@@ -58,6 +58,6 @@ public class PlayerBody : MonoBehaviour
         c.a = 1f;
         fadeImage.color = c;
 
-        SceneManager.LoadSceneAsync("TitleScreen");
+        SceneManager.LoadSceneAsync("TitleScreen",LoadSceneMode.Single);
     }
 }
