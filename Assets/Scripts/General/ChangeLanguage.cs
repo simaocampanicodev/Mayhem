@@ -19,7 +19,21 @@ public class ChangeLanguage : MonoBehaviour
             string savedLang = PlayerPrefs.GetString("Language");
             System.Enum.TryParse(savedLang, out Languages parsedLanguage);
             language = parsedLanguage;
-            dropdown.value = (language == Languages.English) ? 0 : 1;
+            switch (language)
+            {
+                case Languages.English:
+                    dropdown.value = 0;
+                    break;
+                case Languages.Portuguese:
+                    dropdown.value = 1;
+                    break;
+                case Languages.Brainrot:
+                    dropdown.value = 2;
+                    break;
+                default:
+                    dropdown.value = 0;
+                    break;
+            }
         }
         else
         {
@@ -40,8 +54,12 @@ public class ChangeLanguage : MonoBehaviour
         {
             language = Languages.Portuguese;
         }
+        else if (dropdown.value == 2)
+        {
+            language = Languages.Brainrot;
+        }
 
-        PlayerPrefs.SetString("Language", language.ToString());
+            PlayerPrefs.SetString("Language", language.ToString());
         PlayerPrefs.Save();
     }
 }

@@ -1,5 +1,6 @@
 public enum Languages
 {
     English,
-    Portuguese
+    Portuguese,
+    Brainrot
 }
