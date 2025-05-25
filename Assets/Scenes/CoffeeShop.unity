@@ -5575,7 +5575,7 @@ MonoBehaviour:
   animator: {fileID: 1119340791}
   maxStress: 100
   actualStress: 0
-  changeScene: Video
+  changeScene: FightClub
   gameOverTimer: 60
 --- !u!114 &1119340793
 MonoBehaviour:

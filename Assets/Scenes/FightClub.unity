@@ -4242,7 +4242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   black: {fileID: 1027107337}
   fadeDuration: 1.2
-  num: 3
+  num: Video
 --- !u!1 &1340033999
 GameObject:
   m_ObjectHideFlags: 0
