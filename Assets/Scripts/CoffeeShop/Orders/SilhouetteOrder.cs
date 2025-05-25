@@ -137,7 +137,7 @@ public class SilhouetteOrder : MonoBehaviour
             {
                 if (isCorrect)
                 {
-                    stressManager.DecreaseStress(10f);
+                    stressManager.DecreaseStress(15f);
                 }
                 else
                 {
