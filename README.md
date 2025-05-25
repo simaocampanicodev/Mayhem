@@ -52,7 +52,7 @@ Here's the list of the contributors of our game, we highly appreciate everyone r
 If you have a suggestion that would make this better, please contact us.
 Don't forget to give the project a star! Thanks again!
 
-. Simão Campaniço - [simaocampanicodev](https://simaocampanicodev)
+. Simão Campaniço - [simaocampanicodev](https://github.com/simaocampanicodev)
 
 . João Ferreira - [KR1PT1CS](https://github.com/KR1PT1CS)
 
