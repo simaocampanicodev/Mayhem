@@ -53,19 +53,19 @@ If you have a suggestion that would make this better, please contact us.
 Don't forget to give the project a star! Thanks again!
 
 <br />
-. Simão Campaniço - [simaocampanicodev](https://simaocampanicodev)
+. Simão Campaniço - ![simaocampanicodev](https://simaocampanicodev)
 
 <br />
-. João Ferreira - [KR1PT1CS](https://github.com/KR1PT1CS)
+. João Ferreira - ![KR1PT1CS](https://github.com/KR1PT1CS)
 
 <br />
-. Dinis Barroso - [DinisB](https://github.com/DinisB)
+. Dinis Barroso - ![DinisB](https://github.com/DinisB)
 
 <br />
-. Rafael Martins - [RafaelSMartins](https://github.com/RafaelSMartins)
+. Rafael Martins - ![RafaelSMartins](https://github.com/RafaelSMartins)
 
 <br />
-. Ivan Batista - [@whos_batixta](https://www.instagram.com/whos_batixta?igsh=YXd0enZncDF6MzI0)
+. Ivan Batista - ![@whos_batixta](https://www.instagram.com/whos_batixta?igsh=YXd0enZncDF6MzI0)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
