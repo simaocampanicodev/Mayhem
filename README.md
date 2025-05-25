@@ -17,9 +17,9 @@
 
 ## About The Project
 
-![Mayhem Screenshot](2dplatformer_01.png)
+![Mayhem Screenshot](2dplatformer_05.png)
 
-![Mayhem Screenshot](2dplatformer_02.png)
+![Mayhem Screenshot](2dplatformer_06.png)
 
 ![Mayhem Screenshot](2dplatformer_03.png)
 
