@@ -279,7 +279,10 @@ public class HospitalDialogueSystem : MonoBehaviour
         billShown = true;
 
         int playerLife = GetPlayerLife();
-        int lifeLost = 100 - playerLife;
+        KeepGameData data = GameObject.Find("KeepCoffeeData").GetComponent<KeepGameData>();
+        float stress = data.stress;
+        float stressFactor = 1f - (stress / 100f);
+        int lifeLost = (int)(100 * stressFactor - playerLife);
         int billCost = baseBillCost + (lifeLost * 2);
 
 
@@ -319,11 +322,11 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     int GetPlayerLife()
     {
-        GameObject dataObj = GameObject.Find("KeepCoffeeData");
+        GameObject dataObj = GameObject.Find("KeepFightData");
         if (dataObj != null)
         {
             KeepGameData data = dataObj.GetComponent<KeepGameData>();
-            return data.playerLife;
+            return data.life;
         }
         return 100;
     }
