@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -3
+  speed: -8
 --- !u!212 &167465239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -3
+  speed: -8
 --- !u!212 &1243587033
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -3
+  speed: -8
 --- !u!212 &1447550681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -3
+  speed: -8
 --- !u!212 &1724268045
 SpriteRenderer:
   m_ObjectHideFlags: 0

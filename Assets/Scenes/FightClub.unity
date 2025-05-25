@@ -221,8 +221,8 @@ Transform:
   m_GameObject: {fileID: 124499185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49117, y: 1.1742, z: 0}
-  m_LocalScale: {x: 1, y: 2.793066, z: 1}
+  m_LocalPosition: {x: -0.49117, y: 1.7111, z: 0}
+  m_LocalScale: {x: 1, y: 3.1285133, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 443644292}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -1.2
+  speed: -5
 --- !u!212 &124499188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -323,8 +323,8 @@ Transform:
   m_GameObject: {fileID: 141181230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.500008, y: 1.5794, z: 0}
-  m_LocalScale: {x: 1, y: 2.380476, z: 1}
+  m_LocalPosition: {x: 38.500008, y: 0.9056, z: 0}
+  m_LocalScale: {x: 1, y: 4.896732, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 443644292}
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -1.2
+  speed: -5
 --- !u!212 &141181233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4900,8 +4900,8 @@ Transform:
   m_GameObject: {fileID: 1604886192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 54.5, y: 1.5838, z: 0}
-  m_LocalScale: {x: 1, y: 2.3814766, z: 1}
+  m_LocalPosition: {x: 54.5, y: 0.7457, z: 0}
+  m_LocalScale: {x: 1, y: 4.1993513, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 443644292}
@@ -4919,7 +4919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -1.2
+  speed: -5
 --- !u!212 &1604886195
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6036,8 +6036,8 @@ Transform:
   m_GameObject: {fileID: 1914568438}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.491165, y: 1.578, z: 0}
-  m_LocalScale: {x: 1, y: 2.3384557, z: 1}
+  m_LocalPosition: {x: -16.491165, y: 2.8728, z: 0}
+  m_LocalScale: {x: 1, y: 4.509613, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 443644292}
@@ -6055,7 +6055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 937434255}
-  speed: -1.2
+  speed: -5
 --- !u!1 &1936206971
 GameObject:
   m_ObjectHideFlags: 0
