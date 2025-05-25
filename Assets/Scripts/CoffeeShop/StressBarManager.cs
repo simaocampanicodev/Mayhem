@@ -115,7 +115,7 @@ public class StressBarManager : MonoBehaviour
         
         if (!string.IsNullOrEmpty(changeScene))
         {
-            SceneManager.LoadScene("FightClub");
+            SceneManager.LoadScene(changeScene);
         }
     }
     
