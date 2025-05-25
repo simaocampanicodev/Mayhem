@@ -577,7 +577,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 3486413307809308420, guid: e292a945bb6123d43bb2128a6dec3d74, type: 3}
   m_Color: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
   m_FlipX: 0
@@ -1128,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 77728203a947b74459d3ac336a0645a6, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 77728203a947b74459d3ac336a0645a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.149
@@ -1335,7 +1339,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -4
   m_Sprite: {fileID: -9187704837372147980, guid: e292a945bb6123d43bb2128a6dec3d74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2143,7 +2147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 3486413307809308420, guid: e292a945bb6123d43bb2128a6dec3d74, type: 3}
   m_Color: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
   m_FlipX: 0
@@ -2528,7 +2532,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 3486413307809308420, guid: e292a945bb6123d43bb2128a6dec3d74, type: 3}
   m_Color: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
   m_FlipX: 0
@@ -3451,7 +3455,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 3486413307809308420, guid: e292a945bb6123d43bb2128a6dec3d74, type: 3}
   m_Color: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
   m_FlipX: 0
