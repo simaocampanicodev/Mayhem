@@ -284,6 +284,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         float stressFactor = 1f - (stress / 100f);
         int lifeLost = (int)(100 * stressFactor - playerLife);
         int billCost = baseBillCost + (lifeLost * 2);
+        int playerMoney = GetPlayerMoney();
 
 
         if (hospitalBillPanel != null)
@@ -297,7 +298,7 @@ public class HospitalDialogueSystem : MonoBehaviour
 
         if (billText != null)
         {
-            billText.text = $"Hospital bill is${billCost}\nDo you want to pay?";
+            billText.text = $"Hospital bill is${billCost}, you have${playerMoney}\nDo you want to pay?";
         }
 
         SetupButtons(billCost);
