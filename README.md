@@ -33,7 +33,15 @@ Here's the list of controls of the game:
 
 - A - Move Left
 - D - Move Right
-- Enter - Punch/Deliver
+- Q - Drop Toast
+- E - Drop Coffee
+- Enter/Mouse Button 1 - Skip Dialogue
+- Enter/Circle - Interact/Pick Up/Deliver Orders
+- Space/Cross - Boost
+- W + Mouse Button 1/Joystick Up + Circle - Uppercut
+- S + Mouse Button 1/Joystick Down + Circle - Down attack
+- Mouse Button 1/Circle - Attack
+- Mouse Button 2/Square - Block
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,5 +69,7 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 Project Link: [https://github.com/simaocampanicodev/mayhem](https://github.com/simaocampanicodev/mayhem)
+<br />
+Itch.io Link: [https://txgerdev.itch.io/mayhem](https://txgerdev.itch.io/mayhem)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
