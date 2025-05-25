@@ -9,6 +9,7 @@ public class SceneFadeOut : MonoBehaviour
     public float fadeDuration = 4f;
     [SerializeField] private bool LoadNextScene = false;
     [SerializeField] private string sceneName;
+    [SerializeField] private bool HasRequirements = false;
 
     void Start()
     {
@@ -30,7 +31,22 @@ public class SceneFadeOut : MonoBehaviour
             yield return null;
         }
         fadeImage.color = c;
-        if (LoadNextScene) { SceneManager.LoadSceneAsync(sceneName); }
+        if (LoadNextScene)
+        {
+            if (HasRequirements)
+            {
+                PlayerScript plr = FindFirstObjectByType<PlayerScript>().GetComponent<PlayerScript>();
+                if (plr.BeatenEnemies > 5)
+                {
+                    SceneManager.LoadSceneAsync(sceneName);
+                }
+                else
+                {
+                    SceneManager.LoadSceneAsync("TitleScreen");
+                }
+            }
+            else { SceneManager.LoadSceneAsync(sceneName); }
+        }
         gameObject.SetActive(false);
     }
 }
