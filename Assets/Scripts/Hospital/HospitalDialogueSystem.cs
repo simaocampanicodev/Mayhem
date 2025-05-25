@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class HospitalDialogueSystem : MonoBehaviour
 {
+    public GameObject fadePanel;
     public GameObject hospitalBillPanel;
     public TMP_Text billText;
     public Button yesButton;
@@ -30,9 +31,15 @@ public class HospitalDialogueSystem : MonoBehaviour
     private bool isTyping = false;
     private bool canProceed = false;
     private Coroutine typingCoroutine;
+    private bool billShown = false;
 
     void Start()
     {
+        if (hospitalBillPanel != null)
+        {
+            hospitalBillPanel.SetActive(false);
+        }
+
         LoadLanguage();
         LoadDialogueData();
         StartCoroutine(DelayedStartDialogue());
@@ -79,7 +86,7 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+        if (!billShown && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return)))
         {
             HandleInput();
         }
@@ -246,12 +253,12 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     void EndDialogue()
     {
+        fadePanel.SetActive(false);
         StartCoroutine(EndDialogueSequence());
     }
 
     IEnumerator EndDialogueSequence()
     {
-        // Fazer fade out dos painéis do diálogo
         if (doctorPanel.activeInHierarchy)
         {
             yield return StartCoroutine(FadeOutPanel(doctorPanel, doctorImage));
@@ -262,30 +269,52 @@ public class HospitalDialogueSystem : MonoBehaviour
             yield return StartCoroutine(FadeOutPanel(playerPanel, playerImage));
         }
 
-        // Pequena pausa antes de mostrar a conta
         yield return new WaitForSeconds(0.5f);
 
-        // Agora mostrar a conta do hospital
         ShowHospitalBill();
     }
 
     void ShowHospitalBill()
     {
-        // Calcular o custo baseado na vida perdida
+        billShown = true;
+
         int playerLife = GetPlayerLife();
         int lifeLost = 100 - playerLife;
-        int billCost = baseBillCost + (lifeLost * 2); // 2 dinheiro por ponto de vida perdido
+        int billCost = baseBillCost + (lifeLost * 2);
 
-        // Mostrar a UI da conta
-        hospitalBillPanel.SetActive(true);
-        billText.text = $"Hospital Bill: ${billCost}\nDo you want to pay?";
 
-        // Configurar os botões
-        yesButton.onClick.RemoveAllListeners();
-        noButton.onClick.RemoveAllListeners();
+        if (hospitalBillPanel != null)
+        {
+            hospitalBillPanel.SetActive(true);
+        }
+        else
+        {
+            return;
+        }
 
-        yesButton.onClick.AddListener(() => OnYesClicked(billCost));
-        noButton.onClick.AddListener(OnNoClicked);
+        if (billText != null)
+        {
+            billText.text = $"Hospital bill is${billCost}\nDo you want to pay?";
+        }
+
+        SetupButtons(billCost);
+    }
+
+    void SetupButtons(int billCost)
+    {
+        if (yesButton != null)
+        {
+            yesButton.onClick.RemoveAllListeners();
+            yesButton.onClick.AddListener(() => OnYesClicked(billCost));
+            yesButton.interactable = true;
+        }
+
+        if (noButton != null)
+        {
+            noButton.onClick.RemoveAllListeners();
+            noButton.onClick.AddListener(() => OnNoClicked());
+            noButton.interactable = true;
+        }
     }
 
     int GetPlayerLife()
@@ -296,7 +325,7 @@ public class HospitalDialogueSystem : MonoBehaviour
             KeepGameData data = dataObj.GetComponent<KeepGameData>();
             return data.playerLife;
         }
-        return 100; // Valor padrão se não encontrar os dados
+        return 100;
     }
 
     int GetPlayerMoney()
@@ -305,18 +334,19 @@ public class HospitalDialogueSystem : MonoBehaviour
         if (dataObj != null)
         {
             KeepGameData data = dataObj.GetComponent<KeepGameData>();
-            return data.money; // Assumindo que você tem uma variável money no KeepGameData
+            return data.money;
         }
         return 0;
     }
 
     void OnYesClicked(int billCost)
     {
+
         int playerMoney = GetPlayerMoney();
 
         if (playerMoney >= billCost)
         {
-            // Pagar a conta
+
             GameObject dataObj = GameObject.Find("KeepCoffeeData");
             if (dataObj != null)
             {
@@ -324,29 +354,30 @@ public class HospitalDialogueSystem : MonoBehaviour
                 data.money -= billCost;
             }
 
-            // Voltar para o CoffeeShop
-            StartCoroutine(FadeAndLoadScene("CoffeeShop"));
+            LoadScene("CoffeeShop");
         }
         else
         {
-            // Não tem dinheiro suficiente - vai para o menu
-            StartCoroutine(FadeAndLoadScene("TitleScreen"));
+            LoadScene("TitleScreen");
         }
     }
 
     void OnNoClicked()
     {
-        // Não quer pagar - vai para o menu
-        StartCoroutine(FadeAndLoadScene("TitleScreen"));
+        LoadScene("TitleScreen");
+    }
+
+    void LoadScene(string sceneName)
+    {
+        if (yesButton != null) yesButton.interactable = false;
+        if (noButton != null) noButton.interactable = false;
+
+        StartCoroutine(FadeAndLoadScene(sceneName));
     }
 
     IEnumerator FadeAndLoadScene(string sceneName)
     {
-        // Aqui você pode adicionar um fade out se tiver um sistema de fade
-        // Por exemplo, se tiver um FadeManager:
-        // yield return StartCoroutine(FadeManager.Instance.FadeOut());
-
-        yield return new WaitForSeconds(0.5f); // Pequena pausa
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
     }
 }
