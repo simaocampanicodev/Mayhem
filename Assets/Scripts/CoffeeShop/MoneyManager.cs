@@ -3,7 +3,7 @@ using TMPro;
 
 public class MoneyManager : MonoBehaviour
 {
-    [SerializeField] private int currentMoney = 0;
+    public int currentMoney = 0;
     [SerializeField] private TextMeshProUGUI moneyText;
     
     public System.Action OnCorrectOrderSound;
