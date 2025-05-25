@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abe786ed2fe61546853d5095857d2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level1
+  nextSceneName: Level2
   useSceneIndex: 0
   nextSceneIndex: 0
   skipKey: 107
