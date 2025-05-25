@@ -207,6 +207,7 @@ public class SilhouetteOrder : MonoBehaviour
             onDestroy();
             
         Destroy(gameObject);
+        stressManager.IncreaseStress(20f);
     }
 
     private IEnumerator Fade(float from, float to, float duration)

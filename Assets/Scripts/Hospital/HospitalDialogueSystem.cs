@@ -358,7 +358,7 @@ public class HospitalDialogueSystem : MonoBehaviour
                 data.money -= billCost;
             }
 
-            LoadScene("CoffeeShop");
+            LoadScene("CoffeeShop2");
         }
         else
         {
