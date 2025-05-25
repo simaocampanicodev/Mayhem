@@ -251,6 +251,7 @@ public class HospitalDialogueSystem : MonoBehaviour
 
     IEnumerator EndDialogueSequence()
     {
+        // Fazer fade out dos painéis do diálogo
         if (doctorPanel.activeInHierarchy)
         {
             yield return StartCoroutine(FadeOutPanel(doctorPanel, doctorImage));
@@ -261,20 +262,25 @@ public class HospitalDialogueSystem : MonoBehaviour
             yield return StartCoroutine(FadeOutPanel(playerPanel, playerImage));
         }
 
+        // Pequena pausa antes de mostrar a conta
         yield return new WaitForSeconds(0.5f);
 
+        // Agora mostrar a conta do hospital
         ShowHospitalBill();
     }
 
     void ShowHospitalBill()
     {
+        // Calcular o custo baseado na vida perdida
         int playerLife = GetPlayerLife();
         int lifeLost = 100 - playerLife;
-        int billCost = baseBillCost + (lifeLost * 2);
+        int billCost = baseBillCost + (lifeLost * 2); // 2 dinheiro por ponto de vida perdido
 
+        // Mostrar a UI da conta
         hospitalBillPanel.SetActive(true);
-        billText.text = $"Hospital bill is ${billCost}\nDo you want to pay?";
+        billText.text = $"Hospital Bill: ${billCost}\nDo you want to pay?";
 
+        // Configurar os botões
         yesButton.onClick.RemoveAllListeners();
         noButton.onClick.RemoveAllListeners();
 
@@ -290,7 +296,7 @@ public class HospitalDialogueSystem : MonoBehaviour
             KeepGameData data = dataObj.GetComponent<KeepGameData>();
             return data.playerLife;
         }
-        return 100;
+        return 100; // Valor padrão se não encontrar os dados
     }
 
     int GetPlayerMoney()
@@ -299,7 +305,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         if (dataObj != null)
         {
             KeepGameData data = dataObj.GetComponent<KeepGameData>();
-            return data.money;
+            return data.money; // Assumindo que você tem uma variável money no KeepGameData
         }
         return 0;
     }
@@ -310,6 +316,7 @@ public class HospitalDialogueSystem : MonoBehaviour
 
         if (playerMoney >= billCost)
         {
+            // Pagar a conta
             GameObject dataObj = GameObject.Find("KeepCoffeeData");
             if (dataObj != null)
             {
@@ -317,23 +324,29 @@ public class HospitalDialogueSystem : MonoBehaviour
                 data.money -= billCost;
             }
 
+            // Voltar para o CoffeeShop
             StartCoroutine(FadeAndLoadScene("CoffeeShop"));
         }
         else
         {
+            // Não tem dinheiro suficiente - vai para o menu
             StartCoroutine(FadeAndLoadScene("TitleScreen"));
         }
     }
 
     void OnNoClicked()
     {
+        // Não quer pagar - vai para o menu
         StartCoroutine(FadeAndLoadScene("TitleScreen"));
     }
 
     IEnumerator FadeAndLoadScene(string sceneName)
     {
+        // Aqui você pode adicionar um fade out se tiver um sistema de fade
+        // Por exemplo, se tiver um FadeManager:
+        // yield return StartCoroutine(FadeManager.Instance.FadeOut());
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f); // Pequena pausa
         SceneManager.LoadScene(sceneName);
     }
 }
