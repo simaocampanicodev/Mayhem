@@ -43,4 +43,13 @@ public class MoneyManager : MonoBehaviour
     {
         return currentMoney;
     }
+    public void SaveMoneyToKeepData()
+    {
+        GameObject dataObj = GameObject.Find("KeepCoffeeData");
+        if (dataObj != null)
+        {
+            KeepGameData data = dataObj.GetComponent<KeepGameData>();
+            data.money = currentMoney;
+        }
+    }
 }

@@ -12,7 +12,7 @@ public class DoctorFadeIn : MonoBehaviour
         c.a = 0f;
         doctorSprite.color = c;
         
-        Invoke("StartFade", 4.1f);
+        Invoke("StartFade", 2.1f);
     }
 
     void StartFade()

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KeepGameData : MonoBehaviour
 {
+    public int playerLife = 100;
     public int life { get; set; }
     public float stress { get; set; }
     public int money { get; set; }

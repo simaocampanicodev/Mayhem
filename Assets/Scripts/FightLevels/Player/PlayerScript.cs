@@ -96,6 +96,12 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
         }
 
+        if (life <= 0)
+        {
+            PlayerScript player = FindObjectOfType<PlayerScript>();
+            player.SavePlayerLife();
+        }
+
         if (CanMove == true && !Defending)
         {
             rb.linearVelocity = new Vector2(move_input.x * speed * multiplier, rb.linearVelocity.y);
@@ -204,6 +210,15 @@ public class PlayerScript : MonoBehaviour
         Attacking = false;
         CanMove = true;
         AttackArea.SetActive(false);
+    }
+    public void SavePlayerLife()
+    {
+        GameObject dataObj = GameObject.Find("KeepCoffeeData");
+        if (dataObj != null)
+        {
+            KeepGameData data = dataObj.GetComponent<KeepGameData>();
+            data.playerLife = life;
+        }
     }
 
     public void Attacked(int value)

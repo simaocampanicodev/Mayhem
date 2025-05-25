@@ -1,0 +1,38 @@
+[
+  {
+    "speaker": "doctor",
+    "text": "Yo sit down, my guy. You look like you got packet loss."
+  },
+  {
+    "speaker": "player",
+    "text": "Dude I swear my brain’s running on 12 FPS. I saw something in the hallway."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Alright speedrun me the details. When did the mental servers start acting up?"
+  },
+  {
+    "speaker": "player",
+    "text": "Like three days ago? I blinked and there was a shadow NPC doing a t-pose."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Bro you’re entering nightmare mode. Are you overclocking your anxiety or what?"
+  },
+  {
+    "speaker": "player",
+    "text": "Sleep is for background processes. I’ve been having pressure on hardcore mode."
+  },
+  {
+    "speaker": "doctor",
+    "text": "I'll run diagnostics before your brain bluescreens and starts speaking in binary."
+  },
+  {
+    "speaker": "player",
+    "text": "Respect. You’re the only support class in this bugged-out dungeon I call life."
+  },
+  {
+    "speaker": "doctor",
+    "text": "Stay hydrated, remember to hit me up before your brain ragequits again."
+  }
+]
