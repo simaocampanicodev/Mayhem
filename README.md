@@ -5,11 +5,14 @@ A 2D pseudo platformer-fighting game made for the Game Design 2 class at [Univer
 
 ![Mayhem Screenshot](2dplatformer_02.png)
 
+![Mayhem Screenshot](2dplatformer_03.png)
+
+![Mayhem Screenshot](2dplatformer_04.png)
+
 ## Controls
 - A - Move Left
 - D - Move Right
-- Space - Jump
-- Enter - Punch
+- Enter - Punch/Deliver
 
 
 
