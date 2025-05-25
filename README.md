@@ -74,6 +74,6 @@ Don't forget to give the project a star! Thanks again!
 Project Link: [https://github.com/simaocampanicodev/mayhem](https://github.com/simaocampanicodev/mayhem)
 
 <br />
-Itch.io Link: [https://txgerdev.itch.io/mayhem](https://txgerdev.itch.io/mayhem)
+Itch.io Link: [Itch.io](https://txgerdev.itch.io/mayhem.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
