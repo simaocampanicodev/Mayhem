@@ -42,7 +42,7 @@ public class SceneFadeOut : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadSceneAsync("TitleScreen");
+                    SceneManager.LoadSceneAsync("TitleScreen", LoadSceneMode.Single);
                 }
             }
             else { SceneManager.LoadSceneAsync(sceneName); }
