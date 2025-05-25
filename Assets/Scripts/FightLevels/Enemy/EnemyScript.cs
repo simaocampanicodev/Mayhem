@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
-    private int life = 80;
+    private int life = 50;
     private bool IsAttacked = false;
     private Animator anim;
     private RuntimeAnimatorController animC;
@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     public float speed = 5f;
     public Transform spr;
     private PlayerScript player;
-    public int damage = 20;
+    public int damage = 10;
     [SerializeField] private GameObject popUpPrefab;
     [SerializeField] private AudioSource punchsound;
     [SerializeField] private GameObject particles;
