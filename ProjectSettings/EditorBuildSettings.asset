@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: fa8098cac8818304a9e84b543bc8dff0
   - enabled: 1
+    path: Assets/Scenes/CoffeeVideo.unity
+    guid: e0aa92590f9561f429e51a71ab9b8a9a
+  - enabled: 1
     path: Assets/Scenes/CoffeeShop.unity
     guid: 029ee61a97dac6e40817fe1cd58046fd
   - enabled: 1
@@ -27,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hospital.unity
     guid: 670cfd2052c48fa48aa3cb34a119ed02
   - enabled: 1
+    path: Assets/Scenes/CoffeeVideo2.unity
+    guid: c707dcdc870594c40b2bf1bbaf18420d
+  - enabled: 1
     path: Assets/Scenes/CoffeeShop2.unity
     guid: baa4964b3ebb3b145a63d3fd633eb88d
   - enabled: 1
@@ -41,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hospital2.unity
     guid: a99e1fb0f7c1f7641a10ee211bf213d7
+  - enabled: 1
+    path: Assets/Scenes/CutsceneFinal.unity
+    guid: 37acfa49892b16f4983186a6499377d3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8700e4edbde595645a1dbbba928b7963, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 59693295dca03e34593ca8e3c5c6ee85, type: 3}

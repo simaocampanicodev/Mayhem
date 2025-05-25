@@ -3374,7 +3374,7 @@ MonoBehaviour:
   playerImage: {fileID: 1914226989}
   typewriterSpeed: 0.05
   fadeDuration: 0.5
-  sceneName: CoffeeShop2
+  sceneName: CoffeeVideo2
 --- !u!1 &1357270335
 GameObject:
   m_ObjectHideFlags: 0
