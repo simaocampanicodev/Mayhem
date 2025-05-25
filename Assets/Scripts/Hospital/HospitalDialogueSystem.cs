@@ -32,6 +32,7 @@ public class HospitalDialogueSystem : MonoBehaviour
     private bool canProceed = false;
     private Coroutine typingCoroutine;
     private bool billShown = false;
+    [SerializeField] private string sceneName = "CoffeeShop2";
 
     void Start()
     {
@@ -358,7 +359,7 @@ public class HospitalDialogueSystem : MonoBehaviour
                 data.money -= billCost;
             }
 
-            LoadScene("CoffeeShop2");
+            LoadScene(sceneName);
         }
         else
         {
