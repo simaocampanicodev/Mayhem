@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c6e5c03311d4a2499411885a88bba25
+guid: 77728203a947b74459d3ac336a0645a6
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638838061439670176
+  platformSettingsDirtyTick: 638838063072746003
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 380
       height: 176
-    spriteID: 101383ead54964341935d0a0cd663c52
+    spriteID: 6be79a88a94d70642b818f3c629ae8d1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -156,7 +156,7 @@ ScriptedImporter:
       y: 188
       width: 380
       height: 176
-    spriteID: aef5b6accad5ca54f9721a246f0e9db9
+    spriteID: 97262e220ad46084fbad42708be817c4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -177,7 +177,7 @@ ScriptedImporter:
       y: 372
       width: 380
       height: 176
-    spriteID: 8997cf41cc96f5d46a17f00640aeb844
+    spriteID: d4e101c1bfb2b5840bcc222f6bea3f57
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,12 +190,12 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3374591115
+      value0: 4107872598
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: basemente_scene
+    name: basement people
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -208,7 +208,7 @@ ScriptedImporter:
         y: 0
         width: 380
         height: 176
-      spriteId: 101383ead54964341935d0a0cd663c52
+      spriteId: 6be79a88a94d70642b818f3c629ae8d1
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -217,7 +217,7 @@ ScriptedImporter:
         y: 0
         width: 380
         height: 176
-      spriteId: aef5b6accad5ca54f9721a246f0e9db9
+      spriteId: 97262e220ad46084fbad42708be817c4
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -226,7 +226,7 @@ ScriptedImporter:
         y: 0
         width: 380
         height: 176
-      spriteId: 8997cf41cc96f5d46a17f00640aeb844
+      spriteId: d4e101c1bfb2b5840bcc222f6bea3f57
     linkedCells: []
     parentIndex: -1
   platformSettings:

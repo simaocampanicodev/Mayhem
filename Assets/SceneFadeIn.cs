@@ -9,6 +9,7 @@ public class SceneFadeIn : MonoBehaviour
     public float fadeDuration = 4f;
     [SerializeField] private bool LoadNextScene = false;
     [SerializeField] private string sceneName;
+    [SerializeField] private float time = 113.5f;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class SceneFadeIn : MonoBehaviour
         fadeImage.color = c;
 
         yield return StartCoroutine(FadeIn());
-        yield return new WaitForSeconds(113.5f);
+        yield return new WaitForSeconds(time);
         yield return StartCoroutine(FadeOut());
     }
 
