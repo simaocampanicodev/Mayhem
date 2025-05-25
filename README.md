@@ -53,7 +53,6 @@ If you have a suggestion that would make this better, please contact us.
 Don't forget to give the project a star! Thanks again!
 
 <br />
-
 . Simão Campaniço - [simaocampanicodev](https://simaocampanicodev)
 
 <br />
