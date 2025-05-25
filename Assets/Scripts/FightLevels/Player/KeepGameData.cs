@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class KeepGameData : MonoBehaviour
 {
-    public int playerLife = 100;
     public int life { get; set; }
     public float stress { get; set; }
     public int money { get; set; }
@@ -15,9 +14,9 @@ public class KeepGameData : MonoBehaviour
     }
     public void KeepCoffeeDataAfterLoad()
     {
-        StressBarManager stressObj = GameObject.FindFirstObjectByType<StressBarManager>();
+        StressBarManager stressObj = FindFirstObjectByType<StressBarManager>();
         StressBarManager stressScript = stressObj.GetComponent<StressBarManager>();
-        MoneyManager moneyObj = GameObject.FindFirstObjectByType<MoneyManager>();
+        MoneyManager moneyObj = FindFirstObjectByType<MoneyManager>();
         MoneyManager moneyScript = moneyObj.GetComponent<MoneyManager>();
         stress = stressScript.actualStress;
         money = moneyScript.currentMoney;

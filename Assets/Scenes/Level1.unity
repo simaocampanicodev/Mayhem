@@ -4023,7 +4023,7 @@ PrefabInstance:
       objectReference: {fileID: 1027107337}
     - target: {fileID: 8365533316636509736, guid: 52d96bccf02cbb74781a495afd17759f, type: 3}
       propertyPath: DestroyLoad
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

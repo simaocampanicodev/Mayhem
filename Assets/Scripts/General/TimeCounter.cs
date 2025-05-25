@@ -26,6 +26,12 @@ public class CountdownTimer : MonoBehaviour
             if (remainingTime < 0f) remainingTime = 0f;
         }
 
+        if (remainingTime == 1f)
+        {
+            KeepGameData data = GameObject.Find("KeepCoffeeData").GetComponent<KeepGameData>();
+            data.KeepCoffeeDataAfterLoad();
+        }
+
         int totalSeconds = Mathf.FloorToInt(remainingTime);
         int minutes = Mathf.Clamp(totalSeconds / 60, 0, 9);
         int seconds = totalSeconds % 60;
