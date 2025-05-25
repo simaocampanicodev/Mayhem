@@ -3374,6 +3374,7 @@ MonoBehaviour:
   playerImage: {fileID: 1914226989}
   typewriterSpeed: 0.05
   fadeDuration: 0.5
+  sceneName: CoffeeShop2
 --- !u!1 &1357270335
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,7 +3997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abe786ed2fe61546853d5095857d2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: TitleScreen
+  nextSceneName: CoffeeShop2
   useSceneIndex: 0
   nextSceneIndex: 0
   skipKey: 107
