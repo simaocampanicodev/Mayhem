@@ -53,12 +53,8 @@ Don't forget to give the project a star! Thanks again!
 . Dinis Barroso - [DinisB](https://github.com/DinisB)
 <br />
 . Rafael Martins - [RafaelSMartins](https://github.com/RafaelSMartins)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## License
-
-Sound Effect - Mixkit License
+<br />
+. Ivan Batista - [@whos_batixta](https://www.instagram.com/whos_batixta?igsh=YXd0enZncDF6MzI0)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
