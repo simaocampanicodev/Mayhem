@@ -382,6 +382,6 @@ public class HospitalDialogueSystem : MonoBehaviour
     IEnumerator FadeAndLoadScene(string sceneName)
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

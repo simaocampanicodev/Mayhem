@@ -431,7 +431,7 @@ MonoBehaviour:
   fadeImage: {fileID: 1550483485}
   fadeDuration: 2
   totalSceneDuration: 8
-  sceneName: Hospital
+  sceneName: Hospital2
 --- !u!4 &212040604
 Transform:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  cena: Video
+  cena: Hospital2
 --- !u!1 &701917766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   good2: {fileID: 8458119850575508591, guid: bbb63c0b583c41b4db067525228390aa, type: 3}
   bad1: {fileID: 1167586057955431110, guid: e564d976f02c8f9448e2449cec208714, type: 3}
   bad2: {fileID: 3211010104574307971, guid: 7e989e06e7b145846997c78b507750ab, type: 3}
-  sceneName: Hospital
+  sceneName: Hospital2
 --- !u!4 &1967314559
 Transform:
   m_ObjectHideFlags: 0

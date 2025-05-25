@@ -10,6 +10,7 @@ public class SceneHospital : MonoBehaviour
     [SerializeField] private GameObject bad2;
     private float stress = 50;
     private float stressFactor;
+    [SerializeField] private string sceneName;
     void Start()
     {
         KeepGameData data = GameObject.Find("KeepFightData").GetComponent<KeepGameData>();
@@ -32,6 +33,6 @@ public class SceneHospital : MonoBehaviour
     {
         yield return new WaitForSeconds(6f);
         
-        SceneManager.LoadScene("Hospital");
+        SceneManager.LoadScene(sceneName);
     }
 }
