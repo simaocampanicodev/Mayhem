@@ -98,8 +98,12 @@ public class PlayerScript : MonoBehaviour
 
         if (life <= 0)
         {
-            PlayerScript player = FindObjectOfType<PlayerScript>();
-            player.SavePlayerLife();
+            GameObject dataObj = GameObject.Find("KeepCoffeeData");
+            if (dataObj != null)
+            {
+                KeepGameData data = dataObj.GetComponent<KeepGameData>();
+                data.KeepFightDataAfterLoad();
+            }
         }
 
         if (CanMove == true && !Defending)
@@ -210,15 +214,6 @@ public class PlayerScript : MonoBehaviour
         Attacking = false;
         CanMove = true;
         AttackArea.SetActive(false);
-    }
-    public void SavePlayerLife()
-    {
-        GameObject dataObj = GameObject.Find("KeepCoffeeData");
-        if (dataObj != null)
-        {
-            KeepGameData data = dataObj.GetComponent<KeepGameData>();
-            data.playerLife = life;
-        }
     }
 
     public void Attacked(int value)

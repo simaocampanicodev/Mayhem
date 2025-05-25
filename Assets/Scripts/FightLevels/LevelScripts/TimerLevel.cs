@@ -23,11 +23,6 @@ public class TimerLevel : MonoBehaviour
 
     void timerEnded()
     {
-        PlayerScript player = FindObjectOfType<PlayerScript>();
-        if (player != null)
-        {
-            player.SavePlayerLife();
-        }
         Done = true;
         GetComponent<SceneFadeOut>().enabled = true;
         KeepGameData data = GameObject.Find("KeepFightData").GetComponent<KeepGameData>();
