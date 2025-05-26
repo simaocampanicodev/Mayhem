@@ -25,6 +25,13 @@
 
 ![Mayhem Screenshot](2dplatformer_04.png)
 
+“We are the All-Singing, All-dancing crap of this world”
+
+
+ Taking place in the same universe of the critically acclaimed film Fight Club (1999), you play in the perspective of William Richter, a nobody who struggles to afford a place in society. 
+ Working in various jobs to make it to the end of the month, he hates his jobs because of the amount of stress from customers and his boss and repetitive work he must endure, and outside work he suffers from alcohol and drug addictions, whoever he is trying his best no slowly drop those bad activities, sometimes choosing for a late night walk to clear his head to not give in to his temptations. 
+ In the late night walks he discovers the bar where the Fight Club occurs, and takes a liking to it so he can dispose of all his anger and stress to people who share similar problems in their everyday lives, and as the story goes on, William gets more involved in the plans (Such as Project Mayhem) to take down society’s structure to start over. 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started
@@ -33,7 +40,15 @@ Here's the list of controls of the game:
 
 - A - Move Left
 - D - Move Right
-- Enter - Punch/Deliver
+- Q - Drop Toast
+- E - Drop Coffee
+- Enter/Mouse Button 1 - Skip Dialogue
+- Enter/Circle - Interact/Pick Up/Deliver Orders
+- Space/Cross - Boost
+- W + Mouse Button 1/Joystick Up + Circle - Uppercut
+- S + Mouse Button 1/Joystick Down + Circle - Down attack
+- Mouse Button 1/Circle - Attack
+- Mouse Button 2/Square - Block
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -44,22 +59,23 @@ Here's the list of the contributors of our game, we highly appreciate everyone r
 If you have a suggestion that would make this better, please contact us.
 Don't forget to give the project a star! Thanks again!
 
-<br />
+. Simão Campaniço - [simaocampanicodev](https://github.com/simaocampanicodev)
 
-. Simão Campaniço - [simaocampanicodev](https://simaocampanicodev)
-<br />
 . João Ferreira - [KR1PT1CS](https://github.com/KR1PT1CS)
-<br />
+
 . Dinis Barroso - [DinisB](https://github.com/DinisB)
-<br />
+
 . Rafael Martins - [RafaelSMartins](https://github.com/RafaelSMartins)
-<br />
+
 . Ivan Batista - [@whos_batixta](https://www.instagram.com/whos_batixta?igsh=YXd0enZncDF6MzI0)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
 
-Project Link: [https://github.com/simaocampanicodev/mayhem](https://github.com/simaocampanicodev/mayhem)
+Github Link: <a href="https://github.com/simaocampanicodev/mayhem"><strong>https://github.com/simaocampanicodev/mayhem</strong></a>
+
+<br />
+Itch.io Link: <a href="https://txgerdev.itch.io/mayhem"><strong>https://txgerdev.itch.io/mayhem</strong></a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
