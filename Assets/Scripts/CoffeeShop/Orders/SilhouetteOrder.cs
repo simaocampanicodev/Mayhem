@@ -35,7 +35,7 @@ public class SilhouetteOrder : MonoBehaviour
     private void Awake()
     {
         myCollider = GetComponent<Collider2D>();
-        stressManager = FindObjectOfType<StressBarManager>();
+        stressManager = FindFirstObjectByType<StressBarManager>();
     }
 
     public void SetSeatIndex(int index)
@@ -125,7 +125,7 @@ public class SilhouetteOrder : MonoBehaviour
         
         if (playerInside)
         {
-            PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            PlayerInventory inventory = FindFirstObjectByType<PlayerInventory>();
             bool isCorrect = false;
             
             if (inventory != null)

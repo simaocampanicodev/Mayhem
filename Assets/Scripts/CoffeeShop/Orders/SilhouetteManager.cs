@@ -16,7 +16,6 @@ public class SilhouetteManager : MonoBehaviour
     [SerializeField] private OrderDisplay orderDisplay;
 
     private List<int> occupiedSeats = new List<int>();
-    private bool gameStarted = false;
 
     void OnEnable()
     {
@@ -30,7 +29,6 @@ public class SilhouetteManager : MonoBehaviour
     
     void HandleGameStarted()
     {
-        gameStarted = true;
         StartSpawning();
     }
 
@@ -38,12 +36,12 @@ public class SilhouetteManager : MonoBehaviour
     {
         if (stressManager == null)
         {
-            stressManager = FindObjectOfType<StressBarManager>();
+            stressManager = FindFirstObjectByType<StressBarManager>();
         }
         
         if (orderDisplay == null)
         {
-            orderDisplay = FindObjectOfType<OrderDisplay>();
+            orderDisplay = FindFirstObjectByType<OrderDisplay>();
         }
     }
     

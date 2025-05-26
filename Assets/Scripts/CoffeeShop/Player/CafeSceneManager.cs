@@ -17,19 +17,17 @@ public class CafeSceneManager : MonoBehaviour
     public delegate void GameStateChanged();
     public static event GameStateChanged OnGameStarted;
     public static event GameStateChanged OnGameEnded;
-    
-    private bool gameActive = false;
 
     void Awake()
     {
         if (silhouetteManager == null)
-            silhouetteManager = FindObjectOfType<SilhouetteManager>();
+            silhouetteManager = FindFirstObjectByType<SilhouetteManager>();
             
         if (stressManager == null)
-            stressManager = FindObjectOfType<StressBarManager>();
+            stressManager = FindFirstObjectByType<StressBarManager>();
             
         if (foodPreparation == null)
-            foodPreparation = FindObjectOfType<FoodPreparation>();
+            foodPreparation = FindFirstObjectByType<FoodPreparation>();
         
         if (silhouetteManager != null)
             silhouetteManager.enabled = false;
@@ -117,7 +115,6 @@ public class CafeSceneManager : MonoBehaviour
         if (foodPreparation != null)
             foodPreparation.enabled = true;
         
-        gameActive = true;
         if (OnGameStarted != null)
             OnGameStarted();
     }

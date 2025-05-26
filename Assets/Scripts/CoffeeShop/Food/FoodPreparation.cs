@@ -9,7 +9,6 @@ public class FoodPreparation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private GameObject coffeeProgressIndicator;
     [SerializeField] private GameObject toastProgressIndicator;
-    [SerializeField] private float messageDuration = 2f;
     [SerializeField] private bool showDebug = true;
     [SerializeField] private AudioSource audioSource;
 
@@ -22,9 +21,6 @@ public class FoodPreparation : MonoBehaviour
     [SerializeField] private GameObject toastAreaSnowflake;
 
     [SerializeField] private Animator marioAnimator;
-    [SerializeField] private string marioEntregandoAnimName = "MarioEntregando";
-    [SerializeField] private string idleMarioAnimName = "IdleMario";
-    [SerializeField] private string idleCabineAnimName = "IdleCabine";
     [SerializeField] private AudioClip[] audios;
 
     [SerializeField] private float timeToGetCold = 6f;
@@ -117,11 +113,11 @@ public class FoodPreparation : MonoBehaviour
     {
         if (playerInventory == null)
         {
-            playerInventory = FindObjectOfType<PlayerInventory>();
+            playerInventory = FindFirstObjectByType<PlayerInventory>();
         }
         if (stressManager == null)
         {
-            stressManager = FindObjectOfType<StressBarManager>();
+            stressManager = FindFirstObjectByType<StressBarManager>();
         }
 
         if (coffeeProgressIndicator != null)

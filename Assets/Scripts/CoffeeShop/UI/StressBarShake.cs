@@ -20,7 +20,7 @@ public class StressBarShake : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         position = rectTransform.localPosition;
 
-        stressBarManager = FindObjectOfType<StressBarManager>();
+        stressBarManager = FindFirstObjectByType<StressBarManager>();
 
         if (tremor)
         {

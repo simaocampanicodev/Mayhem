@@ -12,7 +12,6 @@ public class EnterButtonFade : MonoBehaviour
     private void Start()
     {
         spriteRenderer = imageObject.GetComponent<SpriteRenderer>();
-        Invoke("SetAlpha0", 5f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,12 +52,6 @@ public class EnterButtonFade : MonoBehaviour
         }
 
         SetAlpha(targetAlpha);
-    }
-    void SetAlpha0(float alpha)
-    {
-        {
-            SetAlpha(0f);
-        }
     }
 
     void SetAlpha(float alpha)

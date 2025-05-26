@@ -3,15 +3,14 @@ using UnityEngine;
 public class ToastArea : MonoBehaviour
 {
     [SerializeField] private FoodPreparation foodPrep;
-    [SerializeField] private bool showDebug = true;
 
     private void Start()
     {
         if (foodPrep == null)
         {
-            foodPrep = FindObjectOfType<FoodPreparation>();
+            foodPrep = FindFirstObjectByType<FoodPreparation>();
         }
-        
+
         Collider2D collider = GetComponent<Collider2D>();
         if (collider != null && !collider.isTrigger)
         {

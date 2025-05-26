@@ -13,8 +13,6 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private GameObject toastIndicator;
     [SerializeField] private GameObject coldCoffeeIndicator;
     [SerializeField] private GameObject coldToastIndicator;
-
-    [SerializeField] private float messageDuration = 2f;
     [SerializeField] private MoneyManager moneyManager;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audios;
@@ -53,11 +51,11 @@ public class PlayerInventory : MonoBehaviour
 
         if (moneyManager == null)
         {
-            moneyManager = FindObjectOfType<MoneyManager>();
+            moneyManager = FindFirstObjectByType<MoneyManager>();
         }
         if (stressManager == null)
         {
-            stressManager = FindObjectOfType<StressBarManager>();
+            stressManager = FindFirstObjectByType<StressBarManager>();
         }
     }
 

@@ -26,7 +26,7 @@ public class StressBorders : MonoBehaviour
         rightOrigPos = rightBorder.rectTransform.localPosition;
 
         if (stressManager == null)
-            stressManager = FindObjectOfType<StressBarManager>();
+            stressManager = FindFirstObjectByType<StressBarManager>();
     }
 
     void Update()

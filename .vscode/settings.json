@@ -57,5 +57,7 @@
         "Temp/": true
     },
     "dotnet.defaultSolution": "Mayhem.sln",
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "files.autoSaveDelay": 1000,
+    "unity.refreshOnSave": true
 }
