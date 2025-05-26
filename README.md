@@ -24,6 +24,7 @@
  Working in various jobs to make it to the end of the month, he hates his jobs because of the amount of stress from customers and his boss and repetitive work he must endure, and outside work he suffers from alcohol and drug addictions, whoever he is trying his best no slowly drop those bad activities, sometimes choosing for a late night walk to clear his head to not give in to his temptations. 
  In the late night walks he discovers the bar where the Fight Club occurs, and takes a liking to it so he can dispose of all his anger and stress to people who share similar problems in their everyday lives, and as the story goes on, William gets more involved in the plans (Such as Project Mayhem) to take down society’s structure to start over. 
 <br />
+<br />
 
 ![Mayhem Screenshot](2dplatformer_05.png)
 
