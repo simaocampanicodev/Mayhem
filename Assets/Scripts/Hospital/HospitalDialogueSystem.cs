@@ -284,7 +284,7 @@ public class HospitalDialogueSystem : MonoBehaviour
         float stress = data.stress;
         float stressFactor = 1f - (stress / 100f);
         int lifeLost = (int)(100 * stressFactor - playerLife);
-        int billCost = baseBillCost + (lifeLost * 2);
+        int billCost = baseBillCost + (lifeLost * 1.5f);
         int playerMoney = GetPlayerMoney();
 
 
