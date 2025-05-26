@@ -2447,7 +2447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrep: {fileID: 1000894610}
-  showDebug: 1
 --- !u!114 &279582350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5110,7 +5109,6 @@ MonoBehaviour:
   messageText: {fileID: 0}
   coffeeProgressIndicator: {fileID: 0}
   toastProgressIndicator: {fileID: 0}
-  messageDuration: 2
   showDebug: 1
   audioSource: {fileID: 1534930510}
   coffeeMachineShake: {fileID: 415945181}
@@ -5120,9 +5118,6 @@ MonoBehaviour:
   coffeeAreaSnowflake: {fileID: 1814584026}
   toastAreaSnowflake: {fileID: 2011189403}
   marioAnimator: {fileID: 1353360603}
-  marioEntregandoAnimName: MarioEntregando
-  idleMarioAnimName: IdleMario
-  idleCabineAnimName: IdleCabine
   audios:
   - {fileID: 8300000, guid: 8188e505a5c40a14d8d366cbc6d7c194, type: 3}
   - {fileID: 8300000, guid: 253257f56e1959c48919c144d83f757c, type: 3}
@@ -6557,7 +6552,6 @@ GameObject:
   - component: {fileID: 1534930502}
   - component: {fileID: 1534930505}
   - component: {fileID: 1534930506}
-  - component: {fileID: 1534930507}
   - component: {fileID: 1534930509}
   - component: {fileID: 1534930510}
   m_Layer: 0
@@ -6704,18 +6698,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &1534930507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534930499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1058315b58073a5468f43cbb8bb4efe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1534930508
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6782,7 +6764,6 @@ MonoBehaviour:
   toastIndicator: {fileID: 238352210}
   coldCoffeeIndicator: {fileID: 479066835}
   coldToastIndicator: {fileID: 1282903899}
-  messageDuration: 2
   moneyManager: {fileID: 1337304231}
   audioSource: {fileID: 1534930510}
   audios:
@@ -9204,7 +9185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrep: {fileID: 1000894610}
-  showDebug: 1
 --- !u!114 &2121413798
 MonoBehaviour:
   m_ObjectHideFlags: 0
