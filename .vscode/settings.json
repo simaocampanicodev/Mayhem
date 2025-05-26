@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Insomnia.sln"
+    "dotnet.defaultSolution": "Mayhem.sln",
+    "dotnet.preferCSharpExtension": true
 }
