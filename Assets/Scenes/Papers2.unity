@@ -1392,6 +1392,7 @@ MonoBehaviour:
   bad1: {fileID: 1167586057955431110, guid: e564d976f02c8f9448e2449cec208714, type: 3}
   bad2: {fileID: 3211010104574307971, guid: 7e989e06e7b145846997c78b507750ab, type: 3}
   sceneName: Hospital2
+  sceneSkipName: CutsceneFinal
 --- !u!4 &1967314559
 Transform:
   m_ObjectHideFlags: 0
