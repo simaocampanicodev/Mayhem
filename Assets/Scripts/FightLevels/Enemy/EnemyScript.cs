@@ -35,6 +35,7 @@ public class EnemyScript : MonoBehaviour
     private PlayerScript plr;
     private RageScript rage;
     private bool WithinPlayer;
+    private Transform attacker;
 
     void Start()
     {
@@ -126,6 +127,7 @@ public class EnemyScript : MonoBehaviour
         { //é atacado normalmente
             if (!IsAttacked)
             {
+                attacker = collision.transform;
                 IsAttacked = true;
                 if (!Blocking)
                 {
@@ -171,20 +173,21 @@ public class EnemyScript : MonoBehaviour
         }
         anim.SetBool("Move", false);
         GameObject blood = Instantiate(particles, transform.position, transform.rotation);
+        Vector2 direction = (transform.position - attacker.position).normalized;
         if (canJuggle && plr.Uppercut == true)
         {
             anim.SetBool("Air", false);
             anim.SetBool("Air", true);
-            rb.AddForce(transform.up * 25, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            rb.AddForce(Vector2.up * 25 + direction * 10, ForceMode2D.Impulse);
         }
         if (plr.Uppercut == true && !Blocking && !canJuggle)
         {
             anim.SetBool("Air", false);
             anim.SetBool("Air", true);
             canJuggle = true;
-            rb.AddForce(transform.up * 20, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            rb.AddForce(Vector2.up * 20 + direction * 8, ForceMode2D.Impulse);
         }
         if (!Blocking)
         {
