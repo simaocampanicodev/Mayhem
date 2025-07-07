@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -17,31 +18,37 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audios;
     [SerializeField] private StressBarManager stressManager;
+    public InputAction leftTrigger;
+    public InputAction rightTrigger;
+
+    void OnEnable()
+    {
+        leftTrigger.Enable();
+        rightTrigger.Enable();
+    }
+
+    void OnDisable()
+    {
+        leftTrigger.Disable();
+        rightTrigger.Disable();
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (leftTrigger.ReadValue<float>() > 0.5f)
         {
             if (hasToast)
-            {
                 DropToast();
-            }
             else if (hasColdToast)
-            {
                 DropColdToast();
-            }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (rightTrigger.ReadValue<float>() > 0.5f)
         {
             if (hasCoffee)
-            {
                 DropCoffee();
-            }
             else if (hasColdCoffee)
-            {
                 DropColdCoffee();
-            }
         }
     }
 

@@ -6770,6 +6770,56 @@ MonoBehaviour:
   - {fileID: 8300000, guid: baa8a4538ae7c4e49b9f605db2526016, type: 3}
   - {fileID: 8300000, guid: af52cd4413e587144bd82c1bca809de8, type: 3}
   stressManager: {fileID: 1119340792}
+  leftTrigger:
+    m_Name: Left Trigger
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ac0d4912-4ff8-42dc-a64a-b2324ef48032
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2c57b805-cec4-412c-a215-169198648dfc
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left Trigger
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0c918561-1350-43b9-a391-ff90075c5e2d
+      m_Path: <Gamepad>/leftTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left Trigger
+      m_Flags: 0
+    m_Flags: 0
+  rightTrigger:
+    m_Name: Right Trigger
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7cf7de3a-2fbc-4a97-9c80-dadda74c579f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 231e4fd7-549f-4e6f-9859-41f53f7a7c22
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right Trigger
+      m_Flags: 0
+    - m_Name: 
+      m_Id: e75022b1-cbee-4db3-b58f-afa9eff93aed
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Right Trigger
+      m_Flags: 0
+    m_Flags: 0
 --- !u!82 &1534930510
 AudioSource:
   m_ObjectHideFlags: 0

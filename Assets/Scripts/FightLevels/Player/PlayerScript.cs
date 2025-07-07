@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
     private float stressFactor;
 
     public int BeatenEnemies { get; set; }
+    private bool CanUppercut = true;
     [SerializeField] private bool DestroyLoad = false;
     void Start()
     {
@@ -163,12 +164,16 @@ public class PlayerScript : MonoBehaviour
             Attacking = true;
             if (move_input.y > 0)
             {
-                StartCoroutine(UppercutTiming());
+                if (CanUppercut = true)
+                {
+                    StartCoroutine(UppercutTiming());
+                    CanUppercut = false;
+                }
             }
-            else
-            {
-                StartCoroutine(AttackTiming());
-            }
+                else
+                {
+                    StartCoroutine(AttackTiming());
+                }
         }
     }
 
@@ -208,12 +213,14 @@ public class PlayerScript : MonoBehaviour
     {
         Uppercut = true;
         float attackTime = anim.GetCurrentAnimatorStateInfo(0).length; // pega no tempo que a anim demora
-        yield return new WaitForSeconds(attackTime + 0.3f);
+        yield return new WaitForSeconds(attackTime);
         anim.SetBool("Uppercut", false);
         Uppercut = false;
         Attacking = false;
         CanMove = true;
         AttackArea.SetActive(false);
+        yield return new WaitForSeconds(3);
+        CanUppercut = true;
     }
 
     public void Attacked(int value)
