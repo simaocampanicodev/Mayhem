@@ -208,7 +208,7 @@ public class PlayerScript : MonoBehaviour
     {
         Uppercut = true;
         float attackTime = anim.GetCurrentAnimatorStateInfo(0).length; // pega no tempo que a anim demora
-        yield return new WaitForSeconds(attackTime);
+        yield return new WaitForSeconds(attackTime + 0.3f);
         anim.SetBool("Uppercut", false);
         Uppercut = false;
         Attacking = false;
