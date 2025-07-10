@@ -8,7 +8,6 @@ public class PapersSceneTransition : MonoBehaviour
     public Image fadeImage;
     [SerializeField] public float fadeDuration = 2f;
     [SerializeField] private float totalSceneDuration = 8f;
-    [SerializeField] private string sceneName;
 
     void Start()
     {
@@ -26,8 +25,6 @@ public class PapersSceneTransition : MonoBehaviour
         float waitTime = totalSceneDuration - (fadeDuration * 2);
         yield return new WaitForSeconds(waitTime);
         yield return StartCoroutine(FadeOut());
-
-        SceneManager.LoadSceneAsync(sceneName);
     }
 
     IEnumerator FadeIn()

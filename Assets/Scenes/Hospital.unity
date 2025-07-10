@@ -3374,7 +3374,7 @@ MonoBehaviour:
   playerImage: {fileID: 1914226989}
   typewriterSpeed: 0.05
   fadeDuration: 0.5
-  sceneName: CoffeeVideo2
+  sceneName: Video3
 --- !u!1 &1357270335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,7 +4664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  cena: Video
+  cena: Video3
 --- !u!4 &2130509607
 Transform:
   m_ObjectHideFlags: 0

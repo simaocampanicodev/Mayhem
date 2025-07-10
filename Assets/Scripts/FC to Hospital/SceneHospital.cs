@@ -23,18 +23,17 @@ public class SceneHospital : MonoBehaviour
             stress = datatwo.stress;
         }
         stressFactor = 1f - (stress / 100f);
-        life = data.life;
         if (life > 75*stressFactor) { Instantiate(good1); }
         if (life <= 75*stressFactor && life > 50*stressFactor) { Instantiate(good2); }
         if (life <= 50*stressFactor && life > 25*stressFactor) { Instantiate(bad1); }
         if (life <= 25*stressFactor) { Instantiate(bad2); }
-        StartCoroutine(LoadSceneAfterDelay());
+        StartCoroutine(LoadSceneAfterDelay(life));
     }
 
-    private IEnumerator LoadSceneAfterDelay()
+    private IEnumerator LoadSceneAfterDelay(int life)
     {
         yield return new WaitForSeconds(6f);
-        if (life == 100 * stressFactor) { SceneManager.LoadScene(sceneSkipName); }
+        if ((float)life >= 90 * stressFactor) { SceneManager.LoadScene(sceneSkipName); } // if the life is full go to this scene
         else { SceneManager.LoadScene(sceneName); }
     }
 }

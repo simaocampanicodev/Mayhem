@@ -526,7 +526,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183444807}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b6a0152a2c0d42d4da0c5ea7477ffa76, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: dd45d00727b1cb74ab1b2aa4bdfa0c02, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 52438858}
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692c834232e87db4fabb466a433e4905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level2
+  sceneName: CoffeeVideo2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

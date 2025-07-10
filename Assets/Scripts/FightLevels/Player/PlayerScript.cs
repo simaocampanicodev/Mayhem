@@ -144,7 +144,7 @@ public class PlayerScript : MonoBehaviour
             {
                 anim.SetBool("Right", false);
             }
-            if (move_input.y > 0)
+            if (move_input.y > 0 && CanUppercut)
             {
                 damage = (int)(30 * (stress / 100f) * multiplier);
                 anim.SetBool("Uppercut", true);
@@ -162,9 +162,9 @@ public class PlayerScript : MonoBehaviour
             AttackArea.SetActive(true);
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y);
             Attacking = true;
-            if (move_input.y > 0)
+            if (move_input.y > 0 && CanUppercut)
             {
-                if (CanUppercut = true)
+                if (CanUppercut == true)
                 {
                     StartCoroutine(UppercutTiming());
                     CanUppercut = false;
@@ -219,7 +219,7 @@ public class PlayerScript : MonoBehaviour
         Attacking = false;
         CanMove = true;
         AttackArea.SetActive(false);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         CanUppercut = true;
     }
 
